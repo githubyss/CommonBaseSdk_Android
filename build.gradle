@@ -1,40 +1,130 @@
 plugins {
-    id 'com.android.library'
-    id 'org.jetbrains.kotlin.android'
+    id 'kotlin-android'
+    id 'kotlin-kapt'
 }
 
+def isShellApp = project.getName() == rootProject.shellApp
+def isLaunchApp = project.getName() == rootProject.launchApp
+
+if (isShellApp) {
+    println "isShellApp: ${isShellApp}"
+}
+
+if (isLaunchApp) {
+    println "isLaunchApp: ${isLaunchApp}"
+    apply plugin: 'com.android.application'
+} else {
+    apply plugin: 'com.android.library'
+}
+
+
+apply from: "${rootDir}/config/buildConfigs.gradle"
+apply from: "${rootDir}/config/optionConfigs.gradle"
+apply from: "${rootDir}/config/featureConfigs.gradle"
+apply from: "${rootDir}/config/versionConfigs.gradle"
+apply from: "${rootDir}/config/signingConfigs.gradle"
+apply from: "${rootDir}/config/libConfigs.gradle"
+
 android {
-    compileSdk 32
+    resourcePrefix 'combase_'
 
     defaultConfig {
-        minSdk 21
-        targetSdk 32
-
-        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
-        consumerProguardFiles "consumer-rules.pro"
+        versionCode 1
+        versionName "1.0"
     }
 
     buildTypes {
+        debug {
+            if (isLaunchApp) {
+                shrinkResources feature.isMinifyEnabled
+            }
+        }
+
         release {
-            minifyEnabled false
-            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            if (isLaunchApp) {
+                shrinkResources true
+            }
         }
     }
-    compileOptions {
-        sourceCompatibility JavaVersion.VERSION_1_8
-        targetCompatibility JavaVersion.VERSION_1_8
+
+    flavorDimensions 'library'
+    productFlavors {
+        if (isLaunchApp) {
+            app {
+                dimension 'library'
+                applicationId 'com.githubyss.common.base'
+                versionCode 1
+                versionName "1.0"
+                manifestPlaceholders = [APP_NAME: "通用基类库"]
+            }
+        }
     }
-    kotlinOptions {
-        jvmTarget = '1.8'
+
+    sourceSets {
+        main {
+            java {
+                srcDirs 'src/main/java'
+                srcDirs 'src/main/kotlin'
+            }
+            res {
+                srcDirs 'src/main/res'
+                srcDirs 'src/main/res/common'
+
+                srcDirs 'src/main/res/activity'
+                srcDirs 'src/main/res/fragment'
+            }
+            manifest {
+                srcFile 'src/main/AndroidManifest.xml'
+            }
+            jniLibs {
+                srcDirs 'libs'
+            }
+        }
+
+        if (isLaunchApp) {
+            app {
+                java {
+                    srcDirs 'src/app/java'
+                    srcDirs 'src/app/kotlin'
+                }
+                res {
+                    srcDirs 'src/app/res'
+                    srcDirs 'src/app/res/common'
+                }
+                manifest {
+                    srcFile 'src/app/AndroidManifest.xml'
+                }
+            }
+        }
+
+        test {
+            java {
+                srcDirs 'src/test/java'
+                srcDirs 'src/test/kotlin'
+            }
+        }
+
+        all {
+            // set -> println "集合 ${set.name} 的文件是 ${set.java.srcDirs}"
+        }
+    }
+
+    dataBinding {
+        enabled feature.isDataBindingEnabled
+    }
+
+    buildFeatures {
+        compose feature.isComposeEnabled
     }
 }
 
 dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
 
-    implementation 'androidx.core:core-ktx:1.7.0'
-    implementation 'androidx.appcompat:appcompat:1.3.0'
-    implementation 'com.google.android.material:material:1.4.0'
-    testImplementation 'junit:junit:4.13.2'
-    androidTestImplementation 'androidx.test.ext:junit:1.1.3'
-    androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
+    implementation project(':DesignPatternLibrary_Android')
+    implementation project(':CommonResSdk_Android')
+
+    // api dependenciesLib.androidx_appcompat
+    // api dependenciesLib.androidx_compose_material
+    // api dependenciesLib.androidx_activity_compose
 }
