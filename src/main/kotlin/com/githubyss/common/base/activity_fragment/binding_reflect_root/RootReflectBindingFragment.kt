@@ -30,7 +30,7 @@ abstract class RootReflectBindingFragment<B : ViewDataBinding> : BaseFragment() 
 
     /**  */
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
-        // Call inflate method to fill view according to specified ViewBinding by using java reflect.
+        // Call inflate method to fill view according to specified ViewDataBinding by using java reflect.
         val type = javaClass.genericSuperclass
         if (type is ParameterizedType) {
             try {
@@ -42,13 +42,13 @@ abstract class RootReflectBindingFragment<B : ViewDataBinding> : BaseFragment() 
                 // _binding = DataBindingUtil.inflate(inflater, layoutId, container, false)
             }
             catch (e: NoSuchMethodException) {
-                println("${TAG} $e")
+                println("$TAG $e")
             }
             catch (e: IllegalAccessException) {
-                println("${TAG} $e")
+                println("$TAG $e")
             }
             catch (e: InvocationTargetException) {
-                println("${TAG} $e")
+                println("$TAG $e")
             }
         }
 

@@ -72,6 +72,7 @@ android {
 
                 srcDirs 'src/main/res/activity'
                 srcDirs 'src/main/res/fragment'
+                srcDirs 'src/main/res/recycler_view'
             }
             manifest {
                 srcFile 'src/main/AndroidManifest.xml'
@@ -126,6 +127,7 @@ dependencies {
 
     api dependenciesLib.androidx_appcompat
     api dependenciesLib.androidx_localbroadcastmanager
+    api dependenciesLib.androidx_recyclerview
     api dependenciesLib.androidx_activity_compose
     api dependenciesLib.androidx_compose_material
 }
