@@ -2,7 +2,7 @@ package com.githubyss.common.base.application
 
 import android.app.Application
 import android.content.Context
-import com.githubyss.common.base.lifecycle.lifecycle_subscriber.LifecycleContainer
+import com.githubyss.common.base.lifecycle.LifecycleContainer
 import kotlin.properties.Delegates
 
 
@@ -13,7 +13,7 @@ import kotlin.properties.Delegates
  * @github githubyss
  * @createdTime 2022/08/10 10:29:14
  */
-abstract class BaseApplication : Application() {
+abstract class BaseApplication : Application(), BaseApplicationInterface {
 
     /** ****************************** Companion ****************************** */
 
@@ -52,34 +52,16 @@ abstract class BaseApplication : Application() {
     }
 
 
-    /** ****************************** Open ****************************** */
-
-    /**  */
-    open fun initComkit() {}
-
-    /**  */
-    open fun initComnet() {}
-
-    /**  */
-    open fun initLog() {}
-
-    /**  */
-    open fun initARouter() {}
-
-    /**  */
-    open fun initTrace() {}
-
-
     /** ****************************** Functions ****************************** */
 
     /**  */
     private fun registerLifecycle() {
-        registerActivityLifecycleCallbacks(LifecycleContainer.activityLifecycle)
+        registerActivityLifecycleCallbacks(LifecycleContainer.activityLifecycleCallbacks)
     }
 
     /**  */
     private fun unregisterLifecycle() {
-        unregisterActivityLifecycleCallbacks(LifecycleContainer.activityLifecycle)
-        LifecycleContainer.activityLifecycle.activityList.clear()
+        unregisterActivityLifecycleCallbacks(LifecycleContainer.activityLifecycleCallbacks)
+        LifecycleContainer.activityLifecycleCallbacks.activityList.clear()
     }
 }

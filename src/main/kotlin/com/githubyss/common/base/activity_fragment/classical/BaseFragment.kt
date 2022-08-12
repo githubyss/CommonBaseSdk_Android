@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import androidx.annotation.IdRes
 import androidx.annotation.LayoutRes
 import androidx.fragment.app.Fragment
+import com.githubyss.common.base.lifecycle.LifecycleContainer
 import com.githubyss.common.base.util.switchFragmentByAddHideShow
 
 
@@ -18,7 +19,7 @@ import com.githubyss.common.base.util.switchFragmentByAddHideShow
  * @github githubyss
  * @createdTime 2021/06/02 15:11:59
  */
-abstract class BaseFragment(@LayoutRes layoutId: Int = 0) : Fragment(layoutId) {
+abstract class BaseFragment(@LayoutRes layoutId: Int = 0) : Fragment(layoutId), BaseActivityFragmentInterface {
 
     /** ****************************** Companion ****************************** */
 
@@ -42,15 +43,6 @@ abstract class BaseFragment(@LayoutRes layoutId: Int = 0) : Fragment(layoutId) {
     }
 
 
-    /** ****************************** Open ****************************** */
-
-    /** 初始化 UI */
-    open fun setupUi() {}
-
-    /** 初始化数据 */
-    open fun setupData() {}
-
-
     /** ****************************** Override ****************************** */
 
     /**  */
@@ -63,8 +55,11 @@ abstract class BaseFragment(@LayoutRes layoutId: Int = 0) : Fragment(layoutId) {
     /**  */
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
         val message = "$fragmentName > onCreate"
         println("$TAG $message")
+
+        registerLifecycle()
     }
 
     /**  */
@@ -130,14 +125,17 @@ abstract class BaseFragment(@LayoutRes layoutId: Int = 0) : Fragment(layoutId) {
     override fun onDestroyView() {
         val message = "$fragmentName > onDestroyView"
         println("$TAG $message")
+
         super.onDestroyView()
     }
 
     /**  */
     override fun onDestroy() {
-        super.onDestroy()
         val message = "$fragmentName > onDestroy"
         println("$TAG $message")
+
+        unregisterLifecycle()
+        super.onDestroy()
     }
 
     /**  */
@@ -164,11 +162,19 @@ abstract class BaseFragment(@LayoutRes layoutId: Int = 0) : Fragment(layoutId) {
 
     /** ****************************** Functions ****************************** */
 
-    /** Change button status. */
-    // protected fun changeBtnStatus(button: Button?, status: Boolean) {
-    //     button?.isEnabled = status
-    //     button?.isClickable = status
-    // }
+    /**  */
+    private fun registerLifecycle() {
+        lifecycle.addObserver(LifecycleContainer.fragmentLifecycleObserver)
+        lifecycle.addObserver(LifecycleContainer.fragmentLifecycleObserverEvent)
+        lifecycle.addObserver(LifecycleContainer.fragmentLifecycleObserverDefault)
+    }
+
+    /**  */
+    private fun unregisterLifecycle() {
+        lifecycle.removeObserver(LifecycleContainer.fragmentLifecycleObserver)
+        lifecycle.removeObserver(LifecycleContainer.fragmentLifecycleObserverEvent)
+        lifecycle.removeObserver(LifecycleContainer.fragmentLifecycleObserverDefault)
+    }
 
     /** Switch fragment within fragments. */
     protected fun switchFragment(fragment: Fragment, fragmentTag: String? = null, currentFragment: Any?, @IdRes containerId: Int, addToBackStack: Boolean = true) {

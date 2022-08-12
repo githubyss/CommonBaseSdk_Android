@@ -125,9 +125,11 @@ dependencies {
     implementation project(':DesignPatternLibrary_Android')
     implementation project(':CommonResSdk_Android')
 
-    api dependenciesLib.androidx_appcompat
-    api dependenciesLib.androidx_localbroadcastmanager
-    api dependenciesLib.androidx_recyclerview
-    api dependenciesLib.androidx_activity_compose
-    api dependenciesLib.androidx_compose_material
+    implementation dependenciesLib.androidx_appcompat
+    implementation dependenciesLib.androidx_localbroadcastmanager
+    implementation dependenciesLib.androidx_recyclerview
+    implementation dependenciesLib.androidx_activity_compose
+    implementation dependenciesLib.androidx_compose_material
+    // implementation dependenciesLib.androidx_lifecycle_runtime
+    // implementation dependenciesLib.androidx_lifecycle_viewmodel
 }

@@ -6,9 +6,8 @@ import androidx.annotation.IdRes
 import androidx.annotation.LayoutRes
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.FragmentManager
 import com.githubyss.common.base.R
-import com.githubyss.common.base.lifecycle.lifecycle_subscriber.LifecycleContainer
+import com.githubyss.common.base.lifecycle.LifecycleContainer
 import com.githubyss.common.base.util.switchFragmentByAddHideShow
 
 
@@ -34,7 +33,7 @@ import com.githubyss.common.base.util.switchFragmentByAddHideShow
  * @github githubyss
  * @createdTime 2021/06/02 15:10:38
  */
-abstract class BaseActivity(@LayoutRes layoutId: Int = 0) : AppCompatActivity(layoutId) {
+abstract class BaseActivity(@LayoutRes layoutId: Int = 0) : AppCompatActivity(layoutId), BaseActivityFragmentInterface {
 
     /** ****************************** Companion ****************************** */
 
@@ -64,15 +63,6 @@ abstract class BaseActivity(@LayoutRes layoutId: Int = 0) : AppCompatActivity(la
     }
 
 
-    /** ****************************** Open ****************************** */
-
-    /** 初始化 UI */
-    open fun setupUi() {}
-
-    /** 初始化数据 */
-    open fun setupData() {}
-
-
     /** ****************************** Override ****************************** */
 
     /**
@@ -84,15 +74,13 @@ abstract class BaseActivity(@LayoutRes layoutId: Int = 0) : AppCompatActivity(la
      */
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        supportFragmentManager.let {
-            it.registerFragmentLifecycleCallbacks(LifecycleContainer.fragmentLifecycle, true)
-        }
 
         val message = "${this::class.java.simpleName} > onCreate"
         println("$TAG $message")
 
         setupUi()
         setupData()
+        registerLifecycle()
     }
 
     /**
@@ -218,14 +206,28 @@ abstract class BaseActivity(@LayoutRes layoutId: Int = 0) : AppCompatActivity(la
         val message = "$activityName > onDestroy"
         println("$TAG $message")
 
-        supportFragmentManager.let {
-            it.unregisterFragmentLifecycleCallbacks(LifecycleContainer.fragmentLifecycle)
-        }
+        unregisterLifecycle()
         super.onDestroy()
     }
 
 
     /** ****************************** Functions ****************************** */
+
+    /**  */
+    private fun registerLifecycle() {
+        supportFragmentManager.registerFragmentLifecycleCallbacks(LifecycleContainer.fragmentLifecycleCallbacks, true)
+        lifecycle.addObserver(LifecycleContainer.activityLifecycleObserver)
+        lifecycle.addObserver(LifecycleContainer.activityLifecycleObserverEvent)
+        lifecycle.addObserver(LifecycleContainer.activityLifecycleObserverDefault)
+    }
+
+    /**  */
+    private fun unregisterLifecycle() {
+        supportFragmentManager.unregisterFragmentLifecycleCallbacks(LifecycleContainer.fragmentLifecycleCallbacks)
+        lifecycle.removeObserver(LifecycleContainer.activityLifecycleObserver)
+        lifecycle.removeObserver(LifecycleContainer.activityLifecycleObserverEvent)
+        lifecycle.removeObserver(LifecycleContainer.activityLifecycleObserverDefault)
+    }
 
     /** Switch fragment to activity. */
     protected fun switchFragment(fragment: Fragment, fragmentTag: String? = null, @IdRes containerId: Int, addToBackStack: Boolean = true) {

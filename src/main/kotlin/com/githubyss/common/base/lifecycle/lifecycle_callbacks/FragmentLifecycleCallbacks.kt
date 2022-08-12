@@ -1,4 +1,4 @@
-package com.githubyss.common.base.lifecycle.lifecycle_subscriber
+package com.githubyss.common.base.lifecycle.lifecycle_callbacks
 
 import android.content.Context
 import android.os.Bundle
@@ -8,20 +8,25 @@ import androidx.fragment.app.FragmentManager
 
 
 /**
- * FragmentLifecycleSubscriber
+ * FragmentLifecycleCallbacks
  *
  * @author Ace Yan
  * @github githubyss
  * @createdTime 2021/06/03 10:14:08
  */
-open class FragmentLifecycleSubscriber private constructor() : FragmentManager.FragmentLifecycleCallbacks() {
+open class FragmentLifecycleCallbacks private constructor() : FragmentManager.FragmentLifecycleCallbacks() {
 
-    /** ****************************** Properties ****************************** */
+    /** ****************************** Object ****************************** */
 
+    /**  */
     companion object {
-        val INSTANCE: FragmentLifecycleSubscriber by lazy(mode = LazyThreadSafetyMode.SYNCHRONIZED) { FragmentLifecycleSubscriber() }
+        private val TAG = FragmentLifecycleCallbacks::class.java.simpleName
+        val INSTANCE = Holder.INSTANCE
+    }
 
-        private val TAG: String = FragmentLifecycleSubscriber::class.java.simpleName
+    /**  */
+    private object Holder {
+        val INSTANCE = FragmentLifecycleCallbacks()
     }
 
 
@@ -36,8 +41,8 @@ open class FragmentLifecycleSubscriber private constructor() : FragmentManager.F
      * @return
      */
     override fun onFragmentAttached(fm: FragmentManager, f: Fragment, context: Context) {
-        println("$TAG ${f::class.java.simpleName} > onFragmentAttached")
-        super.onFragmentAttached(fm, f, context)
+        val message = "${f::class.java.simpleName} > onFragmentAttached"
+        println("$TAG $message")
     }
 
     /**
@@ -49,8 +54,8 @@ open class FragmentLifecycleSubscriber private constructor() : FragmentManager.F
      * @return
      */
     override fun onFragmentCreated(fm: FragmentManager, f: Fragment, savedInstanceState: Bundle?) {
-        println("$TAG ${f::class.java.simpleName} > onFragmentCreated")
-        super.onFragmentCreated(fm, f, savedInstanceState)
+        val message = "${f::class.java.simpleName} > onFragmentCreated"
+        println("$TAG $message")
     }
 
     /**
@@ -63,8 +68,8 @@ open class FragmentLifecycleSubscriber private constructor() : FragmentManager.F
      * @return
      */
     override fun onFragmentViewCreated(fm: FragmentManager, f: Fragment, v: View, savedInstanceState: Bundle?) {
-        println("$TAG ${f::class.java.simpleName} > onFragmentViewCreated")
-        super.onFragmentViewCreated(fm, f, v, savedInstanceState)
+        val message = "${f::class.java.simpleName} > onFragmentViewCreated"
+        println("$TAG $message")
     }
 
     /**
@@ -76,8 +81,8 @@ open class FragmentLifecycleSubscriber private constructor() : FragmentManager.F
      * @return
      */
     override fun onFragmentActivityCreated(fm: FragmentManager, f: Fragment, savedInstanceState: Bundle?) {
-        println("$TAG ${f::class.java.simpleName} > onFragmentActivityCreated")
-        super.onFragmentActivityCreated(fm, f, savedInstanceState)
+        val message = "${f::class.java.simpleName} > onFragmentActivityCreated"
+        println("$TAG $message")
     }
 
     /**
@@ -88,8 +93,8 @@ open class FragmentLifecycleSubscriber private constructor() : FragmentManager.F
      * @return
      */
     override fun onFragmentStarted(fm: FragmentManager, f: Fragment) {
-        println("$TAG ${f::class.java.simpleName} > onFragmentStarted")
-        super.onFragmentStarted(fm, f)
+        val message = "${f::class.java.simpleName} > onFragmentStarted"
+        println("$TAG $message")
     }
 
     /**
@@ -100,8 +105,8 @@ open class FragmentLifecycleSubscriber private constructor() : FragmentManager.F
      * @return
      */
     override fun onFragmentResumed(fm: FragmentManager, f: Fragment) {
-        println("$TAG ${f::class.java.simpleName} > onFragmentResumed")
-        super.onFragmentResumed(fm, f)
+        val message = "${f::class.java.simpleName} > onFragmentResumed"
+        println("$TAG $message")
     }
 
     /**
@@ -112,8 +117,8 @@ open class FragmentLifecycleSubscriber private constructor() : FragmentManager.F
      * @return
      */
     override fun onFragmentPaused(fm: FragmentManager, f: Fragment) {
-        println("$TAG ${f::class.java.simpleName} > onFragmentPaused")
-        super.onFragmentPaused(fm, f)
+        val message = "${f::class.java.simpleName} > onFragmentPaused"
+        println("$TAG $message")
     }
 
     /**
@@ -124,8 +129,8 @@ open class FragmentLifecycleSubscriber private constructor() : FragmentManager.F
      * @return
      */
     override fun onFragmentStopped(fm: FragmentManager, f: Fragment) {
-        println("$TAG ${f::class.java.simpleName} > onFragmentStopped")
-        super.onFragmentStopped(fm, f)
+        val message = "${f::class.java.simpleName} > onFragmentStopped"
+        println("$TAG $message")
     }
 
     /**
@@ -137,8 +142,8 @@ open class FragmentLifecycleSubscriber private constructor() : FragmentManager.F
      * @return
      */
     override fun onFragmentSaveInstanceState(fm: FragmentManager, f: Fragment, outState: Bundle) {
-        println("$TAG ${f::class.java.simpleName} > onFragmentSaveInstanceState")
-        super.onFragmentSaveInstanceState(fm, f, outState)
+        val message = "${f::class.java.simpleName} > onFragmentSaveInstanceState"
+        println("$TAG $message")
     }
 
     /**
@@ -149,8 +154,8 @@ open class FragmentLifecycleSubscriber private constructor() : FragmentManager.F
      * @return
      */
     override fun onFragmentViewDestroyed(fm: FragmentManager, f: Fragment) {
-        println("$TAG ${f::class.java.simpleName} > onFragmentViewDestroyed")
-        super.onFragmentViewDestroyed(fm, f)
+        val message = "${f::class.java.simpleName} > onFragmentViewDestroyed"
+        println("$TAG $message")
     }
 
     /**
@@ -161,8 +166,8 @@ open class FragmentLifecycleSubscriber private constructor() : FragmentManager.F
      * @return
      */
     override fun onFragmentDestroyed(fm: FragmentManager, f: Fragment) {
-        println("$TAG ${f::class.java.simpleName} > onFragmentDestroyed")
-        super.onFragmentDestroyed(fm, f)
+        val message = "${f::class.java.simpleName} > onFragmentDestroyed"
+        println("$TAG $message")
     }
 
     /**
@@ -173,7 +178,7 @@ open class FragmentLifecycleSubscriber private constructor() : FragmentManager.F
      * @return
      */
     override fun onFragmentDetached(fm: FragmentManager, f: Fragment) {
-        println("$TAG ${f::class.java.simpleName} > onFragmentDetached")
-        super.onFragmentDetached(fm, f)
+        val message = "${f::class.java.simpleName} > onFragmentDetached"
+        println("$TAG $message")
     }
 }

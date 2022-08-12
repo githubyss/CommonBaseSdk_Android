@@ -1,4 +1,4 @@
-package com.githubyss.common.base.lifecycle.lifecycle_subscriber
+package com.githubyss.common.base.lifecycle.lifecycle_callbacks
 
 import android.animation.ValueAnimator
 import android.annotation.SuppressLint
@@ -11,38 +11,36 @@ import android.os.Bundle
 import android.view.View
 import android.view.inputmethod.InputMethodManager
 import androidx.localbroadcastmanager.content.LocalBroadcastManager
+import com.githubyss.common.base.lifecycle.LifecycleConstant
+import com.githubyss.common.base.lifecycle.LifecycleConstant.PERMISSION_ACTIVITY_CLASS_NAME
 import java.lang.reflect.InvocationTargetException
 import java.util.*
-import kotlin.collections.HashMap
-import kotlin.collections.HashSet
 
 
 /**
- * ActivityLifecycleSubscriber
+ * ActivityLifecycleCallbacks
  *
  * @author Ace Yan
  * @github githubyss
  * @createdTime 2020/12/17 17:46:15
  */
-open class ActivityLifecycleSubscriber private constructor() : Application.ActivityLifecycleCallbacks {
+open class ActivityLifecycleCallbacks private constructor() : Application.ActivityLifecycleCallbacks {
+
+    /** ****************************** Object ****************************** */
+
+    /**  */
+    companion object {
+        private val TAG = ActivityLifecycleCallbacks::class.java.simpleName
+        val INSTANCE = Holder.INSTANCE
+    }
+
+    /**  */
+    private object Holder {
+        val INSTANCE = ActivityLifecycleCallbacks()
+    }
+
 
     /** ****************************** Properties ****************************** */
-
-    companion object {
-        val INSTANCE: ActivityLifecycleSubscriber by lazy(mode = LazyThreadSafetyMode.SYNCHRONIZED) { ActivityLifecycleSubscriber() }
-
-        private val TAG: String = ActivityLifecycleSubscriber::class.java.simpleName
-        private val PERMISSION_ACTIVITY_CLASS_NAME: String = "com.blankj.utilcode.util.PermissionUtils\$PermissionActivity"
-
-        // 程序前后台切换的广播
-        const val INTENT_ACTION_IS_FOREGROUND = "com.githubyss.common.intent.action.INTENT_ACTION_IS_FOREGROUND"
-
-        // 锁屏延迟时间（毫秒）
-        private const val LOCK_DELAY = 5 * 60 * 1000.toLong()
-
-        // 自动登录延迟时间（毫秒）
-        private const val AUTO_LOGON_DELAY = 14 * 60 * 1000.toLong()
-    }
 
     /** Is app in foreground. */
     var isForeground = false
@@ -57,10 +55,10 @@ open class ActivityLifecycleSubscriber private constructor() : Application.Activ
     // var currentShowActivity: Activity? = null
 
     /** The activity list */
-    var activityList: LinkedList<Activity> = LinkedList()
+    var activityList: LinkedList<Activity> = LinkedList<Activity>()
 
     /** The activity stack */
-    var activityStack: Stack<Activity> = Stack()
+    var activityStack: Stack<Activity> = Stack<Activity>()
 
     /** Gesture timer opened flag */
     private var isGestureTimerOpened = false
@@ -88,7 +86,8 @@ open class ActivityLifecycleSubscriber private constructor() : Application.Activ
      * @return
      */
     override fun onActivityCreated(activity: Activity, savedInstanceState: Bundle?) {
-        println("$TAG ${activity::class.java.simpleName} > onActivityCreated")
+        val message = "${activity::class.java.simpleName} > onActivityCreated"
+        println("$TAG $message")
 
         // 应用放置后台，内存回收后，重新启动应用
         // if (activity != null && activity !is SplashActivity && EPApp.getApp().isColdStart && savedInstanceState != null) {
@@ -115,7 +114,8 @@ open class ActivityLifecycleSubscriber private constructor() : Application.Activ
      * @return
      */
     override fun onActivityStarted(activity: Activity) {
-        println("$TAG ${activity::class.java.simpleName} > onActivityStarted")
+        val message = "${activity::class.java.simpleName} > onActivityStarted"
+        println("$TAG $message")
 
         if (isForeground) {
             setTopActivity(activity)
@@ -135,7 +135,8 @@ open class ActivityLifecycleSubscriber private constructor() : Application.Activ
      * @return
      */
     override fun onActivityResumed(activity: Activity) {
-        println("$TAG ${activity::class.java.simpleName} > onActivityResumed")
+        val message = "${activity::class.java.simpleName} > onActivityResumed"
+        println("$TAG $message")
 
         if (!isForeground) {
             isForeground = true
@@ -184,7 +185,8 @@ open class ActivityLifecycleSubscriber private constructor() : Application.Activ
      * @return
      */
     override fun onActivityPaused(activity: Activity) {
-        println("$TAG ${activity::class.java.simpleName} > onActivityPaused")
+        val message = "${activity::class.java.simpleName} > onActivityPaused"
+        println("$TAG $message")
     }
 
     /**
@@ -194,7 +196,8 @@ open class ActivityLifecycleSubscriber private constructor() : Application.Activ
      * @return
      */
     override fun onActivityStopped(activity: Activity) {
-        println("$TAG ${activity::class.java.simpleName} > onActivityStopped")
+        val message = "${activity::class.java.simpleName} > onActivityStopped"
+        println("$TAG $message")
 
         // 重要，如果 Activity 的 stop 中判断应用再前后台，一定要把 super.stop() 放在第一行
         if (activity.isChangingConfigurations) {
@@ -240,7 +243,8 @@ open class ActivityLifecycleSubscriber private constructor() : Application.Activ
      * @return
      */
     override fun onActivitySaveInstanceState(activity: Activity, outState: Bundle) {
-        println("$TAG ${activity::class.java.simpleName} > onActivitySaveInstanceState")
+        val message = "${activity::class.java.simpleName} > onActivitySaveInstanceState"
+        println("$TAG $message")
     }
 
     /**
@@ -250,7 +254,8 @@ open class ActivityLifecycleSubscriber private constructor() : Application.Activ
      * @return
      */
     override fun onActivityDestroyed(activity: Activity) {
-        println("$TAG ${activity::class.java.simpleName} > onActivityDestroyed")
+        val message = "${activity::class.java.simpleName} > onActivityDestroyed"
+        println("$TAG $message")
 
         activityList.remove(activity)
         consumeOnActivityDestroyedListener(activity)
@@ -266,6 +271,7 @@ open class ActivityLifecycleSubscriber private constructor() : Application.Activ
 
     /** ****************************** Functions ****************************** */
 
+    /**  */
     fun getTopActivity(): Activity? {
         if (activityList.isNotEmpty()) {
             val topActivity: Activity? = activityList.last
@@ -280,23 +286,27 @@ open class ActivityLifecycleSubscriber private constructor() : Application.Activ
         return topActivityByReflect
     }
 
-    fun getActivityNum(): Int {
-        return activityList.size
-    }
+    /**  */
+    val activityNum
+        get() = activityList.size
 
+    /**  */
     fun addOnAppStatusChangedListener(`object`: Any?, listener: OnAppStatusChangedListener?) {
         statusListenerMap[`object`] = listener
     }
 
+    /**  */
     fun removeOnAppStatusChangedListener(`object`: Any?) {
         statusListenerMap.remove(`object`)
     }
 
+    /**  */
     fun removeOnActivityDestroyedListener(activity: Activity?) {
         if (activity == null) return
         destroyedListenerMap.remove(activity)
     }
 
+    /**  */
     fun addOnActivityDestroyedListener(activity: Activity?, listener: OnActivityDestroyedListener?) {
         activity ?: return
         listener ?: return
@@ -366,6 +376,7 @@ open class ActivityLifecycleSubscriber private constructor() : Application.Activ
     //     return false
     // }
 
+    /**  */
     private fun postStatus(isForeground: Boolean) {
         if (statusListenerMap.isEmpty()) return
 
@@ -388,12 +399,13 @@ open class ActivityLifecycleSubscriber private constructor() : Application.Activ
     private fun sendBroadcast(activity: Activity?) {
         activity ?: return
 
-        val intent = Intent(INTENT_ACTION_IS_FOREGROUND)
+        val intent = Intent(LifecycleConstant.INTENT_ACTION_IS_FOREGROUND)
         intent.putExtra("isForeground", isForeground)
         LocalBroadcastManager.getInstance(activity)
             .sendBroadcast(intent)
     }
 
+    /**  */
     private fun setTopActivity(activity: Activity?) {
         activity ?: return
         if (PERMISSION_ACTIVITY_CLASS_NAME == activity.javaClass.name) return
@@ -432,6 +444,7 @@ open class ActivityLifecycleSubscriber private constructor() : Application.Activ
         }
     }
 
+    /**  */
     private fun consumeOnActivityDestroyedListener(activity: Activity?) {
         activity ?: return
 
@@ -450,6 +463,7 @@ open class ActivityLifecycleSubscriber private constructor() : Application.Activ
         }
     }
 
+    /**  */
     private fun getTopActivityByReflect(): Activity? {
         try {
             @SuppressLint("PrivateApi")
@@ -490,6 +504,7 @@ open class ActivityLifecycleSubscriber private constructor() : Application.Activ
         return null
     }
 
+    /**  */
     private fun fixSoftInputLeaks(activity: Activity?) {
         activity ?: return
 
@@ -507,6 +522,7 @@ open class ActivityLifecycleSubscriber private constructor() : Application.Activ
                 }
             }
             catch (ignore: Throwable) {
+                println("$TAG $ignore")
             }
         }
     }
@@ -523,11 +539,13 @@ open class ActivityLifecycleSubscriber private constructor() : Application.Activ
 
     /** ****************************** Interface ****************************** */
 
+    /**  */
     interface OnAppStatusChangedListener {
         fun onForeground()
         fun onBackground()
     }
 
+    /**  */
     interface OnActivityDestroyedListener {
         fun onActivityDestroyed(activity: Activity?)
     }
