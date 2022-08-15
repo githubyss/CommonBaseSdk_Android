@@ -10,7 +10,7 @@ package com.githubyss.common.base.lifecycle
  */
 object LifecycleConstant {
 /** 权限 Activity 类名 */
-    const val PERMISSION_ACTIVITY_CLASS_NAME: String = "com.blankj.utilcode.util.PermissionUtils\$PermissionActivity"
+    const val PERMISSION_ACTIVITY_CLASS_NAME: String = "com.githubyss.common.util.PermissionUtils\$PermissionActivity"
 
     // 程序前后台切换的广播
     const val INTENT_ACTION_IS_FOREGROUND = "com.githubyss.common.intent.action.INTENT_ACTION_IS_FOREGROUND"

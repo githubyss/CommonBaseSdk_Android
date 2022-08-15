@@ -5,6 +5,7 @@ import android.view.View
 import androidx.annotation.LayoutRes
 import androidx.databinding.ViewDataBinding
 import com.githubyss.common.base.activity_fragment.binding_inline.BaseInlineBindingToolbarFragment
+import com.githubyss.common.base.activity_fragment.interface_default.BaseViewModelInterface
 
 
 /**
@@ -14,7 +15,7 @@ import com.githubyss.common.base.activity_fragment.binding_inline.BaseInlineBind
  * @github githubyss
  * @createdTime 2022/07/22 13:17:48
  */
-abstract class BaseInlineBindingViewModelToolbarFragment<B : ViewDataBinding>(@LayoutRes layoutId: Int) : BaseInlineBindingToolbarFragment<B>(layoutId) {
+abstract class BaseInlineBindingViewModelToolbarFragment<B : ViewDataBinding>(@LayoutRes layoutId: Int) : BaseInlineBindingToolbarFragment<B>(layoutId), BaseViewModelInterface {
 
     /** ****************************** Override ****************************** */
 
@@ -33,18 +34,8 @@ abstract class BaseInlineBindingViewModelToolbarFragment<B : ViewDataBinding>(@L
         super.onDestroy()
     }
 
-
-    /** ****************************** Abstract ****************************** */
-
-    /** 绑定 Activity LifecycleOwner 到 ViewDataBinding */
-    abstract fun bindLifecycleOwner()
-
-    /** 绑定 ViewModel 到 ViewDataBinding */
-    abstract fun bindXmlData()
-
-    /** 观察 ViewModel 的数据变化 */
-    abstract fun observeViewModelData()
-
-    /** 移除 ViewModel 的数据观察 */
-    abstract fun removeViewModelObserver()
+    /**  */
+    override fun bindLifecycleOwner() {
+        binding.lifecycleOwner = viewLifecycleOwner
+    }
 }

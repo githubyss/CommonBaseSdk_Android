@@ -7,7 +7,7 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.LifecycleObserver
 import androidx.lifecycle.OnLifecycleEvent
-import com.githubyss.common.base.ext.binding_inflate.inflateBindingByLayoutInflater
+import com.githubyss.common.base.ext.inflateBindingByLayoutInflater
 import kotlin.properties.ReadOnlyProperty
 import kotlin.reflect.KProperty
 

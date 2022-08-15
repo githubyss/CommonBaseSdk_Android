@@ -1,7 +1,9 @@
 package com.githubyss.common.base.lifecycle.lifecycle_observer
 
+import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.DefaultLifecycleObserver
 import androidx.lifecycle.LifecycleOwner
+import com.githubyss.common.base.lifecycle.lifecycle_callbacks.ActivityHolder
 
 
 /**
@@ -27,7 +29,13 @@ open class ActivityLifecycleObserverDefault private constructor() : DefaultLifec
     }
 
 
-    /** ****************************** Functions ****************************** */
+    /** ****************************** Properties ****************************** */
+
+    /**  */
+    val activityHolder by lazy { ActivityHolder() }
+
+
+    /** ****************************** Override ****************************** */
 
     /**
      * 对应 Activity 的 onCreate(savedInstanceState: Bundle?)
@@ -38,6 +46,13 @@ open class ActivityLifecycleObserverDefault private constructor() : DefaultLifec
     override fun onCreate(owner: LifecycleOwner) {
         val message = "${owner::class.java.simpleName} > onCreate"
         println("$TAG $message")
+
+        val activity = owner as AppCompatActivity
+
+        activityHolder.handleForegroundRestart(activity)
+        activityHolder.setAnimatorsEnabled()
+        activityHolder.setTopActivity(activity)
+        activityHolder.currentShowActivity = activity
     }
 
     /**
@@ -49,6 +64,18 @@ open class ActivityLifecycleObserverDefault private constructor() : DefaultLifec
     override fun onStart(owner: LifecycleOwner) {
         val message = "${owner::class.java.simpleName} > onStart"
         println("$TAG $message")
+
+        val activity = owner as AppCompatActivity
+
+        if (activityHolder.isForeground) {
+            activityHolder.setTopActivity(activity)
+        }
+        if (activityHolder.configCount < 0) {
+            activityHolder.configCount++
+        }
+        else {
+            activityHolder.foregroundCount++
+        }
     }
 
     /**
@@ -60,6 +87,22 @@ open class ActivityLifecycleObserverDefault private constructor() : DefaultLifec
     override fun onResume(owner: LifecycleOwner) {
         val message = "${owner::class.java.simpleName} > onResume"
         println("$TAG $message")
+
+        val activity = owner as AppCompatActivity
+
+        if (!activityHolder.isForeground) {
+            activityHolder.isForeground = true
+            activityHolder.postStatus(true)
+            activityHolder.sendBroadcast(activity)
+        }
+        activityHolder.setTopActivity(activity)
+        activityHolder.currentShowActivity = activity
+
+        activityHolder.handleForegroundGestureAuth()
+        activityHolder.handleForegroundAutoLogin()
+
+        println("$TAG topActivity: ${activityHolder.getTopActivity()?.javaClass?.simpleName}")
+        println("$TAG currentShowActivity: ${activityHolder.currentShowActivity?.javaClass?.simpleName}")
     }
 
     /**
@@ -82,6 +125,25 @@ open class ActivityLifecycleObserverDefault private constructor() : DefaultLifec
     override fun onStop(owner: LifecycleOwner) {
         val message = "${owner::class.java.simpleName} > onStop"
         println("$TAG $message")
+
+        val activity = owner as AppCompatActivity
+
+        // 重要，如果 Activity 的 stop 中判断应用再前后台，一定要把 super.stop() 放在第一行
+        if (activity.isChangingConfigurations) {
+            activityHolder.configCount--
+        }
+        else {
+            activityHolder.foregroundCount--
+            if (activityHolder.foregroundCount <= 0) {
+                activityHolder.isForeground = false
+                activityHolder.postStatus(false)
+                activityHolder.sendBroadcast(activity)
+
+                activityHolder.handleBackgroundRemainder(activity)
+                activityHolder.handleBackgroundMoment(activity)
+                activityHolder.handleBackgroundGestureAuth()
+            }
+        }
     }
 
     /**
@@ -93,5 +155,12 @@ open class ActivityLifecycleObserverDefault private constructor() : DefaultLifec
     override fun onDestroy(owner: LifecycleOwner) {
         val message = "${owner::class.java.simpleName} > onDestroy"
         println("$TAG $message")
+
+        val activity = owner as AppCompatActivity
+
+        activityHolder.activityList.remove(activity)
+        activityHolder.consumeOnActivityDestroyedListener(activity)
+        activityHolder.fixSoftInputLeaks(activity)
+        activityHolder.checkCurrentActivity(activity)
     }
 }

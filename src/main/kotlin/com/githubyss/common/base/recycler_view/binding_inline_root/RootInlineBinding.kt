@@ -3,7 +3,7 @@ package com.githubyss.common.base.recycler_view.binding_inline_root
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import androidx.viewbinding.ViewBinding
-import com.githubyss.common.base.ext.binding_inflate.inflateBindingByViewGroup
+import com.githubyss.common.base.ext.inflateBindingByViewGroup
 
 
 /**

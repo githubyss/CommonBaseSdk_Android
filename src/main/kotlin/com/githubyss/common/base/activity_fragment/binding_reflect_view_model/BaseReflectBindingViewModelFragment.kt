@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.View
 import androidx.databinding.ViewDataBinding
 import com.githubyss.common.base.activity_fragment.binding_reflect.BaseReflectBindingFragment
+import com.githubyss.common.base.activity_fragment.interface_default.BaseViewModelInterface
 
 
 /**
@@ -13,7 +14,7 @@ import com.githubyss.common.base.activity_fragment.binding_reflect.BaseReflectBi
  * @github githubyss
  * @createdTime 2022/07/22 12:48:30
  */
-abstract class BaseReflectBindingViewModelFragment<B : ViewDataBinding> : BaseReflectBindingFragment<B>() {
+abstract class BaseReflectBindingViewModelFragment<B : ViewDataBinding> : BaseReflectBindingFragment<B>(), BaseViewModelInterface {
 
     /** ****************************** Override ****************************** */
 
@@ -32,18 +33,8 @@ abstract class BaseReflectBindingViewModelFragment<B : ViewDataBinding> : BaseRe
         super.onDestroy()
     }
 
-
-    /** ****************************** Abstract ****************************** */
-
-    /** 绑定 Activity LifecycleOwner 到 ViewDataBinding */
-    abstract fun bindLifecycleOwner()
-
-    /** 绑定 ViewModel 到 ViewDataBinding */
-    abstract fun bindXmlData()
-
-    /** 观察 ViewModel 的数据变化 */
-    abstract fun observeViewModelData()
-
-    /** 移除 ViewModel 的数据观察 */
-    abstract fun removeViewModelObserver()
+    /**  */
+    override fun bindLifecycleOwner() {
+        binding.lifecycleOwner = viewLifecycleOwner
+    }
 }

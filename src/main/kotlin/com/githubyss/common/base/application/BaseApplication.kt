@@ -2,7 +2,8 @@ package com.githubyss.common.base.application
 
 import android.app.Application
 import android.content.Context
-import com.githubyss.common.base.lifecycle.LifecycleContainer
+import com.githubyss.common.base.lifecycle.registerLifecycle
+import com.githubyss.common.base.lifecycle.unregisterLifecycle
 import kotlin.properties.Delegates
 
 
@@ -49,19 +50,5 @@ abstract class BaseApplication : Application(), BaseApplicationInterface {
     override fun attachBaseContext(base: Context?) {
         super.attachBaseContext(base)
         initTrace()
-    }
-
-
-    /** ****************************** Functions ****************************** */
-
-    /**  */
-    private fun registerLifecycle() {
-        registerActivityLifecycleCallbacks(LifecycleContainer.activityLifecycleCallbacks)
-    }
-
-    /**  */
-    private fun unregisterLifecycle() {
-        unregisterActivityLifecycleCallbacks(LifecycleContainer.activityLifecycleCallbacks)
-        LifecycleContainer.activityLifecycleCallbacks.activityList.clear()
     }
 }

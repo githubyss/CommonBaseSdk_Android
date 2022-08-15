@@ -8,7 +8,9 @@ import android.view.ViewGroup
 import androidx.annotation.IdRes
 import androidx.annotation.LayoutRes
 import androidx.fragment.app.Fragment
-import com.githubyss.common.base.lifecycle.LifecycleContainer
+import com.githubyss.common.base.activity_fragment.interface_default.BaseActivityFragmentInterface
+import com.githubyss.common.base.lifecycle.registerLifecycle
+import com.githubyss.common.base.lifecycle.unregisterLifecycle
 import com.githubyss.common.base.util.switchFragmentByAddHideShow
 
 
@@ -39,7 +41,7 @@ abstract class BaseFragment(@LayoutRes layoutId: Int = 0) : Fragment(layoutId), 
 
     /**  */
     init {
-        println("$TAG Constructor init")
+        println("$TAG $fragmentName constructor init.")
     }
 
 
@@ -161,20 +163,6 @@ abstract class BaseFragment(@LayoutRes layoutId: Int = 0) : Fragment(layoutId), 
 
 
     /** ****************************** Functions ****************************** */
-
-    /**  */
-    private fun registerLifecycle() {
-        lifecycle.addObserver(LifecycleContainer.fragmentLifecycleObserver)
-        lifecycle.addObserver(LifecycleContainer.fragmentLifecycleObserverEvent)
-        lifecycle.addObserver(LifecycleContainer.fragmentLifecycleObserverDefault)
-    }
-
-    /**  */
-    private fun unregisterLifecycle() {
-        lifecycle.removeObserver(LifecycleContainer.fragmentLifecycleObserver)
-        lifecycle.removeObserver(LifecycleContainer.fragmentLifecycleObserverEvent)
-        lifecycle.removeObserver(LifecycleContainer.fragmentLifecycleObserverDefault)
-    }
 
     /** Switch fragment within fragments. */
     protected fun switchFragment(fragment: Fragment, fragmentTag: String? = null, currentFragment: Any?, @IdRes containerId: Int, addToBackStack: Boolean = true) {

@@ -7,7 +7,9 @@ import androidx.annotation.LayoutRes
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import com.githubyss.common.base.R
-import com.githubyss.common.base.lifecycle.LifecycleContainer
+import com.githubyss.common.base.activity_fragment.interface_default.BaseActivityFragmentInterface
+import com.githubyss.common.base.lifecycle.registerLifecycle
+import com.githubyss.common.base.lifecycle.unregisterLifecycle
 import com.githubyss.common.base.util.switchFragmentByAddHideShow
 
 
@@ -59,7 +61,7 @@ abstract class BaseActivity(@LayoutRes layoutId: Int = 0) : AppCompatActivity(la
 
     /**  */
     init {
-        println("$TAG Constructor init")
+        println("$TAG $activityName constructor init.")
     }
 
 
@@ -212,22 +214,6 @@ abstract class BaseActivity(@LayoutRes layoutId: Int = 0) : AppCompatActivity(la
 
 
     /** ****************************** Functions ****************************** */
-
-    /**  */
-    private fun registerLifecycle() {
-        supportFragmentManager.registerFragmentLifecycleCallbacks(LifecycleContainer.fragmentLifecycleCallbacks, true)
-        lifecycle.addObserver(LifecycleContainer.activityLifecycleObserver)
-        lifecycle.addObserver(LifecycleContainer.activityLifecycleObserverEvent)
-        lifecycle.addObserver(LifecycleContainer.activityLifecycleObserverDefault)
-    }
-
-    /**  */
-    private fun unregisterLifecycle() {
-        supportFragmentManager.unregisterFragmentLifecycleCallbacks(LifecycleContainer.fragmentLifecycleCallbacks)
-        lifecycle.removeObserver(LifecycleContainer.activityLifecycleObserver)
-        lifecycle.removeObserver(LifecycleContainer.activityLifecycleObserverEvent)
-        lifecycle.removeObserver(LifecycleContainer.activityLifecycleObserverDefault)
-    }
 
     /** Switch fragment to activity. */
     protected fun switchFragment(fragment: Fragment, fragmentTag: String? = null, @IdRes containerId: Int, addToBackStack: Boolean = true) {

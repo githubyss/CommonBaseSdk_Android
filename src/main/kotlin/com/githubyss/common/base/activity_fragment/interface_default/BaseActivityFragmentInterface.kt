@@ -1,4 +1,4 @@
-package com.githubyss.common.base.activity_fragment.classical
+package com.githubyss.common.base.activity_fragment.interface_default
 
 
 /**
