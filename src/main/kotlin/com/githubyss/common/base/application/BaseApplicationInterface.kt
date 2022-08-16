@@ -10,17 +10,20 @@ package com.githubyss.common.base.application
  */
 interface BaseApplicationInterface {
     /**  */
-    open fun initComkit() {}
+    fun initCombase() {}
 
     /**  */
-    open fun initComnet() {}
+    fun initComkit() {}
 
     /**  */
-    open fun initLog() {}
+    fun initComnet() {}
 
     /**  */
-    open fun initARouter() {}
+    fun initLog() {}
 
     /**  */
-    open fun initTrace() {}
+    fun initARouter() {}
+
+    /**  */
+    fun initTrace() {}
 }

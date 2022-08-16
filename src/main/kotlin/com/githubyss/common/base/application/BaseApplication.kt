@@ -33,6 +33,7 @@ abstract class BaseApplication : Application(), BaseApplicationInterface {
         super.onCreate()
         instance = this
 
+        initCombase()
         initComkit()
         initComnet()
         initLog()
@@ -51,4 +52,13 @@ abstract class BaseApplication : Application(), BaseApplicationInterface {
         super.attachBaseContext(base)
         initTrace()
     }
+
+    /**  */
+    override fun initCombase() {
+        BaseApplicationHolder.init(instance)
+    }
+
+
+    /** ****************************** Functions ****************************** */
+
 }

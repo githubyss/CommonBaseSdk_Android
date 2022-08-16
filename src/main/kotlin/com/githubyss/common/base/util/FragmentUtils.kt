@@ -6,6 +6,22 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 
 
+/**
+ * FragmentUtils
+ *
+ * @author Ace Yan
+ * @github githubyss
+ * @createdTime 2022/08/15 20:45:02
+ */
+
+/** ****************************** Properties ****************************** */
+
+/**  */
+private const val TAG: String = "FragmentUtils"
+
+
+/** ****************************** Functions ****************************** */
+
 /**  */
 internal fun switchFragmentByAddHideShow(fragment: Fragment?, fragmentTag: String?, currentFragment: Any?, fragmentManager: FragmentManager?, @IdRes containerId: Int, addToBackStack: Boolean = true, bundle: Bundle? = null) {
     fragment ?: return

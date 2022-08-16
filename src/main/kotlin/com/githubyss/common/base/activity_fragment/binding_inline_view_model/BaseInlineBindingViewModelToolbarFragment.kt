@@ -29,9 +29,9 @@ abstract class BaseInlineBindingViewModelToolbarFragment<B : ViewDataBinding>(@L
     }
 
     /**  */
-    override fun onDestroy() {
+    override fun onDestroyView() {
         removeViewModelObserver()
-        super.onDestroy()
+        super.onDestroyView()
     }
 
     /**  */

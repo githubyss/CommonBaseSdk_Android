@@ -28,9 +28,9 @@ abstract class BaseReflectBindingViewModelToolbarFragment<B : ViewDataBinding> :
     }
 
     /**  */
-    override fun onDestroy() {
+    override fun onDestroyView() {
         removeViewModelObserver()
-        super.onDestroy()
+        super.onDestroyView()
     }
 
     /**  */

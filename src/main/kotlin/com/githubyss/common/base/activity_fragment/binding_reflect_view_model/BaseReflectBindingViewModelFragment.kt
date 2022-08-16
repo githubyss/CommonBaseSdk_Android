@@ -28,9 +28,9 @@ abstract class BaseReflectBindingViewModelFragment<B : ViewDataBinding> : BaseRe
     }
 
     /**  */
-    override fun onDestroy() {
+    override fun onDestroyView() {
         removeViewModelObserver()
-        super.onDestroy()
+        super.onDestroyView()
     }
 
     /**  */
