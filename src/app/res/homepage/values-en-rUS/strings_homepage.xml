@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <!-- Title -->
-    <string name="combase_homepage_title">Kit Debug Homepage</string>
+    <string name="combase_homepage_title">Base Debug Homepage</string>
 
     <!-- Button -->
     <string name="combase_homepage_button_mvvm_activity">Mvvm Activity</string>
