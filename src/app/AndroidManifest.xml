@@ -1,0 +1,130 @@
+<manifest
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.githubyss.common.base"
+    tools:ignore="LockedOrientationActivity"
+    >
+
+    <uses-permission android:name="android.permission.INTERNET" />
+
+    <application
+        android:name="com.githubyss.common.base.app.application.CombaseApplication"
+        android:allowBackup="false"
+        android:icon="@mipmap/comres_ic_launcher_default"
+        android:label="${APP_NAME}"
+        android:roundIcon="@mipmap/comres_ic_launcher_default_round"
+        android:supportsRtl="true"
+        android:theme="@style/comres_app_gray_theme"
+        >
+
+        <activity
+            android:name=".app.page.homepage.HomepageActivity"
+            android:exported="true"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait"
+            android:theme="@style/comres_activity_noActionBar_theme"
+            android:windowSoftInputMode="stateAlwaysHidden|adjustResize"
+            >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name=".app.page.mvvm_binding.MvvmActivity"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait"
+            android:theme="@style/comres_activity_noActionBar_theme"
+            android:windowSoftInputMode="stateAlwaysHidden|adjustResize"
+            />
+
+        <activity
+            android:name=".app.page.mvvm_compose.MvvmComposeActivity"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait"
+            android:theme="@style/comres_activity_noActionBar_theme"
+            android:windowSoftInputMode="stateAlwaysHidden|adjustResize"
+            />
+
+        <activity
+            android:name=".app.page.state_compose.StateComposeActivity"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait"
+            android:theme="@style/comres_activity_noActionBar_theme"
+            android:windowSoftInputMode="stateAlwaysHidden|adjustResize"
+            />
+
+        <activity
+            android:name=".app.page.mvi.MviActivity"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait"
+            android:theme="@style/comres_activity_noActionBar_theme"
+            android:windowSoftInputMode="stateAlwaysHidden|adjustResize"
+            />
+
+        <activity
+            android:name=".app.page.compose.ComposeActivity"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait"
+            android:theme="@style/comres_activity_noActionBar_theme"
+            android:windowSoftInputMode="stateAlwaysHidden|adjustResize"
+            />
+
+        <activity
+            android:name=".app.page.compose.ComposeToolbarActivity"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait"
+            android:theme="@style/comres_activity_noActionBar_theme"
+            android:windowSoftInputMode="stateAlwaysHidden|adjustResize"
+            />
+
+        <activity
+            android:name=".app.page.binding_reflect.ReflectActivity"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait"
+            android:theme="@style/comres_activity_noActionBar_theme"
+            android:windowSoftInputMode="stateAlwaysHidden|adjustResize"
+            />
+
+        <activity
+            android:name="com.githubyss.common.base.app.page.binding_inline.InlineActivity"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait"
+            android:theme="@style/comres_activity_noActionBar_theme"
+            android:windowSoftInputMode="stateAlwaysHidden|adjustResize"
+            />
+
+        <activity
+            android:name=".app.page.binding_reflect.ReflectToolbarActivity"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait"
+            android:theme="@style/comres_activity_noActionBar_theme"
+            android:windowSoftInputMode="stateAlwaysHidden|adjustResize"
+            />
+
+        <activity
+            android:name="com.githubyss.common.base.app.page.binding_inline.InlineToolbarActivity"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait"
+            android:theme="@style/comres_activity_noActionBar_theme"
+            android:windowSoftInputMode="stateAlwaysHidden|adjustResize"
+            />
+
+        <activity
+            android:name=".app.page.lifecycle.LifecycleActivity"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait"
+            android:theme="@style/comres_activity_noActionBar_theme"
+            android:windowSoftInputMode="stateAlwaysHidden|adjustResize"
+            />
+
+        <activity
+            android:name=".app.page.lifecycle.LifecycleNextActivity"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait"
+            android:theme="@style/comres_activity_noActionBar_theme"
+            android:windowSoftInputMode="stateAlwaysHidden|adjustResize"
+            />
+    </application>
+</manifest>
