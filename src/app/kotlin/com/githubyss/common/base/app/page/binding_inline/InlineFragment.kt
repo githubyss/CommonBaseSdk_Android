@@ -3,8 +3,8 @@ package com.githubyss.common.base.app.page.binding_inline
 import com.githubyss.common.base.R
 import com.githubyss.common.base.activity_fragment.binding_inline.BaseInlineBindingFragment
 import com.githubyss.common.base.activity_fragment.binding_inline_root.bindView
-import com.githubyss.mobile.common.kit.databinding.ComkitFragmentViewBindingInlineBinding
-import com.githubyss.mobile.common.kit.util.getStringFromRes
+import com.githubyss.common.base.app.z_copy.getStringFromRes
+import com.githubyss.common.base.databinding.CombaseFragmentViewBindingInlineBinding
 
 
 /**
@@ -14,9 +14,9 @@ import com.githubyss.mobile.common.kit.util.getStringFromRes
  * @github githubyss
  * @createdTime 2021/07/20 17:44:22
  */
-class InlineFragment : BaseInlineBindingFragment<ComkitFragmentViewBindingInlineBinding>(R.layout.comkit_fragment_view_binding_inline) {
+class InlineFragment : BaseInlineBindingFragment<CombaseFragmentViewBindingInlineBinding>(R.layout.combase_fragment_view_binding_inline) {
 
-    /** ****************************** Companion ****************************** */
+    /** ****************************** Object ****************************** */
 
     /**  */
     companion object {
@@ -27,7 +27,7 @@ class InlineFragment : BaseInlineBindingFragment<ComkitFragmentViewBindingInline
     /** ****************************** Properties ****************************** */
 
     /**  */
-    private val _binding by bindView<ComkitFragmentViewBindingInlineBinding>()
+    private val _binding by bindView<CombaseFragmentViewBindingInlineBinding>()
 
 
     /** ****************************** Override ****************************** */
@@ -35,6 +35,6 @@ class InlineFragment : BaseInlineBindingFragment<ComkitFragmentViewBindingInline
     /**  */
     override fun setupUi() {
         binding = _binding
-        binding.textBindingInline.text = getStringFromRes(R.string.comkit_view_binding_inline)
+        binding.textBindingInline.text = getStringFromRes(R.string.combase_view_binding_inline)
     }
 }

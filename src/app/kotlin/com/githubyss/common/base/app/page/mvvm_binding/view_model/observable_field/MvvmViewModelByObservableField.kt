@@ -1,10 +1,10 @@
-package com.githubyss.mobile.common.kit.app.page.mvvm_binding.view_model.observable_field
+package com.githubyss.common.base.app.page.mvvm_binding.view_model.observable_field
 
 import androidx.databinding.ObservableArrayList
 import androidx.databinding.ObservableField
 import androidx.lifecycle.ViewModel
-import com.githubyss.mobile.common.kit.app.page.mvvm_binding.child.MvvmChildVm
-import com.githubyss.mobile.common.kit.app.page.mvvm_binding.enumeration.DisplayType
+import com.githubyss.common.base.app.page.mvvm_binding.child.MvvmChildVm
+import com.githubyss.common.base.app.page.mvvm_binding.enumeration.DisplayType
 
 
 /**

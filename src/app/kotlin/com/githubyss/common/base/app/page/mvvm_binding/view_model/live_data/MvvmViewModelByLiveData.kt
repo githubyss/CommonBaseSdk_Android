@@ -1,9 +1,9 @@
-package com.githubyss.mobile.common.kit.app.page.mvvm_binding.view_model.live_data
+package com.githubyss.common.base.app.page.mvvm_binding.view_model.live_data
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.githubyss.mobile.common.kit.app.page.mvvm_binding.child.MvvmChildVm
-import com.githubyss.mobile.common.kit.app.page.mvvm_binding.enumeration.DisplayType
+import com.githubyss.common.base.app.page.mvvm_binding.child.MvvmChildVm
+import com.githubyss.common.base.app.page.mvvm_binding.enumeration.DisplayType
 
 
 /**

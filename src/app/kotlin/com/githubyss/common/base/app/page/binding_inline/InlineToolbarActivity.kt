@@ -15,7 +15,7 @@ import com.githubyss.common.base.databinding.CombaseActivityBaseToolbarBinding
  */
 class InlineToolbarActivity : BaseInlineBindingToolbarActivity<CombaseActivityBaseToolbarBinding>() {
 
-    /** ****************************** Companion ****************************** */
+    /** ****************************** Object ****************************** */
 
     /**  */
     companion object {
@@ -31,6 +31,7 @@ class InlineToolbarActivity : BaseInlineBindingToolbarActivity<CombaseActivityBa
 
     /** ****************************** Override ****************************** */
 
+    /**  */
     override fun setupUi() {
         binding = _binding
         switchFragment(InlineToolbarFragment(), InlineToolbarFragment.TAG, FRAGMENT_BASE_TOOLBAR_CONTAINER_ID, false)
@@ -38,6 +39,6 @@ class InlineToolbarActivity : BaseInlineBindingToolbarActivity<CombaseActivityBa
 
     /**  */
     override fun setToolbarTitle() {
-        setToolbarTitle(R.string.comkit_view_binding_inline_toolbar_title)
+        setToolbarTitle(R.string.combase_view_binding_inline_toolbar_title)
     }
 }

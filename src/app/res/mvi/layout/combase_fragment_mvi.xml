@@ -6,11 +6,11 @@
 
     <data>
 
-        <import type="com.githubyss.mobile.common.kit.app.page.mvvm_binding.view_model.live_data.MvvmViewModelByLiveData" />
+        <import type="com.githubyss.common.base.app.page.mvvm_binding.view_model.live_data.MvvmViewModelByLiveData" />
 
         <variable
             name="mvvmVm"
-            type="com.githubyss.mobile.common.kit.app.page.mvvm_binding.view_model.live_data.MvvmViewModelByLiveData"
+            type="com.githubyss.common.base.app.page.mvvm_binding.view_model.live_data.MvvmViewModelByLiveData"
             />
     </data>
 
@@ -41,7 +41,7 @@
             android:id="@+id/buttonFetchUser"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/comkit_mvi_button_fetch_user"
+            android:text="@string/combase_mvi_button_fetch_user"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"

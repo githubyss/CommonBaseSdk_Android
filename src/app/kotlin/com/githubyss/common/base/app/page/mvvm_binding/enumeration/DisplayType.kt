@@ -1,4 +1,4 @@
-package com.githubyss.mobile.common.kit.app.page.mvvm_binding.enumeration
+package com.githubyss.common.base.app.page.mvvm_binding.enumeration
 
 import androidx.annotation.StringDef
 

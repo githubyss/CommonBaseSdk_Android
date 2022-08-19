@@ -3,8 +3,8 @@ package com.githubyss.common.base.app.page.binding_inline
 import com.githubyss.common.base.R
 import com.githubyss.common.base.activity_fragment.binding_inline.BaseInlineBindingToolbarFragment
 import com.githubyss.common.base.activity_fragment.binding_inline_root.bindView
-import com.githubyss.mobile.common.kit.databinding.ComkitFragmentViewBindingInlineBinding
-import com.githubyss.mobile.common.kit.util.getStringFromRes
+import com.githubyss.common.base.app.z_copy.getStringFromRes
+import com.githubyss.common.base.databinding.CombaseFragmentViewBindingInlineBinding
 
 
 /**
@@ -14,9 +14,9 @@ import com.githubyss.mobile.common.kit.util.getStringFromRes
  * @github githubyss
  * @createdTime 2021/06/04 14:52:55
  */
-class InlineToolbarFragment : BaseInlineBindingToolbarFragment<ComkitFragmentViewBindingInlineBinding>(R.layout.comkit_fragment_view_binding_inline) {
+class InlineToolbarFragment : BaseInlineBindingToolbarFragment<CombaseFragmentViewBindingInlineBinding>(R.layout.combase_fragment_view_binding_inline) {
 
-    /** ****************************** Companion ****************************** */
+    /** ****************************** Object ****************************** */
 
     /**  */
     companion object {
@@ -27,7 +27,7 @@ class InlineToolbarFragment : BaseInlineBindingToolbarFragment<ComkitFragmentVie
     /** ****************************** Properties ****************************** */
 
     /**  */
-    private val _binding by bindView<ComkitFragmentViewBindingInlineBinding>()
+    private val _binding by bindView<CombaseFragmentViewBindingInlineBinding>()
 
 
     /** ****************************** Override ****************************** */
@@ -35,10 +35,11 @@ class InlineToolbarFragment : BaseInlineBindingToolbarFragment<ComkitFragmentVie
     /**  */
     override fun setupUi() {
         binding = _binding
-        binding.textBindingInline.text = getStringFromRes(R.string.comkit_view_binding_inline_toolbar)
+        binding.textBindingInline.text = getStringFromRes(R.string.combase_view_binding_inline_toolbar)
     }
 
+    /**  */
     override fun setToolbarTitle() {
-        setToolbarTitle(R.string.comkit_view_binding_inline_toolbar_title)
+        setToolbarTitle(R.string.combase_view_binding_inline_toolbar_title)
     }
 }

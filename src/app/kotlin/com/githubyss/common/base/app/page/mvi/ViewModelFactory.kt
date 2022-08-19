@@ -1,4 +1,4 @@
-package com.githubyss.mobile.common.kit.app.page.mvi
+package com.githubyss.common.base.app.page.mvi
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider

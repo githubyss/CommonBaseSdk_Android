@@ -1,4 +1,4 @@
-package com.githubyss.mobile.common.kit.app.compose_ui
+package com.githubyss.common.base.app.compose_ui
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
@@ -13,12 +13,13 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.TextUnit
 import androidx.compose.ui.unit.dp
-import com.githubyss.mobile.common.kit.app.compose_ui.comui.TextColumn
+import com.githubyss.common.base.app.z_copy.comui.TextColumn
 import com.githubyss.mobile.common.res.common.color.xFF999999
 import com.githubyss.mobile.common.res.common.dimen.CornerRadiusMini
 import com.githubyss.mobile.common.res.common.dimen.FontSizeBig
 
 
+/**  */
 @Composable
 fun InfoDisplay(title: String) {
     TextColumn(

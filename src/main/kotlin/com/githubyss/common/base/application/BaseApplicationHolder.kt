@@ -5,7 +5,7 @@ import android.app.Application
 import android.content.Context
 import com.githubyss.common.base.lifecycle.registerLifecycle
 import com.githubyss.common.base.lifecycle.unregisterLifecycle
-import com.githubyss.common.base.util.getApplicationByReflect
+import com.githubyss.common.base.z_copy.getApplicationByReflect
 
 
 /**

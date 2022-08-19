@@ -6,7 +6,7 @@
 
         <variable
             name="onClickPresenter"
-            type="com.githubyss.mobile.common.kit.app.page.lifecycle.LifecycleNextFragment.OnClickPresenter"
+            type="com.githubyss.common.base.app.page.lifecycle.LifecycleNextFragment.OnClickPresenter"
             />
     </data>
 

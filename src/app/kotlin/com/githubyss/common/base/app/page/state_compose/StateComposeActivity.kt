@@ -1,13 +1,13 @@
-package com.githubyss.mobile.common.kit.app.page.state_compose
+package com.githubyss.common.base.app.page.state_compose
 
 import androidx.compose.runtime.*
 import androidx.compose.ui.unit.Dp
-import com.githubyss.mobile.common.kit.R
-import com.githubyss.mobile.common.kit.app.compose_ui.comui.ButtonClickBlueMargin
-import com.githubyss.mobile.common.kit.app.compose_ui.comui.PageSidePadding
-import com.githubyss.mobile.common.kit.app.compose_ui.comui.TopNavigationBar
+import com.githubyss.common.base.R
 import com.githubyss.common.base.activity_fragment.compose.BaseComposeToolbarActivity
-import com.githubyss.mobile.common.kit.util.getStringFromRes
+import com.githubyss.common.base.app.z_copy.comui.ButtonClickBlueMargin
+import com.githubyss.common.base.app.z_copy.comui.PageSidePadding
+import com.githubyss.common.base.app.z_copy.comui.TopNavigationBar
+import com.githubyss.common.base.app.z_copy.getStringFromRes
 import com.githubyss.mobile.common.res.common.dimen.SpaceNormal
 
 
@@ -22,26 +22,29 @@ class StateComposeActivity : BaseComposeToolbarActivity() {
 
     /** ****************************** Properties ****************************** */
 
+    /**  */
     companion object {
         private val TAG: String = StateComposeActivity::class.java.simpleName
     }
 
-    private val titleDefault = getStringFromRes(R.string.comkit_compose_toolbar_title)
+    private val titleDefault = getStringFromRes(R.string.combase_compose_toolbar_title)
 
-    private var title: String by mutableStateOf(titleDefault)
+    private var title by mutableStateOf(titleDefault)
     // private var title: MutableState<String> = mutableStateOf(TITLE)
 
-    private var count: Int by mutableStateOf(0)
+    private var count by mutableStateOf(0)
     // private var count: MutableState<Int> = mutableStateOf(0)
 
 
     /** ****************************** Override ****************************** */
 
+    /**  */
     @Composable
     override fun Toolbar() {
         TopNavigationBar(title) { onBackPressed() }
     }
 
+    /**  */
     @Composable
     override fun Content() {
         PageSidePadding(
@@ -56,6 +59,7 @@ class StateComposeActivity : BaseComposeToolbarActivity() {
 
     /** ****************************** Functions ****************************** */
 
+    /**  */
     @Composable
     private fun ChangeTitleButton() {
         ButtonClickBlueMargin(
@@ -66,6 +70,7 @@ class StateComposeActivity : BaseComposeToolbarActivity() {
         }
     }
 
+    /**  */
     @Composable
     private fun CounterButtonByCountOutside() {
         ButtonClickBlueMargin(
@@ -76,6 +81,7 @@ class StateComposeActivity : BaseComposeToolbarActivity() {
         }
     }
 
+    /**  */
     @Composable
     private fun CounterButtonByCountInside() {
         var count: Int by remember { mutableStateOf(0) }

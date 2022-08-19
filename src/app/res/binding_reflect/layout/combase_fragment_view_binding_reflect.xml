@@ -11,17 +11,17 @@
             android:layout_height="match_parent"
             android:background="@color/comres_layoutBg_lightGray"
             android:gravity="center"
-            android:orientation="horizontal"
+            android:orientation="vertical"
             >
 
         <TextView
                 style="@style/comres_tag_style_gray"
-                android:id="@+id/text_binding_inline"
+                android:id="@+id/text_binding_reflect"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:background="@color/comres_color_999999"
                 android:gravity="center"
-                android:text="@string/comkit_view_binding_inline_toolbar"
+                android:text="@string/combase_view_binding_reflect_toolbar"
                 android:textColor="@color/comres_color_black"
                 android:textSize="@dimen/comres_textSize_18sp"
                 />

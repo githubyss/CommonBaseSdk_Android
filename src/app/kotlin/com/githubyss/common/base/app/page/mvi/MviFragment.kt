@@ -1,4 +1,4 @@
-package com.githubyss.mobile.common.kit.app.page.mvi
+package com.githubyss.common.base.app.page.mvi
 
 import android.view.View
 import android.widget.Toast
@@ -7,10 +7,10 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.githubyss.common.base.R
 import com.githubyss.common.base.activity_fragment.binding_reflect_view_model.BaseReflectBindingViewModelToolbarFragment
-import com.githubyss.mobile.common.kit.R
-import com.githubyss.mobile.common.kit.app.page.mvi.model.User
-import com.githubyss.mobile.common.kit.databinding.ComkitFragmentMviBinding
+import com.githubyss.common.base.app.page.mvi.model.User
+import com.githubyss.common.base.databinding.CombaseFragmentMviBinding
 import kotlinx.coroutines.launch
 
 
@@ -21,7 +21,7 @@ import kotlinx.coroutines.launch
  * @github githubyss
  * @createdTime 2022/02/17 17:31:31
  */
-class MviFragment : BaseReflectBindingViewModelToolbarFragment<ComkitFragmentMviBinding>() {
+class MviFragment : BaseReflectBindingViewModelToolbarFragment<CombaseFragmentMviBinding>() {
 
     /** ****************************** Properties ****************************** */
 
@@ -51,19 +51,23 @@ class MviFragment : BaseReflectBindingViewModelToolbarFragment<ComkitFragmentMvi
         setupClicks()
     }
 
+    /**  */
     override fun setupData() {
         binding.recyclerView.adapter = adapter
         // this.homepageVm.viewId.value = 0
     }
 
+    /**  */
     override fun setToolbarTitle() {
-        setToolbarTitle(R.string.comkit_mvi_title)
+        setToolbarTitle(R.string.combase_mvi_title)
     }
 
+    /**  */
     override fun bindLifecycleOwner() {
         // binding.lifecycleOwner = viewLifecycleOwner
     }
 
+    /**  */
     override fun bindXmlData() {
         // binding.homepageVm = homepageVm
         mviViewModel = ViewModelProvider(
@@ -76,6 +80,7 @@ class MviFragment : BaseReflectBindingViewModelToolbarFragment<ComkitFragmentMvi
         ).get(MviViewModel::class.java)
     }
 
+    /**  */
     override fun observeViewModelData() {
         lifecycleScope.launch {
             mviViewModel.state.collect {
@@ -103,10 +108,12 @@ class MviFragment : BaseReflectBindingViewModelToolbarFragment<ComkitFragmentMvi
         }
     }
 
+    /**  */
     override fun removeViewModelObserver() {
         // this.mviViewModel.viewId.removeObservers(viewLifecycleOwner)
     }
 
+    /**  */
     override fun onHiddenChanged(hidden: Boolean) {
         super.onHiddenChanged(hidden)
         if (!hidden) {
@@ -117,6 +124,7 @@ class MviFragment : BaseReflectBindingViewModelToolbarFragment<ComkitFragmentMvi
 
     /** ****************************** Functions ****************************** */
 
+    /**  */
     private fun setupClicks() {
         binding.buttonFetchUser.setOnClickListener {
             lifecycleScope.launch {
@@ -125,6 +133,7 @@ class MviFragment : BaseReflectBindingViewModelToolbarFragment<ComkitFragmentMvi
         }
     }
 
+    /**  */
     private fun renderList(users: List<User>) {
         binding.recyclerView.visibility = View.VISIBLE
         users.let { listOfUsers -> listOfUsers.let { adapter.addData(it) } }
@@ -134,6 +143,7 @@ class MviFragment : BaseReflectBindingViewModelToolbarFragment<ComkitFragmentMvi
 
     /** ****************************** Implementations ****************************** */
 
+    /**  */
     private val vmObserverViewId = Observer<Int> { t ->
         when (t) {
         }

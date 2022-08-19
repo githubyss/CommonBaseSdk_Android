@@ -8,12 +8,12 @@
 
         <variable
             name="mvvmVm"
-            type="com.githubyss.mobile.common.kit.app.page.mvvm_binding.view_model.live_data.MvvmEdittextVmByLiveData"
+            type="com.githubyss.common.base.app.page.mvvm_binding.view_model.live_data.MvvmEdittextVmByLiveData"
             />
 
         <!--<variable-->
         <!--    name="mvvmVm"-->
-        <!--    type="com.githubyss.mobile.common.kit.app.page.mvvm_binding.view_model.observable_field.MvvmEdittextVmByObservableField"-->
+        <!--    type="com.githubyss.common.base.app.page.mvvm_binding.view_model.observable_field.MvvmEdittextVmByObservableField"-->
         <!--    />-->
     </data>
 

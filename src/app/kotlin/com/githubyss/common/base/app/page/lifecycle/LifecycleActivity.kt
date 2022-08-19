@@ -1,10 +1,10 @@
-package com.githubyss.mobile.common.kit.app.page.lifecycle
+package com.githubyss.common.base.app.page.lifecycle
 
 import android.os.Bundle
 import androidx.activity.viewModels
+import com.githubyss.common.base.R
 import com.githubyss.common.base.activity_fragment.binding_reflect_view_model.BaseReflectBindingViewModelToolbarActivity
 import com.githubyss.common.base.databinding.CombaseActivityBaseToolbarBinding
-import com.githubyss.mobile.common.kit.R
 
 
 /**
@@ -16,7 +16,7 @@ import com.githubyss.mobile.common.kit.R
  */
 class LifecycleActivity : BaseReflectBindingViewModelToolbarActivity<CombaseActivityBaseToolbarBinding>() {
 
-    /** ****************************** Companion ****************************** */
+    /** ****************************** Object ****************************** */
 
     /**  */
     companion object {
@@ -30,6 +30,7 @@ class LifecycleActivity : BaseReflectBindingViewModelToolbarActivity<CombaseActi
     // private val lifecycleVm by lazy { LifecycleSingletonViewModel }
     val lifecycleVm by viewModels<LifecycleViewModel>()
 
+    /**  */
     private var activityName = this::class.java.simpleName
 
 
@@ -42,7 +43,7 @@ class LifecycleActivity : BaseReflectBindingViewModelToolbarActivity<CombaseActi
 
     /**  */
     override fun setToolbarTitle() {
-        setToolbarTitle(R.string.comkit_lifecycle_title)
+        setToolbarTitle(R.string.combase_lifecycle_title)
     }
 
     /**
@@ -140,7 +141,4 @@ class LifecycleActivity : BaseReflectBindingViewModelToolbarActivity<CombaseActi
         val message = "$activityName > onDestroy"
         lifecycleVm.refreshLifecycleLog(message)
     }
-
-
-    /** ****************************** Functions ****************************** */
 }

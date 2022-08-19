@@ -1,6 +1,6 @@
-package com.githubyss.mobile.common.kit.app.page.mvvm_binding.enumeration
+package com.githubyss.common.base.app.page.mvvm_binding.enumeration
 
-import com.githubyss.mobile.common.kit.util.getStringFromRes
+import com.githubyss.common.base.app.z_copy.getStringFromRes
 import com.githubyss.mobile.common.res.R
 
 

@@ -1,4 +1,4 @@
-package com.githubyss.mobile.common.kit.app.page.mvi
+package com.githubyss.common.base.app.page.mvi
 
 import android.view.LayoutInflater
 import android.view.View
@@ -7,8 +7,8 @@ import android.widget.ImageView
 import androidx.appcompat.widget.AppCompatTextView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-import com.githubyss.mobile.common.kit.R
-import com.githubyss.mobile.common.kit.app.page.mvi.model.User
+import com.githubyss.common.base.R
+import com.githubyss.common.base.app.page.mvi.model.User
 
 
 class MviAdapter(private val users: ArrayList<User>) : RecyclerView.Adapter<MviAdapter.DataViewHolder>() {

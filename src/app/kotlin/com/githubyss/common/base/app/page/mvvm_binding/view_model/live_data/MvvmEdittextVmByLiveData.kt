@@ -1,4 +1,4 @@
-package com.githubyss.mobile.common.kit.app.page.mvvm_binding.view_model.live_data
+package com.githubyss.common.base.app.page.mvvm_binding.view_model.live_data
 
 import android.text.Editable
 import androidx.lifecycle.MutableLiveData

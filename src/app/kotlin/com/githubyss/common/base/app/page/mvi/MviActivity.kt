@@ -1,7 +1,6 @@
-package com.githubyss.mobile.common.kit.app.page.mvi
+package com.githubyss.common.base.app.page.mvi
 
 import com.githubyss.common.base.R
-import com.githubyss.mobile.common.kit.R
 import com.githubyss.common.base.activity_fragment.binding_reflect.BaseReflectBindingToolbarActivity
 import com.githubyss.common.base.databinding.CombaseActivityBaseToolbarBinding
 
@@ -17,6 +16,7 @@ class MviActivity : BaseReflectBindingToolbarActivity<CombaseActivityBaseToolbar
 
     /** ****************************** Properties ****************************** */
 
+    /**  */
     companion object {
         private val TAG: String = MviActivity::class.java.simpleName
     }
@@ -24,11 +24,13 @@ class MviActivity : BaseReflectBindingToolbarActivity<CombaseActivityBaseToolbar
 
     /** ****************************** Override ****************************** */
 
+    /**  */
     override fun setupUi() {
         switchFragment(MviFragment(), MviFragment.TAG, FRAGMENT_BASE_TOOLBAR_CONTAINER_ID, false)
     }
 
+    /**  */
     override fun setToolbarTitle() {
-        setToolbarTitle(R.string.comkit_mvi_title)
+        setToolbarTitle(R.string.combase_mvi_title)
     }
 }

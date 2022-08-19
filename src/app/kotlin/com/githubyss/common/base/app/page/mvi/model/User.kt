@@ -1,4 +1,4 @@
-package com.githubyss.mobile.common.kit.app.page.mvi.model
+package com.githubyss.common.base.app.page.mvi.model
 
 import com.squareup.moshi.Json
 

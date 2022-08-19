@@ -1,11 +1,11 @@
-package com.githubyss.mobile.common.kit.app.page.mvvm_compose.view_model
+package com.githubyss.common.base.app.page.mvvm_compose.view_model
 
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
 import androidx.lifecycle.ViewModel
-import com.githubyss.mobile.common.kit.R
-import com.githubyss.mobile.common.kit.util.getStringFromRes
+import com.githubyss.common.base.R
+import com.githubyss.common.base.app.z_copy.getStringFromRes
 
 
 /**
@@ -19,7 +19,8 @@ class MvvmComposeViewModelByState : ViewModel() {
 
     /** ****************************** Properties ****************************** */
 
-    private val titleDefault = getStringFromRes(R.string.comkit_compose_toolbar_title)
+    /**  */
+    private val titleDefault = getStringFromRes(R.string.combase_compose_toolbar_title)
 
     var title: String by mutableStateOf(titleDefault)
         private set
@@ -29,10 +30,12 @@ class MvvmComposeViewModelByState : ViewModel() {
 
     /** ****************************** Functions ****************************** */
 
+    /**  */
     fun changeTitle(title: String) {
         this.title = title
     }
 
+    /**  */
     fun plus() {
         this.count++
     }

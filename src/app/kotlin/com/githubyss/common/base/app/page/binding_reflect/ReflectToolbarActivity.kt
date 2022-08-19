@@ -1,6 +1,6 @@
-package com.githubyss.mobile.common.kit.app.page.binding_reflect
+package com.githubyss.common.base.app.page.binding_reflect
 
-import com.githubyss.mobile.common.kit.R
+import com.githubyss.common.base.R
 import com.githubyss.common.base.activity_fragment.binding_reflect.BaseReflectBindingToolbarActivity
 import com.githubyss.common.base.databinding.CombaseActivityBaseToolbarBinding
 
@@ -14,8 +14,9 @@ import com.githubyss.common.base.databinding.CombaseActivityBaseToolbarBinding
  */
 class ReflectToolbarActivity : BaseReflectBindingToolbarActivity<CombaseActivityBaseToolbarBinding>() {
 
-    /** ****************************** Properties ****************************** */
+    /** ****************************** Object ****************************** */
 
+    /**  */
     companion object {
         private val TAG: String = ReflectToolbarActivity::class.java.simpleName
     }
@@ -23,10 +24,12 @@ class ReflectToolbarActivity : BaseReflectBindingToolbarActivity<CombaseActivity
 
     /** ****************************** Override ****************************** */
 
+    /**  */
     override fun setToolbarTitle() {
-        setToolbarTitle(R.string.comkit_view_binding_reflect_toolbar_title)
+        setToolbarTitle(R.string.combase_view_binding_reflect_toolbar_title)
     }
 
+    /**  */
     override fun setupUi() {
         switchFragment(ReflectToolbarFragment(), ReflectToolbarFragment.TAG, FRAGMENT_BASE_TOOLBAR_CONTAINER_ID, false)
     }

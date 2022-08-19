@@ -20,7 +20,7 @@ import com.githubyss.common.base.activity_fragment.interface_default.BaseActivit
  */
 abstract class BaseDialogFragment(@LayoutRes layoutId: Int = 0) : DialogFragment(layoutId), BaseActivityFragmentInterface {
 
-    /** ****************************** Companion ****************************** */
+    /** ****************************** Object ****************************** */
 
     /**  */
     companion object {

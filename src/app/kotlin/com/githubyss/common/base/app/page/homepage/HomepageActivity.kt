@@ -1,4 +1,4 @@
-package com.githubyss.mobile.common.kit.app.page.homepage
+package com.githubyss.common.base.app.page.homepage
 
 import com.githubyss.common.base.activity_fragment.binding_reflect.BaseReflectBindingActivity
 import com.githubyss.common.base.databinding.CombaseActivityBaseBinding
@@ -15,6 +15,7 @@ class HomepageActivity : BaseReflectBindingActivity<CombaseActivityBaseBinding>(
 
     /** ****************************** Properties ****************************** */
 
+    /**  */
     companion object {
         private val TAG: String = HomepageActivity::class.java.simpleName
     }
@@ -22,6 +23,7 @@ class HomepageActivity : BaseReflectBindingActivity<CombaseActivityBaseBinding>(
 
     /** ****************************** Override ****************************** */
 
+    /**  */
     override fun setupUi() {
         switchFragment(HomepageComposeFragment(), HomepageComposeFragment.TAG, FRAGMENT_BASE_CONTAINER_ID, false)
     }

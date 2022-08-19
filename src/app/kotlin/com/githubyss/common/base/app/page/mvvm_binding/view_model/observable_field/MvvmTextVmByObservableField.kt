@@ -1,11 +1,11 @@
-package com.githubyss.mobile.common.kit.app.page.mvvm_binding.view_model.observable_field
+package com.githubyss.common.base.app.page.mvvm_binding.view_model.observable_field
 
 import androidx.databinding.ObservableField
 import androidx.lifecycle.ViewModel
-import com.githubyss.mobile.common.kit.app.page.mvvm_binding.enumeration.TimeOperateState
-import com.githubyss.mobile.common.kit.app.page.mvvm_binding.model.MvvmModel
-import com.githubyss.mobile.common.kit.util.cancelTimer
-import com.githubyss.mobile.common.kit.util.runTaskPeriodicallyWithTimeOffset
+import com.githubyss.common.base.app.page.mvvm_binding.enumeration.TimeOperateState
+import com.githubyss.common.base.app.page.mvvm_binding.model.MvvmModel
+import com.githubyss.common.base.app.z_copy.cancelTimer
+import com.githubyss.common.base.app.z_copy.runTaskPeriodicallyWithTimeOffset
 import java.util.*
 
 

@@ -2,6 +2,7 @@ package com.githubyss.common.base.application
 
 import android.app.Application
 import android.content.Context
+import androidx.core.os.TraceCompat
 import com.githubyss.common.base.lifecycle.registerLifecycle
 import com.githubyss.common.base.lifecycle.unregisterLifecycle
 import kotlin.properties.Delegates
@@ -16,7 +17,7 @@ import kotlin.properties.Delegates
  */
 abstract class BaseApplication : Application(), BaseApplicationInterface {
 
-    /** ****************************** Companion ****************************** */
+    /** ****************************** Object ****************************** */
 
     /**  */
     companion object {
@@ -56,6 +57,12 @@ abstract class BaseApplication : Application(), BaseApplicationInterface {
     /**  */
     override fun initCombase() {
         BaseApplicationHolder.init(instance)
+    }
+
+    /**  */
+    override fun initTrace() {
+        TraceCompat.beginSection("")
+        TraceCompat.endSection()
     }
 
 

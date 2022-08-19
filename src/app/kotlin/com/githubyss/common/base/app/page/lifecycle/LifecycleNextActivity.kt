@@ -1,8 +1,8 @@
-package com.githubyss.mobile.common.kit.app.page.lifecycle
+package com.githubyss.common.base.app.page.lifecycle
 
+import com.githubyss.common.base.R
 import com.githubyss.common.base.activity_fragment.binding_reflect.BaseReflectBindingToolbarActivity
 import com.githubyss.common.base.databinding.CombaseActivityBaseToolbarBinding
-import com.githubyss.mobile.common.kit.R
 
 
 /**
@@ -31,6 +31,6 @@ class LifecycleNextActivity : BaseReflectBindingToolbarActivity<CombaseActivityB
 
     /**  */
     override fun setToolbarTitle() {
-        setToolbarTitle(R.string.comkit_lifecycle_title)
+        setToolbarTitle(R.string.combase_lifecycle_title)
     }
 }

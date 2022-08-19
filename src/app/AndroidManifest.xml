@@ -20,7 +20,6 @@
         <activity
             android:name=".app.page.homepage.HomepageActivity"
             android:exported="true"
-            android:launchMode="singleTask"
             android:screenOrientation="portrait"
             android:theme="@style/comres_activity_noActionBar_theme"
             android:windowSoftInputMode="stateAlwaysHidden|adjustResize"
@@ -33,7 +32,6 @@
 
         <activity
             android:name=".app.page.mvvm_binding.MvvmActivity"
-            android:launchMode="singleTask"
             android:screenOrientation="portrait"
             android:theme="@style/comres_activity_noActionBar_theme"
             android:windowSoftInputMode="stateAlwaysHidden|adjustResize"
@@ -41,7 +39,6 @@
 
         <activity
             android:name=".app.page.mvvm_compose.MvvmComposeActivity"
-            android:launchMode="singleTask"
             android:screenOrientation="portrait"
             android:theme="@style/comres_activity_noActionBar_theme"
             android:windowSoftInputMode="stateAlwaysHidden|adjustResize"
@@ -49,7 +46,6 @@
 
         <activity
             android:name=".app.page.state_compose.StateComposeActivity"
-            android:launchMode="singleTask"
             android:screenOrientation="portrait"
             android:theme="@style/comres_activity_noActionBar_theme"
             android:windowSoftInputMode="stateAlwaysHidden|adjustResize"
@@ -57,7 +53,6 @@
 
         <activity
             android:name=".app.page.mvi.MviActivity"
-            android:launchMode="singleTask"
             android:screenOrientation="portrait"
             android:theme="@style/comres_activity_noActionBar_theme"
             android:windowSoftInputMode="stateAlwaysHidden|adjustResize"
@@ -65,7 +60,6 @@
 
         <activity
             android:name=".app.page.compose.ComposeActivity"
-            android:launchMode="singleTask"
             android:screenOrientation="portrait"
             android:theme="@style/comres_activity_noActionBar_theme"
             android:windowSoftInputMode="stateAlwaysHidden|adjustResize"
@@ -73,7 +67,6 @@
 
         <activity
             android:name=".app.page.compose.ComposeToolbarActivity"
-            android:launchMode="singleTask"
             android:screenOrientation="portrait"
             android:theme="@style/comres_activity_noActionBar_theme"
             android:windowSoftInputMode="stateAlwaysHidden|adjustResize"
@@ -81,7 +74,6 @@
 
         <activity
             android:name=".app.page.binding_reflect.ReflectActivity"
-            android:launchMode="singleTask"
             android:screenOrientation="portrait"
             android:theme="@style/comres_activity_noActionBar_theme"
             android:windowSoftInputMode="stateAlwaysHidden|adjustResize"
@@ -89,7 +81,6 @@
 
         <activity
             android:name="com.githubyss.common.base.app.page.binding_inline.InlineActivity"
-            android:launchMode="singleTask"
             android:screenOrientation="portrait"
             android:theme="@style/comres_activity_noActionBar_theme"
             android:windowSoftInputMode="stateAlwaysHidden|adjustResize"
@@ -97,7 +88,6 @@
 
         <activity
             android:name=".app.page.binding_reflect.ReflectToolbarActivity"
-            android:launchMode="singleTask"
             android:screenOrientation="portrait"
             android:theme="@style/comres_activity_noActionBar_theme"
             android:windowSoftInputMode="stateAlwaysHidden|adjustResize"
@@ -105,7 +95,6 @@
 
         <activity
             android:name="com.githubyss.common.base.app.page.binding_inline.InlineToolbarActivity"
-            android:launchMode="singleTask"
             android:screenOrientation="portrait"
             android:theme="@style/comres_activity_noActionBar_theme"
             android:windowSoftInputMode="stateAlwaysHidden|adjustResize"
@@ -113,7 +102,6 @@
 
         <activity
             android:name=".app.page.lifecycle.LifecycleActivity"
-            android:launchMode="singleTask"
             android:screenOrientation="portrait"
             android:theme="@style/comres_activity_noActionBar_theme"
             android:windowSoftInputMode="stateAlwaysHidden|adjustResize"
@@ -121,7 +109,6 @@
 
         <activity
             android:name=".app.page.lifecycle.LifecycleNextActivity"
-            android:launchMode="singleTask"
             android:screenOrientation="portrait"
             android:theme="@style/comres_activity_noActionBar_theme"
             android:windowSoftInputMode="stateAlwaysHidden|adjustResize"

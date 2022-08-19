@@ -1,6 +1,6 @@
-package com.githubyss.mobile.common.kit.app.page.mvi
+package com.githubyss.common.base.app.page.mvi
 
-import com.githubyss.mobile.common.kit.app.page.mvi.model.User
+import com.githubyss.common.base.app.page.mvi.model.User
 import retrofit2.http.GET
 
 

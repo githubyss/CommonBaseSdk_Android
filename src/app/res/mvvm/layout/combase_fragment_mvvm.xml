@@ -8,16 +8,16 @@
 
     <data>
 
-        <import type="com.githubyss.mobile.common.kit.app.page.mvvm_binding.enumeration.DisplayType" />
+        <import type="com.githubyss.common.base.app.page.mvvm_binding.enumeration.DisplayType" />
 
         <variable
             name="mvvmVm"
-            type="com.githubyss.mobile.common.kit.app.page.mvvm_binding.view_model.live_data.MvvmViewModelByLiveData"
+            type="com.githubyss.common.base.app.page.mvvm_binding.view_model.live_data.MvvmViewModelByLiveData"
             />
 
         <!--<variable-->
         <!--    name="mvvmVm"-->
-        <!--    type="com.githubyss.mobile.common.kit.app.page.mvvm_binding.view_model.observable_field.MvvmViewModelByObservableField"-->
+        <!--    type="com.githubyss.common.base.app.page.mvvm_binding.view_model.observable_field.MvvmViewModelByObservableField"-->
         <!--    />-->
     </data>
 
@@ -43,19 +43,19 @@
             <include
                 android:id="@+id/layout_text"
                 bind:isVisibleOrGone="@{mvvmVm.displayType == DisplayType.TEXT}"
-                layout="@layout/comkit_view_mvvm_text"
+                layout="@layout/combase_view_mvvm_text"
                 />
 
             <include
                 android:id="@+id/layout_image"
                 bind:isVisibleOrGone="@{mvvmVm.displayType == DisplayType.IMAGE}"
-                layout="@layout/comkit_view_mvvm_image"
+                layout="@layout/combase_view_mvvm_image"
                 />
 
             <include
                 android:id="@+id/layout_edittext"
                 bind:isVisibleOrGone="@{mvvmVm.displayType == DisplayType.EDITTEXT}"
-                layout="@layout/comkit_view_mvvm_edittext"
+                layout="@layout/combase_view_mvvm_edittext"
                 />
 
             <com.google.android.flexbox.FlexboxLayout style="@style/comres_equant_horizontal_flex_style">
@@ -64,21 +64,21 @@
                     style="@style/comres_equant_horizontal_button_style"
                     android:id="@+id/button_switch_text"
                     android:onClick="@{() -> mvvmVm.onButtonSwitchTextClick()}"
-                    android:text="@string/comkit_mvvm_button_switch_text"
+                    android:text="@string/combase_mvvm_button_switch_text"
                     />
 
                 <Button
                     style="@style/comres_equant_horizontal_button_style"
                     android:id="@+id/button_switch_image"
                     android:onClick="@{() -> mvvmVm.onButtonSwitchImageClick()}"
-                    android:text="@string/comkit_mvvm_button_switch_image"
+                    android:text="@string/combase_mvvm_button_switch_image"
                     />
 
                 <Button
                     style="@style/comres_equant_horizontal_button_style"
                     android:id="@+id/button_switch_edittext"
                     android:onClick="@{() -> mvvmVm.onButtonSwitchEdittextClick()}"
-                    android:text="@string/comkit_mvvm_button_switch_edittext"
+                    android:text="@string/combase_mvvm_button_switch_edittext"
                     />
             </com.google.android.flexbox.FlexboxLayout>
         </com.google.android.flexbox.FlexboxLayout>

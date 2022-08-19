@@ -1,6 +1,6 @@
-package com.githubyss.mobile.common.kit.app.page.mvvm_binding.model
+package com.githubyss.common.base.app.page.mvvm_binding.model
 
-import com.githubyss.mobile.common.kit.util.logE
+import com.githubyss.common.base.app.z_copy.logE
 import org.json.JSONException
 import org.json.JSONObject
 
@@ -22,6 +22,7 @@ interface MvvmModel {
 
         /** ****************************** Properties ****************************** */
 
+        /**  */
         companion object {
             val TAG: String = TextBean::class.java.simpleName
         }
@@ -31,6 +32,7 @@ interface MvvmModel {
 
         /** ****************************** Constructors ****************************** */
 
+        /**  */
         constructor()
 
         constructor(text: String) {
@@ -44,6 +46,7 @@ interface MvvmModel {
 
         /** ****************************** Functions ****************************** */
 
+        /**  */
         private fun setProperties(json: JSONObject?) {
             try {
                 json ?: return
@@ -61,6 +64,7 @@ interface MvvmModel {
 
         /** ****************************** Properties ****************************** */
 
+        /**  */
         companion object {
             val TAG: String = TextBean::class.java.simpleName
         }
@@ -70,6 +74,7 @@ interface MvvmModel {
 
         /** ****************************** Constructors ****************************** */
 
+        /**  */
         constructor()
 
         constructor(imageUrl: String) {
@@ -83,6 +88,7 @@ interface MvvmModel {
 
         /** ****************************** Functions ****************************** */
 
+        /**  */
         private fun setProperties(json: JSONObject?) {
             try {
                 json ?: return

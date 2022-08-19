@@ -130,23 +130,23 @@ android {
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
 
-    implementation project(':DesignPatternLibrary_Android')
-
     implementation dependenciesLib.androidx_appcompat
     implementation dependenciesLib.androidx_localbroadcastmanager
     implementation dependenciesLib.androidx_recyclerview
     implementation dependenciesLib.androidx_activity_compose
     implementation dependenciesLib.androidx_compose_material
-    // implementation dependenciesLib.androidx_lifecycle_runtime
-    // implementation dependenciesLib.androidx_lifecycle_viewmodel
+
+    debugImplementation dependenciesLib.leakcanary
 
     if (isLaunchApp) {
         appImplementation project(':CommonResSdk_Android')
 
+        appImplementation dependenciesLib.androidx_fragment_ktx
         appImplementation dependenciesLib.androidx_constraintlayout
-        appImplementation dependenciesLib.google_flexbox
 
+        appImplementation dependenciesLib.google_flexbox
         appImplementation dependenciesLib.google_gson
         appImplementation dependenciesLib.squareup_retrofit2_converter_moshi
+        appImplementation dependenciesLib.bumptech_glide
     }
 }

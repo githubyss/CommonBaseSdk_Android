@@ -1,10 +1,10 @@
-package com.githubyss.mobile.common.kit.app.page.mvvm_binding.view_model.live_data
+package com.githubyss.common.base.app.page.mvvm_binding.view_model.live_data
 
 import android.view.View
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.githubyss.mobile.common.kit.R
-import com.githubyss.mobile.common.kit.app.page.mvvm_binding.model.MvvmModel
+import com.githubyss.common.base.R
+import com.githubyss.common.base.app.page.mvvm_binding.model.MvvmModel
 
 
 /**

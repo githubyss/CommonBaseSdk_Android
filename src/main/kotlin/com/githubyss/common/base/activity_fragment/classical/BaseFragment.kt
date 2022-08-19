@@ -11,7 +11,7 @@ import androidx.fragment.app.Fragment
 import com.githubyss.common.base.activity_fragment.interface_default.BaseActivityFragmentInterface
 import com.githubyss.common.base.lifecycle.registerLifecycle
 import com.githubyss.common.base.lifecycle.unregisterLifecycle
-import com.githubyss.common.base.util.switchFragmentByAddHideShow
+import com.githubyss.common.base.z_copy.switchFragmentByAddHideShow
 
 
 /**
@@ -23,7 +23,7 @@ import com.githubyss.common.base.util.switchFragmentByAddHideShow
  */
 abstract class BaseFragment(@LayoutRes layoutId: Int = 0) : Fragment(layoutId), BaseActivityFragmentInterface {
 
-    /** ****************************** Companion ****************************** */
+    /** ****************************** Object ****************************** */
 
     /**  */
     companion object {

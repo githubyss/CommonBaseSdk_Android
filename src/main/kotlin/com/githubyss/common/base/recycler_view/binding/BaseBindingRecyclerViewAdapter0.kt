@@ -17,7 +17,7 @@ import androidx.recyclerview.widget.RecyclerView
  */
 abstract class BaseBindingRecyclerViewAdapter0<B : ViewDataBinding, D>() : RecyclerView.Adapter<BaseBindingRecyclerViewAdapter0<B, D>.BaseBindingViewHolder>() {
 
-    /** ****************************** Companion ****************************** */
+    /** ****************************** Object ****************************** */
 
     /**  */
     companion object {

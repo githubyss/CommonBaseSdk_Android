@@ -1,15 +1,14 @@
-package com.githubyss.mobile.common.kit.app.page.compose
+package com.githubyss.common.base.app.page.compose
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.Dp
 import com.githubyss.common.base.R
-import com.githubyss.mobile.common.kit.R
-import com.githubyss.mobile.common.kit.app.compose_ui.InfoDisplay
-import com.githubyss.mobile.common.kit.app.compose_ui.comui.PageSidePadding
 import com.githubyss.common.base.activity_fragment.compose.BaseComposeActivity
-import com.githubyss.mobile.common.kit.util.getStringFromRes
+import com.githubyss.common.base.app.compose_ui.InfoDisplay
+import com.githubyss.common.base.app.z_copy.comui.PageSidePadding
+import com.githubyss.common.base.app.z_copy.getStringFromRes
 import com.githubyss.mobile.common.res.common.dimen.SpaceNormal
 
 
@@ -24,6 +23,7 @@ class ComposeActivity : BaseComposeActivity() {
 
     /** ****************************** Properties ****************************** */
 
+    /**  */
     companion object {
         private val TAG: String = ComposeActivity::class.java.simpleName
     }
@@ -31,6 +31,7 @@ class ComposeActivity : BaseComposeActivity() {
 
     /** ****************************** Override ****************************** */
 
+    /**  */
     @Composable
     override fun Content() {
         PageSidePadding(
@@ -38,7 +39,7 @@ class ComposeActivity : BaseComposeActivity() {
             verticalArrangement = Arrangement.Center,
             paddingVertical = Dp.SpaceNormal,
         ) {
-            InfoDisplay(title = getStringFromRes(R.string.comkit_compose))
+            InfoDisplay(title = getStringFromRes(R.string.combase_compose))
         }
     }
 }

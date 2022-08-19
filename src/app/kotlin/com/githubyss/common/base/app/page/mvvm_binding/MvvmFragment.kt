@@ -1,22 +1,22 @@
-package com.githubyss.mobile.common.kit.app.page.mvvm_binding
+package com.githubyss.common.base.app.page.mvvm_binding
 
 import android.view.View
 import androidx.databinding.Observable
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
-import com.githubyss.mobile.common.kit.R
-import com.githubyss.mobile.common.kit.app.page.mvvm_binding.enumeration.DisplayType
-import com.githubyss.mobile.common.kit.app.page.mvvm_binding.view_model.live_data.MvvmEdittextVmByLiveData
-import com.githubyss.mobile.common.kit.app.page.mvvm_binding.view_model.live_data.MvvmImageVmByLiveData
-import com.githubyss.mobile.common.kit.app.page.mvvm_binding.view_model.live_data.MvvmTextVmByLiveData
-import com.githubyss.mobile.common.kit.app.page.mvvm_binding.view_model.live_data.MvvmViewModelByLiveData
-import com.githubyss.mobile.common.kit.app.page.mvvm_binding.view_model.observable_field.MvvmEdittextVmByObservableField
-import com.githubyss.mobile.common.kit.app.page.mvvm_binding.view_model.observable_field.MvvmImageVmByObservableField
-import com.githubyss.mobile.common.kit.app.page.mvvm_binding.view_model.observable_field.MvvmTextVmByObservableField
-import com.githubyss.mobile.common.kit.app.page.mvvm_binding.view_model.observable_field.MvvmViewModelByObservableField
+import com.githubyss.common.base.R
 import com.githubyss.common.base.activity_fragment.binding_reflect_view_model.BaseReflectBindingViewModelToolbarFragment
-import com.githubyss.mobile.common.kit.databinding.ComkitFragmentMvvmBinding
-import com.githubyss.mobile.common.kit.util.logD
+import com.githubyss.common.base.app.page.mvvm_binding.enumeration.DisplayType
+import com.githubyss.common.base.app.page.mvvm_binding.view_model.live_data.MvvmEdittextVmByLiveData
+import com.githubyss.common.base.app.page.mvvm_binding.view_model.live_data.MvvmImageVmByLiveData
+import com.githubyss.common.base.app.page.mvvm_binding.view_model.live_data.MvvmTextVmByLiveData
+import com.githubyss.common.base.app.page.mvvm_binding.view_model.live_data.MvvmViewModelByLiveData
+import com.githubyss.common.base.app.page.mvvm_binding.view_model.observable_field.MvvmEdittextVmByObservableField
+import com.githubyss.common.base.app.page.mvvm_binding.view_model.observable_field.MvvmImageVmByObservableField
+import com.githubyss.common.base.app.page.mvvm_binding.view_model.observable_field.MvvmTextVmByObservableField
+import com.githubyss.common.base.app.page.mvvm_binding.view_model.observable_field.MvvmViewModelByObservableField
+import com.githubyss.common.base.app.z_copy.logD
+import com.githubyss.common.base.databinding.CombaseFragmentMvvmBinding
 
 
 /**
@@ -26,7 +26,7 @@ import com.githubyss.mobile.common.kit.util.logD
  * @github githubyss
  * @createdTime 2021/06/10 11:18:21
  */
-class MvvmFragment : BaseReflectBindingViewModelToolbarFragment<ComkitFragmentMvvmBinding>() {
+class MvvmFragment : BaseReflectBindingViewModelToolbarFragment<CombaseFragmentMvvmBinding>() {
 
     /** ****************************** Properties ****************************** */
 
@@ -52,7 +52,7 @@ class MvvmFragment : BaseReflectBindingViewModelToolbarFragment<ComkitFragmentMv
 
     /**  */
     override fun setToolbarTitle() {
-        setToolbarTitle(R.string.comkit_mvvm_title)
+        setToolbarTitle(R.string.combase_mvvm_title)
     }
 
     /**  */

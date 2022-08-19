@@ -1,4 +1,4 @@
-package com.githubyss.mobile.common.kit.app.page.mvi
+package com.githubyss.common.base.app.page.mvi
 
 import retrofit2.Retrofit
 import retrofit2.converter.moshi.MoshiConverterFactory

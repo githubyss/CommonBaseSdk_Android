@@ -9,12 +9,12 @@
 
         <!--<variable-->
         <!--    name="mvvmVm"-->
-        <!--    type="com.githubyss.mobile.common.kit.app.page.mvvm_binding.view_model.live_data.MvvmImageVmByLiveData"-->
+        <!--    type="com.githubyss.common.base.app.page.mvvm_binding.view_model.live_data.MvvmImageVmByLiveData"-->
         <!--    />-->
 
         <variable
             name="mvvmVm"
-            type="com.githubyss.mobile.common.kit.app.page.mvvm_binding.view_model.observable_field.MvvmImageVmByObservableField"
+            type="com.githubyss.common.base.app.page.mvvm_binding.view_model.observable_field.MvvmImageVmByObservableField"
             />
     </data>
 
@@ -43,21 +43,21 @@
                 style="@style/comres_equant_horizontal_button_style"
                 android:id="@+id/button_image_dog"
                 android:onClick="@{mvvmVm::onButtonImageClick}"
-                android:text="@string/comkit_mvvm_button_dog"
+                android:text="@string/combase_mvvm_button_dog"
                 />
 
             <Button
                 style="@style/comres_equant_horizontal_button_style"
                 android:id="@+id/button_image_cat"
                 android:onClick="@{mvvmVm::onButtonImageClick}"
-                android:text="@string/comkit_mvvm_button_cat"
+                android:text="@string/combase_mvvm_button_cat"
                 />
 
             <Button
                 style="@style/comres_equant_horizontal_button_style"
                 android:id="@+id/button_image_chameleon"
                 android:onClick="@{mvvmVm::onButtonImageClick}"
-                android:text="@string/comkit_mvvm_button_chameleon"
+                android:text="@string/combase_mvvm_button_chameleon"
                 />
         </com.google.android.flexbox.FlexboxLayout>
     </com.google.android.flexbox.FlexboxLayout>

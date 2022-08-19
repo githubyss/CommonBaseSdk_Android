@@ -1,4 +1,4 @@
-package com.githubyss.mobile.common.kit.app.compose_ui.comui
+package com.githubyss.common.base.app.z_copy.comui
 
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier

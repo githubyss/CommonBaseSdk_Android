@@ -1,4 +1,4 @@
-package com.githubyss.mobile.common.kit.app.page.binding_reflect
+package com.githubyss.common.base.app.page.binding_reflect
 
 import com.githubyss.common.base.activity_fragment.binding_reflect.BaseReflectBindingActivity
 import com.githubyss.common.base.databinding.CombaseActivityBaseBinding
@@ -13,8 +13,9 @@ import com.githubyss.common.base.databinding.CombaseActivityBaseBinding
  */
 class ReflectActivity : BaseReflectBindingActivity<CombaseActivityBaseBinding>() {
 
-    /** ****************************** Properties ****************************** */
+    /** ****************************** Object ****************************** */
 
+    /**  */
     companion object {
         private val TAG: String = ReflectActivity::class.java.simpleName
     }
@@ -22,6 +23,7 @@ class ReflectActivity : BaseReflectBindingActivity<CombaseActivityBaseBinding>()
 
     /** ****************************** Override ****************************** */
 
+    /**  */
     override fun setupUi() {
         switchFragment(ReflectFragment(), ReflectFragment.TAG, FRAGMENT_BASE_CONTAINER_ID, false)
     }

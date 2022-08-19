@@ -14,7 +14,7 @@ import com.githubyss.common.base.databinding.CombaseActivityBaseBinding
  */
 class InlineActivity : BaseInlineBindingActivity<CombaseActivityBaseBinding>() {
 
-    /** ****************************** Companion ****************************** */
+    /** ****************************** Object ****************************** */
 
     /**  */
     companion object {

@@ -1,4 +1,4 @@
-package com.githubyss.mobile.common.kit.app.page.lifecycle
+package com.githubyss.common.base.app.page.lifecycle
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel

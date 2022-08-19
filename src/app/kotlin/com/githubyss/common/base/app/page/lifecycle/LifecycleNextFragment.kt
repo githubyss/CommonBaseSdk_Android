@@ -1,9 +1,9 @@
-package com.githubyss.mobile.common.kit.app.page.lifecycle
+package com.githubyss.common.base.app.page.lifecycle
 
 import android.view.View
-import com.githubyss.mobile.common.kit.R
+import com.githubyss.common.base.R
 import com.githubyss.common.base.activity_fragment.binding_reflect_view_model.BaseReflectBindingViewModelToolbarFragment
-import com.githubyss.mobile.common.kit.databinding.ComkitFragmentLifecycleNextBinding
+import com.githubyss.common.base.databinding.CombaseFragmentLifecycleNextBinding
 
 
 /**
@@ -13,9 +13,9 @@ import com.githubyss.mobile.common.kit.databinding.ComkitFragmentLifecycleNextBi
  * @github githubyss
  * @createdTime 2022/02/15 10:40:03
  */
-class LifecycleNextFragment : BaseReflectBindingViewModelToolbarFragment<ComkitFragmentLifecycleNextBinding>() {
+class LifecycleNextFragment : BaseReflectBindingViewModelToolbarFragment<CombaseFragmentLifecycleNextBinding>() {
 
-    /** ****************************** Companion ****************************** */
+    /** ****************************** Object ****************************** */
 
     /**  */
     companion object {
@@ -33,7 +33,7 @@ class LifecycleNextFragment : BaseReflectBindingViewModelToolbarFragment<ComkitF
 
     /**  */
     override fun setToolbarTitle() {
-        setToolbarTitle(R.string.comkit_lifecycle_title)
+        setToolbarTitle(R.string.combase_lifecycle_title)
     }
 
     /**  */

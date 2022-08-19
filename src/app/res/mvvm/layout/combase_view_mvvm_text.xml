@@ -9,12 +9,12 @@
 
         <variable
             name="mvvmVm"
-            type="com.githubyss.mobile.common.kit.app.page.mvvm_binding.view_model.live_data.MvvmTextVmByLiveData"
+            type="com.githubyss.common.base.app.page.mvvm_binding.view_model.live_data.MvvmTextVmByLiveData"
             />
 
         <!--<variable-->
         <!--    name="mvvmVm"-->
-        <!--    type="com.githubyss.mobile.common.kit.app.page.mvvm_binding.view_model.observable_field.MvvmTextVmByObservableField"-->
+        <!--    type="com.githubyss.common.base.app.page.mvvm_binding.view_model.observable_field.MvvmTextVmByObservableField"-->
         <!--    />-->
     </data>
 
@@ -55,13 +55,13 @@
             <Button
                 style="@style/comres_equant_horizontal_button_style"
                 android:onClick="@{() -> mvvmVm.onButtonShowTimeTextClick()}"
-                android:text="@string/comkit_mvvm_button_show_time"
+                android:text="@string/combase_mvvm_button_show_time"
                 />
 
             <Button
                 style="@style/comres_equant_horizontal_button_style"
                 android:onClick="@{() -> mvvmVm.onButtonHideTimeTextClick()}"
-                android:text="@string/comkit_mvvm_button_hide_time"
+                android:text="@string/combase_mvvm_button_hide_time"
                 />
         </com.google.android.flexbox.FlexboxLayout>
     </com.google.android.flexbox.FlexboxLayout>

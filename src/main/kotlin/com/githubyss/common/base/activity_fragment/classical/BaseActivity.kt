@@ -10,7 +10,7 @@ import com.githubyss.common.base.R
 import com.githubyss.common.base.activity_fragment.interface_default.BaseActivityFragmentInterface
 import com.githubyss.common.base.lifecycle.registerLifecycle
 import com.githubyss.common.base.lifecycle.unregisterLifecycle
-import com.githubyss.common.base.util.switchFragmentByAddHideShow
+import com.githubyss.common.base.z_copy.switchFragmentByAddHideShow
 
 
 /**
@@ -37,7 +37,7 @@ import com.githubyss.common.base.util.switchFragmentByAddHideShow
  */
 abstract class BaseActivity(@LayoutRes layoutId: Int = 0) : AppCompatActivity(layoutId), BaseActivityFragmentInterface {
 
-    /** ****************************** Companion ****************************** */
+    /** ****************************** Object ****************************** */
 
     /**  */
     companion object {

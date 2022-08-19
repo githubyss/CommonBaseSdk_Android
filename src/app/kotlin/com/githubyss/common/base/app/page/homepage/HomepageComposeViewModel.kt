@@ -1,11 +1,11 @@
-package com.githubyss.mobile.common.kit.app.page.homepage
+package com.githubyss.common.base.app.page.homepage
 
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
 import androidx.lifecycle.ViewModel
-import com.githubyss.mobile.common.kit.R
-import com.githubyss.mobile.common.kit.util.getStringFromRes
+import com.githubyss.common.base.R
+import com.githubyss.common.base.app.z_copy.getStringFromRes
 
 
 /**
@@ -19,7 +19,8 @@ class HomepageComposeViewModel : ViewModel() {
 
     /** ****************************** Properties ****************************** */
 
-    private val titleDefault = getStringFromRes(R.string.comkit_homepage_title)
+    /**  */
+    private val titleDefault = getStringFromRes(R.string.combase_homepage_title)
 
     /** 数据绑定，绑定到 UI 的字段（data field） */
     var title: String by mutableStateOf(titleDefault)
@@ -28,6 +29,7 @@ class HomepageComposeViewModel : ViewModel() {
 
     /** ****************************** Functions ****************************** */
 
+    /**  */
     fun changeTitle(title: String) {
         this.title = title
     }

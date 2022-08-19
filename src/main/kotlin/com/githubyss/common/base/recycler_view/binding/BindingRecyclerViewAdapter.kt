@@ -17,7 +17,7 @@ import com.githubyss.common.base.BR
  */
 class BindingRecyclerViewAdapter() : RecyclerView.Adapter<BindingRecyclerViewAdapter.BindingViewHolder>() {
 
-    /** ****************************** Companion ****************************** */
+    /** ****************************** Object ****************************** */
 
     /**  */
     companion object {
