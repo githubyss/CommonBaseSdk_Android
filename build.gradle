@@ -118,10 +118,12 @@ android {
         }
     }
 
+    /** Binding 基类需要 */
     dataBinding {
         enabled feature.isDataBindingEnabled
     }
 
+    /** Compose 基类需要 */
     buildFeatures {
         compose feature.isComposeEnabled
     }
@@ -131,9 +133,9 @@ dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
 
     implementation dependenciesLib.androidx_appcompat
+    implementation dependenciesLib.androidx_activity_compose
     implementation dependenciesLib.androidx_localbroadcastmanager
     implementation dependenciesLib.androidx_recyclerview
-    implementation dependenciesLib.androidx_activity_compose
     implementation dependenciesLib.androidx_compose_material
 
     debugImplementation dependenciesLib.leakcanary
