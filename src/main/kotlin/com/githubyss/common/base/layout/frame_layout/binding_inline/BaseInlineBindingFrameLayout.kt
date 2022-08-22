@@ -1,4 +1,4 @@
-package com.githubyss.common.base.frame_layout.binding_inline
+package com.githubyss.common.base.layout.frame_layout.binding_inline
 
 import android.content.Context
 import android.util.AttributeSet

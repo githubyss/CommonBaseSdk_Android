@@ -1,9 +1,9 @@
-package com.githubyss.common.base.frame_layout.binding_inline
+package com.githubyss.common.base.layout.frame_layout.binding_inline
 
 import android.content.Context
 import android.util.AttributeSet
 import androidx.databinding.ViewDataBinding
-import com.githubyss.common.base.frame_layout.classical.BaseFrameLayout
+import com.githubyss.common.base.layout.frame_layout.classical.BaseFrameLayout
 
 
 /**

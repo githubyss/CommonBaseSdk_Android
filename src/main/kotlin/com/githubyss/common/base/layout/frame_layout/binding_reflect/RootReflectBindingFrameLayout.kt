@@ -1,11 +1,11 @@
-package com.githubyss.common.base.frame_layout.binding_reflect
+package com.githubyss.common.base.layout.frame_layout.binding_reflect
 
 import android.content.Context
 import android.util.AttributeSet
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.databinding.ViewDataBinding
-import com.githubyss.common.base.frame_layout.classical.BaseFrameLayout
+import com.githubyss.common.base.layout.frame_layout.classical.BaseFrameLayout
 import java.lang.reflect.InvocationTargetException
 import java.lang.reflect.Method
 import java.lang.reflect.ParameterizedType
