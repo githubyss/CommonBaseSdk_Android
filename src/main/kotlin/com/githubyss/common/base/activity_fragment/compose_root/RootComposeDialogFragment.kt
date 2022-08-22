@@ -5,18 +5,19 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.compose.ui.platform.ComposeView
+import com.githubyss.common.base.activity_fragment.classical.BaseDialogFragment
 import com.githubyss.common.base.activity_fragment.classical.BaseFragment
 import com.githubyss.common.base.activity_fragment.interface_default.BaseComposeInterface
 
 
 /**
- * RootComposeFragment
+ * RootComposeDialogFragment
  *
  * @author Ace Yan
  * @github githubyss
- * @createdTime 2022/02/22 15:51:20
+ * @createdTime 2022/08/22 10:58:02
  */
-abstract class RootComposeFragment : BaseFragment(), BaseComposeInterface {
+abstract class RootComposeDialogFragment : BaseDialogFragment(), BaseComposeInterface {
 
     /** ****************************** Override ****************************** */
 

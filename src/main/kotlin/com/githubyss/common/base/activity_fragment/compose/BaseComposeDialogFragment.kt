@@ -5,13 +5,13 @@ import com.githubyss.common.base.activity_fragment.compose_root.RootComposeFragm
 
 
 /**
- * BaseComposeFragment
+ * BaseComposeDialogFragment
  *
  * @author Ace Yan
  * @github githubyss
- * @createdTime 2022/02/22 15:54:36
+ * @createdTime 2022/08/22 10:56:29
  */
-abstract class BaseComposeFragment : RootComposeFragment() {
+abstract class BaseComposeDialogFragment : RootComposeFragment() {
 
     /** ****************************** Override ****************************** */
 
