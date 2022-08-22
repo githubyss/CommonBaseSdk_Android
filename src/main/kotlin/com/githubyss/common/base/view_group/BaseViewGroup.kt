@@ -1,25 +1,25 @@
-package com.githubyss.common.base.frame_layout.classical
+package com.githubyss.common.base.view_group
 
 import android.content.Context
 import android.graphics.Canvas
 import android.util.AttributeSet
-import android.widget.FrameLayout
+import android.view.ViewGroup
 
 
 /**
- * BaseFrameLayout
+ * BaseViewGroup
  *
  * @author Ace Yan
  * @github githubyss
- * @createdTime 2022/08/10 13:37:26
+ * @createdTime 2022/08/22 16:53:51
  */
-abstract class BaseFrameLayout @JvmOverloads constructor(context: Context, attrs: AttributeSet? = null, defStyleAttr: Int = 0) : FrameLayout(context, attrs, defStyleAttr) {
+abstract class BaseViewGroup @JvmOverloads constructor(context: Context, attrs: AttributeSet? = null, defStyleAttr: Int = 0) : ViewGroup(context, attrs, defStyleAttr) {
 
     /** ****************************** Object ****************************** */
 
     /**  */
     companion object {
-        val TAG: String = BaseFrameLayout::class.java.simpleName
+        val TAG: String = BaseViewGroup::class.java.simpleName
     }
 
 
@@ -27,7 +27,6 @@ abstract class BaseFrameLayout @JvmOverloads constructor(context: Context, attrs
 
     /**  */
     private var thisClassName = this::class.java.simpleName
-
 
     /** ****************************** Override ****************************** */
 
@@ -49,7 +48,7 @@ abstract class BaseFrameLayout @JvmOverloads constructor(context: Context, attrs
 
     /**  */
     override fun onLayout(changed: Boolean, left: Int, top: Int, right: Int, bottom: Int) {
-        super.onLayout(changed, left, top, right, bottom)
+        // super.onLayout(changed, left, top, right, bottom)
 
         val message = "$thisClassName > onLayout {changed:$changed, left:$left, top:$top, right:$right, bottom:$bottom}"
         println("$TAG $message")
