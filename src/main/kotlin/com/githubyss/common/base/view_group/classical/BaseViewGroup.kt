@@ -1,4 +1,4 @@
-package com.githubyss.common.base.view_group
+package com.githubyss.common.base.view_group.classical
 
 import android.content.Context
 import android.graphics.Canvas
@@ -13,6 +13,7 @@ import android.view.ViewGroup
  * @github githubyss
  * @createdTime 2022/08/22 16:53:51
  */
+@Deprecated("ViewGroup 方案无法渲染出来布局")
 abstract class BaseViewGroup @JvmOverloads constructor(context: Context, attrs: AttributeSet? = null, defStyleAttr: Int = 0) : ViewGroup(context, attrs, defStyleAttr) {
 
     /** ****************************** Object ****************************** */
@@ -27,6 +28,7 @@ abstract class BaseViewGroup @JvmOverloads constructor(context: Context, attrs: 
 
     /**  */
     private var thisClassName = this::class.java.simpleName
+
 
     /** ****************************** Override ****************************** */
 

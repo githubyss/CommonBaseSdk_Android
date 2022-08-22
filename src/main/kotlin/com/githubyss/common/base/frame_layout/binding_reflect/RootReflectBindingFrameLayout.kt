@@ -1,13 +1,10 @@
-package com.githubyss.common.base.view_group
+package com.githubyss.common.base.frame_layout.binding_reflect
 
 import android.content.Context
 import android.util.AttributeSet
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import android.widget.FrameLayout
 import androidx.databinding.ViewDataBinding
-import androidx.viewbinding.ViewBinding
-import com.githubyss.common.base.activity_fragment.classical.BaseFragment
 import com.githubyss.common.base.frame_layout.classical.BaseFrameLayout
 import java.lang.reflect.InvocationTargetException
 import java.lang.reflect.Method
@@ -15,13 +12,13 @@ import java.lang.reflect.ParameterizedType
 
 
 /**
- * RootReflectBindingViewGroup
+ * RootReflectBindingFrameLayout
  *
  * @author Ace Yan
  * @github githubyss
- * @createdTime 2022/08/22 16:58:04
+ * @createdTime 2021/04/08 11:39:37
  */
-abstract class RootReflectBindingViewGroup<B : ViewDataBinding> @Suppress("LeakingThis") @JvmOverloads constructor(context: Context, attrs: AttributeSet? = null, defStyleAttr: Int = 0) : BaseViewGroup(context, attrs, defStyleAttr) {
+abstract class RootReflectBindingFrameLayout<B : ViewDataBinding> @Suppress("LeakingThis") @JvmOverloads constructor(context: Context, attrs: AttributeSet? = null, defStyleAttr: Int = 0) : BaseFrameLayout(context, attrs, defStyleAttr) {
 
     /** ****************************** Properties ****************************** */
 

@@ -3,8 +3,6 @@ package com.githubyss.common.base.frame_layout.binding_reflect
 import android.content.Context
 import android.util.AttributeSet
 import androidx.databinding.ViewDataBinding
-import androidx.viewbinding.ViewBinding
-import com.githubyss.common.base.frame_layout.binding_reflect_root.RootReflectBindingFrameLayout
 
 
 /**

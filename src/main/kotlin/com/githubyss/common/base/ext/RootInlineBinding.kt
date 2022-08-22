@@ -1,24 +1,36 @@
-package com.githubyss.common.base.activity_fragment.binding_inline_root
+package com.githubyss.common.base.ext
 
 import android.app.Activity
 import android.view.View
+import android.view.ViewGroup
+import android.widget.FrameLayout
 import androidx.databinding.ViewDataBinding
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.LifecycleObserver
 import androidx.lifecycle.OnLifecycleEvent
+import androidx.recyclerview.widget.RecyclerView
+import androidx.viewbinding.ViewBinding
 import com.githubyss.common.base.ext.inflateBindingByLayoutInflater
+import com.githubyss.common.base.recycler_view.binding_inline_root.RootInlineBindingViewHolder
 import kotlin.properties.ReadOnlyProperty
 import kotlin.reflect.KProperty
 
 
+/**
+ * 通过 ViewGroup 获取 binding
+ */
+inline fun <reified B : ViewDataBinding> inflate(parent: ViewGroup): Lazy<B> {
+    return lazy { inflateBindingByViewGroup<B>(parent) }
+}
+
+/** 通过 LayoutInflater 获取 Activity 的 binding */
 inline fun <reified B : ViewDataBinding> Activity.inflate(): Lazy<B> {
     return lazy { inflateBindingByLayoutInflater<B>(layoutInflater).apply { setContentView(root) } }
 }
 
-
+/** 获取 Fragment 的 binding */
 inline fun <reified B : ViewDataBinding> Fragment.bindView() = FragmentBindingDelegate(B::class.java)
-
 class FragmentBindingDelegate<B : ViewDataBinding>(private val clazz: Class<B>) : ReadOnlyProperty<Fragment, B> {
     private lateinit var _binding: B
     private val binding get() = _binding
