@@ -19,10 +19,10 @@ import com.githubyss.common.base.app.page.mvvm_binding.MvvmActivity
 import com.githubyss.common.base.app.page.mvvm_binding.MvvmFragment
 import com.githubyss.common.base.app.page.mvvm_compose.MvvmComposeActivity
 import com.githubyss.common.base.app.page.state_compose.StateComposeActivity
-import com.githubyss.common.base.app.z_copy.comui.ButtonClickBlueWeightHorizontal
-import com.githubyss.common.base.app.z_copy.comui.LayoutWeightHorizontal
-import com.githubyss.common.base.app.z_copy.comui.PageSidePadding
-import com.githubyss.common.base.app.z_copy.comui.TopNavigationBar
+import com.githubyss.common.base.app.z_copy.compose_ui.ButtonClickBlueWeightHorizontal
+import com.githubyss.common.base.app.z_copy.compose_ui.LayoutWeightHorizontal
+import com.githubyss.common.base.app.z_copy.compose_ui.PageSidePadding
+import com.githubyss.common.base.app.z_copy.compose_ui.TopNavigationBar
 import com.githubyss.common.base.app.z_copy.getStringFromRes
 import com.githubyss.common.base.app.z_copy.startActivityExt
 import com.githubyss.common.base.z_copy.switchFragmentByAddHideShow
@@ -46,7 +46,7 @@ class HomepageComposeFragment : BaseComposeToolbarFragment() {
     }
 
     /**  */
-    private val homepageVm: HomepageComposeViewModel by viewModels()
+    private val homepageVm by viewModels<HomepageComposeViewModel>()
 
 
     /** ****************************** Override ****************************** */
@@ -73,42 +73,6 @@ class HomepageComposeFragment : BaseComposeToolbarFragment() {
     /**  */
     @Composable
     private fun Buttons() {
-        ButtonClickBlueWeightHorizontal(
-            text = getStringFromRes(R.string.combase_homepage_button_lifecycle),
-        ) {
-            startActivityExt(activity, LifecycleActivity::class.java)
-        }
-        LayoutWeightHorizontal {
-            ButtonClickBlueWeightHorizontal(
-                text = getStringFromRes(R.string.combase_homepage_button_mvvm_activity),
-                modifier = Modifier.weight(1F),
-            ) {
-                startActivityExt(activity, MvvmActivity::class.java)
-            }
-            ButtonClickBlueWeightHorizontal(
-                text = getStringFromRes(R.string.combase_homepage_button_mvvm_fragment),
-                modifier = Modifier.weight(1F),
-            ) {
-                switchFragmentByAddHideShow(MvvmFragment(), MvvmFragment.TAG, this, parentFragmentManager, BaseActivity.FRAGMENT_BASE_CONTAINER_ID, true)
-            }
-        }
-        ButtonClickBlueWeightHorizontal(text = getStringFromRes(R.string.combase_homepage_button_mvi)) {
-            startActivityExt(activity, MviActivity::class.java)
-        }
-        LayoutWeightHorizontal {
-            ButtonClickBlueWeightHorizontal(
-                text = getStringFromRes(R.string.combase_homepage_button_mvvm_compose),
-                modifier = Modifier.weight(1F)
-            ) {
-                startActivityExt(activity, MvvmComposeActivity::class.java)
-            }
-            ButtonClickBlueWeightHorizontal(
-                text = getStringFromRes(R.string.combase_homepage_button_state_compose),
-                modifier = Modifier.weight(1F)
-            ) {
-                startActivityExt(activity, StateComposeActivity::class.java)
-            }
-        }
         LayoutWeightHorizontal {
             ButtonClickBlueWeightHorizontal(
                 text = getStringFromRes(R.string.combase_homepage_button_compose),
@@ -152,6 +116,42 @@ class HomepageComposeFragment : BaseComposeToolbarFragment() {
             ) {
                 startActivityExt(activity, InlineToolbarActivity::class.java)
             }
+        }
+        LayoutWeightHorizontal {
+            ButtonClickBlueWeightHorizontal(
+                text = getStringFromRes(R.string.combase_homepage_button_mvvm_binding_activity),
+                modifier = Modifier.weight(1F),
+            ) {
+                startActivityExt(activity, MvvmActivity::class.java)
+            }
+            ButtonClickBlueWeightHorizontal(
+                text = getStringFromRes(R.string.combase_homepage_button_mvvm_binding_fragment),
+                modifier = Modifier.weight(1F),
+            ) {
+                switchFragmentByAddHideShow(MvvmFragment(), MvvmFragment.TAG, this, parentFragmentManager, BaseActivity.FRAGMENT_BASE_CONTAINER_ID, true)
+            }
+            ButtonClickBlueWeightHorizontal(
+                text = getStringFromRes(R.string.combase_homepage_button_mvvm_compose),
+                modifier = Modifier.weight(1F)
+            ) {
+                startActivityExt(activity, MvvmComposeActivity::class.java)
+            }
+        }
+        LayoutWeightHorizontal {
+            ButtonClickBlueWeightHorizontal(
+                text = getStringFromRes(R.string.combase_homepage_button_state_compose),
+                modifier = Modifier.weight(1F)
+            ) {
+                startActivityExt(activity, StateComposeActivity::class.java)
+            }
+        }
+        ButtonClickBlueWeightHorizontal(text = getStringFromRes(R.string.combase_homepage_button_mvi)) {
+            startActivityExt(activity, MviActivity::class.java)
+        }
+        ButtonClickBlueWeightHorizontal(
+            text = getStringFromRes(R.string.combase_homepage_button_lifecycle),
+        ) {
+            startActivityExt(activity, LifecycleActivity::class.java)
         }
     }
 }

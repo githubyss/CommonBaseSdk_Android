@@ -4,9 +4,9 @@ import androidx.compose.runtime.*
 import androidx.compose.ui.unit.Dp
 import com.githubyss.common.base.R
 import com.githubyss.common.base.activity_fragment.compose.BaseComposeToolbarActivity
-import com.githubyss.common.base.app.z_copy.comui.ButtonClickBlueMargin
-import com.githubyss.common.base.app.z_copy.comui.PageSidePadding
-import com.githubyss.common.base.app.z_copy.comui.TopNavigationBar
+import com.githubyss.common.base.app.z_copy.compose_ui.ButtonClickBlueMargin
+import com.githubyss.common.base.app.z_copy.compose_ui.PageSidePadding
+import com.githubyss.common.base.app.z_copy.compose_ui.TopNavigationBar
 import com.githubyss.common.base.app.z_copy.getStringFromRes
 import com.githubyss.mobile.common.res.common.dimen.SpaceNormal
 

@@ -7,9 +7,10 @@ import androidx.compose.ui.unit.Dp
 import com.githubyss.common.base.R
 import com.githubyss.common.base.activity_fragment.compose.BaseComposeActivity
 import com.githubyss.common.base.app.compose_ui.InfoDisplay
-import com.githubyss.common.base.app.z_copy.comui.PageSidePadding
+import com.githubyss.common.base.app.z_copy.compose_ui.PageSidePadding
 import com.githubyss.common.base.app.z_copy.getStringFromRes
 import com.githubyss.mobile.common.res.common.dimen.SpaceNormal
+import com.githubyss.mobile.common.res.page.pageBgLightGray
 
 
 /**
@@ -35,7 +36,7 @@ class ComposeActivity : BaseComposeActivity() {
     @Composable
     override fun Content() {
         PageSidePadding(
-            background = Color.Black,
+            background = Color.pageBgLightGray,
             verticalArrangement = Arrangement.Center,
             paddingVertical = Dp.SpaceNormal,
         ) {
