@@ -3,7 +3,6 @@ package com.githubyss.common.base.frame_layout.binding_inline_root
 import android.view.ViewGroup
 import android.widget.FrameLayout
 import androidx.databinding.ViewDataBinding
-import androidx.viewbinding.ViewBinding
 import com.githubyss.common.base.ext.inflateBindingByViewGroup
 
 
