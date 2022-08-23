@@ -9,6 +9,8 @@ import androidx.annotation.LayoutRes
 import androidx.fragment.app.DialogFragment
 import androidx.fragment.app.Fragment
 import com.githubyss.common.base.activity_fragment.interface_default.BaseActivityFragmentInterface
+import com.githubyss.common.base.lifecycle.registerLifecycle
+import com.githubyss.common.base.lifecycle.unregisterLifecycle
 
 
 /**
@@ -54,8 +56,11 @@ abstract class BaseDialogFragment(@LayoutRes layoutId: Int = 0) : DialogFragment
     /**  */
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
         val message = "$fragmentName > onCreate"
         println("$TAG $message")
+
+        doRegister()
     }
 
     /**  */
@@ -121,14 +126,17 @@ abstract class BaseDialogFragment(@LayoutRes layoutId: Int = 0) : DialogFragment
     override fun onDestroyView() {
         val message = "$fragmentName > onDestroyView"
         println("$TAG $message")
+
         super.onDestroyView()
     }
 
     /**  */
     override fun onDestroy() {
-        super.onDestroy()
         val message = "$fragmentName > onDestroy"
         println("$TAG $message")
+
+        doUnregister()
+        super.onDestroy()
     }
 
     /**  */
@@ -150,5 +158,15 @@ abstract class BaseDialogFragment(@LayoutRes layoutId: Int = 0) : DialogFragment
         super.onHiddenChanged(hidden)
         val message = "$fragmentName > onHiddenChanged, hidden:${hidden}"
         println("$TAG $message")
+    }
+
+    /**  */
+    override fun doRegister() {
+        registerLifecycle()
+    }
+
+    /**  */
+    override fun doUnregister() {
+        unregisterLifecycle()
     }
 }

@@ -82,7 +82,7 @@ abstract class BaseActivity(@LayoutRes layoutId: Int = 0) : AppCompatActivity(la
 
         setupUi()
         setupData()
-        registerLifecycle()
+        doRegister()
     }
 
     /**
@@ -208,8 +208,18 @@ abstract class BaseActivity(@LayoutRes layoutId: Int = 0) : AppCompatActivity(la
         val message = "$activityName > onDestroy"
         println("$TAG $message")
 
-        unregisterLifecycle()
+        doUnregister()
         super.onDestroy()
+    }
+
+    /**  */
+    override fun doRegister() {
+        registerLifecycle()
+    }
+
+    /**  */
+    override fun doUnregister() {
+        unregisterLifecycle()
     }
 
 

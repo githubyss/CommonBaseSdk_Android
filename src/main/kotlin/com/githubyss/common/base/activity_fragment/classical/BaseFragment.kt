@@ -61,7 +61,7 @@ abstract class BaseFragment(@LayoutRes layoutId: Int = 0) : Fragment(layoutId), 
         val message = "$fragmentName > onCreate"
         println("$TAG $message")
 
-        registerLifecycle()
+        doRegister()
     }
 
     /**  */
@@ -136,7 +136,7 @@ abstract class BaseFragment(@LayoutRes layoutId: Int = 0) : Fragment(layoutId), 
         val message = "$fragmentName > onDestroy"
         println("$TAG $message")
 
-        unregisterLifecycle()
+        doUnregister()
         super.onDestroy()
     }
 
@@ -159,6 +159,16 @@ abstract class BaseFragment(@LayoutRes layoutId: Int = 0) : Fragment(layoutId), 
         super.onHiddenChanged(hidden)
         val message = "$fragmentName > onHiddenChanged, hidden:${hidden}"
         println("$TAG $message")
+    }
+
+    /**  */
+    override fun doRegister() {
+        registerLifecycle()
+    }
+
+    /**  */
+    override fun doUnregister() {
+        unregisterLifecycle()
     }
 
 
