@@ -34,6 +34,10 @@ abstract class RootReflectBindingFragment<B : ViewDataBinding> : BaseFragment() 
         val type = javaClass.genericSuperclass
         if (type is ParameterizedType) {
             try {
+                /**
+                 * 对应方法
+                 * Class<B>.inflate(inflater, container, false)
+                 */
                 val clazz = (type.actualTypeArguments[0]) as Class<B>
                 val methodInflate = clazz.getMethod("inflate", LayoutInflater::class.java, ViewGroup::class.java, Boolean::class.java)
                 _binding = (methodInflate.invoke(null, inflater, container, false)) as B

@@ -32,6 +32,10 @@ abstract class RootReflectBindingActivity<B : ViewDataBinding> : BaseActivity() 
         val type = javaClass.genericSuperclass
         if (type is ParameterizedType) {
             try {
+                /**
+                 * 对应方法
+                 * Class<B>.inflate(layoutInflater)
+                 */
                 val clazz = (type.actualTypeArguments[0]) as Class<B>
                 val methodInflate = clazz.getMethod("inflate", LayoutInflater::class.java)
                 val inflater = layoutInflater
