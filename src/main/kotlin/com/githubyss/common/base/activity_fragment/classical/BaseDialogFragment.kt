@@ -9,8 +9,10 @@ import androidx.annotation.LayoutRes
 import androidx.fragment.app.DialogFragment
 import androidx.fragment.app.Fragment
 import com.githubyss.common.base.activity_fragment.interface_default.BaseActivityFragmentInterface
-import com.githubyss.common.base.lifecycle.registerLifecycle
-import com.githubyss.common.base.lifecycle.unregisterLifecycle
+import com.githubyss.common.base.activity_fragment.interface_default.BaseBroadcastReceiverInterface
+import com.githubyss.common.base.activity_fragment.interface_default.BaseLifecycleInterface
+import com.githubyss.common.base.lifecycle.registerLifecycleEx
+import com.githubyss.common.base.lifecycle.unregisterLifecycleEx
 
 
 /**
@@ -20,7 +22,7 @@ import com.githubyss.common.base.lifecycle.unregisterLifecycle
  * @github githubyss
  * @createdTime 2022/07/25 16:32:26
  */
-abstract class BaseDialogFragment(@LayoutRes layoutId: Int = 0) : DialogFragment(layoutId), BaseActivityFragmentInterface {
+abstract class BaseDialogFragment(@LayoutRes layoutId: Int = 0) : DialogFragment(layoutId), BaseActivityFragmentInterface, BaseLifecycleInterface, BaseBroadcastReceiverInterface {
 
     /** ****************************** Object ****************************** */
 
@@ -60,7 +62,7 @@ abstract class BaseDialogFragment(@LayoutRes layoutId: Int = 0) : DialogFragment
         val message = "$fragmentName > onCreate"
         println("$TAG $message")
 
-        doRegister()
+        registerLifecycle()
     }
 
     /**  */
@@ -99,6 +101,8 @@ abstract class BaseDialogFragment(@LayoutRes layoutId: Int = 0) : DialogFragment
         super.onResume()
         val message = "$fragmentName > onResume"
         println("$TAG $message")
+
+        registerReceiver()
     }
 
     /**  */
@@ -106,6 +110,8 @@ abstract class BaseDialogFragment(@LayoutRes layoutId: Int = 0) : DialogFragment
         super.onPause()
         val message = "$fragmentName > onPause"
         println("$TAG $message")
+
+        unregisterReceiver()
     }
 
     /**  */
@@ -135,7 +141,7 @@ abstract class BaseDialogFragment(@LayoutRes layoutId: Int = 0) : DialogFragment
         val message = "$fragmentName > onDestroy"
         println("$TAG $message")
 
-        doUnregister()
+        unregisterLifecycle()
         super.onDestroy()
     }
 
@@ -161,12 +167,12 @@ abstract class BaseDialogFragment(@LayoutRes layoutId: Int = 0) : DialogFragment
     }
 
     /**  */
-    override fun doRegister() {
-        registerLifecycle()
+    override fun registerLifecycle() {
+        registerLifecycleEx()
     }
 
     /**  */
-    override fun doUnregister() {
-        unregisterLifecycle()
+    override fun unregisterLifecycle() {
+        unregisterLifecycleEx()
     }
 }

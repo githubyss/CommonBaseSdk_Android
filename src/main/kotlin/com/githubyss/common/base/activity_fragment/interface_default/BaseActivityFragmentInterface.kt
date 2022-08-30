@@ -14,10 +14,4 @@ interface BaseActivityFragmentInterface {
 
     /** 初始化数据 */
     fun setupData() {}
-
-    /** 监听注册 */
-    fun doRegister() {}
-
-    /** 监听反注册 */
-    fun doUnregister() {}
 }

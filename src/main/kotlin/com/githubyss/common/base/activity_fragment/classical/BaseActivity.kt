@@ -8,8 +8,10 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import com.githubyss.common.base.R
 import com.githubyss.common.base.activity_fragment.interface_default.BaseActivityFragmentInterface
-import com.githubyss.common.base.lifecycle.registerLifecycle
-import com.githubyss.common.base.lifecycle.unregisterLifecycle
+import com.githubyss.common.base.activity_fragment.interface_default.BaseBroadcastReceiverInterface
+import com.githubyss.common.base.activity_fragment.interface_default.BaseLifecycleInterface
+import com.githubyss.common.base.lifecycle.registerLifecycleEx
+import com.githubyss.common.base.lifecycle.unregisterLifecycleEx
 import com.githubyss.common.base.z_copy.switchFragmentByAddHideShow
 
 
@@ -35,7 +37,7 @@ import com.githubyss.common.base.z_copy.switchFragmentByAddHideShow
  * @github githubyss
  * @createdTime 2021/06/02 15:10:38
  */
-abstract class BaseActivity(@LayoutRes layoutId: Int = 0) : AppCompatActivity(layoutId), BaseActivityFragmentInterface {
+abstract class BaseActivity(@LayoutRes layoutId: Int = 0) : AppCompatActivity(layoutId), BaseActivityFragmentInterface, BaseLifecycleInterface, BaseBroadcastReceiverInterface {
 
     /** ****************************** Object ****************************** */
 
@@ -82,7 +84,7 @@ abstract class BaseActivity(@LayoutRes layoutId: Int = 0) : AppCompatActivity(la
 
         setupUi()
         setupData()
-        doRegister()
+        registerLifecycle()
     }
 
     /**
@@ -134,6 +136,8 @@ abstract class BaseActivity(@LayoutRes layoutId: Int = 0) : AppCompatActivity(la
         super.onResume()
         val message = "$activityName > onResume"
         println("$TAG $message")
+
+        registerReceiver()
     }
 
     /**
@@ -147,6 +151,8 @@ abstract class BaseActivity(@LayoutRes layoutId: Int = 0) : AppCompatActivity(la
         super.onPause()
         val message = "$activityName > onPause"
         println("$TAG $message")
+
+        unregisterReceiver()
     }
 
     /**
@@ -208,18 +214,18 @@ abstract class BaseActivity(@LayoutRes layoutId: Int = 0) : AppCompatActivity(la
         val message = "$activityName > onDestroy"
         println("$TAG $message")
 
-        doUnregister()
+        unregisterLifecycle()
         super.onDestroy()
     }
 
     /**  */
-    override fun doRegister() {
-        registerLifecycle()
+    override fun registerLifecycle() {
+        registerLifecycleEx()
     }
 
     /**  */
-    override fun doUnregister() {
-        unregisterLifecycle()
+    override fun unregisterLifecycle() {
+        unregisterLifecycleEx()
     }
 
 

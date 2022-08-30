@@ -9,8 +9,10 @@ import androidx.annotation.IdRes
 import androidx.annotation.LayoutRes
 import androidx.fragment.app.Fragment
 import com.githubyss.common.base.activity_fragment.interface_default.BaseActivityFragmentInterface
-import com.githubyss.common.base.lifecycle.registerLifecycle
-import com.githubyss.common.base.lifecycle.unregisterLifecycle
+import com.githubyss.common.base.activity_fragment.interface_default.BaseBroadcastReceiverInterface
+import com.githubyss.common.base.activity_fragment.interface_default.BaseLifecycleInterface
+import com.githubyss.common.base.lifecycle.registerLifecycleEx
+import com.githubyss.common.base.lifecycle.unregisterLifecycleEx
 import com.githubyss.common.base.z_copy.switchFragmentByAddHideShow
 
 
@@ -21,7 +23,7 @@ import com.githubyss.common.base.z_copy.switchFragmentByAddHideShow
  * @github githubyss
  * @createdTime 2021/06/02 15:11:59
  */
-abstract class BaseFragment(@LayoutRes layoutId: Int = 0) : Fragment(layoutId), BaseActivityFragmentInterface {
+abstract class BaseFragment(@LayoutRes layoutId: Int = 0) : Fragment(layoutId), BaseActivityFragmentInterface, BaseLifecycleInterface, BaseBroadcastReceiverInterface {
 
     /** ****************************** Object ****************************** */
 
@@ -61,7 +63,7 @@ abstract class BaseFragment(@LayoutRes layoutId: Int = 0) : Fragment(layoutId), 
         val message = "$fragmentName > onCreate"
         println("$TAG $message")
 
-        doRegister()
+        registerLifecycle()
     }
 
     /**  */
@@ -100,6 +102,8 @@ abstract class BaseFragment(@LayoutRes layoutId: Int = 0) : Fragment(layoutId), 
         super.onResume()
         val message = "$fragmentName > onResume"
         println("$TAG $message")
+
+        registerReceiver()
     }
 
     /**  */
@@ -107,6 +111,8 @@ abstract class BaseFragment(@LayoutRes layoutId: Int = 0) : Fragment(layoutId), 
         super.onPause()
         val message = "$fragmentName > onPause"
         println("$TAG $message")
+
+        unregisterReceiver()
     }
 
     /**  */
@@ -136,7 +142,7 @@ abstract class BaseFragment(@LayoutRes layoutId: Int = 0) : Fragment(layoutId), 
         val message = "$fragmentName > onDestroy"
         println("$TAG $message")
 
-        doUnregister()
+        unregisterLifecycle()
         super.onDestroy()
     }
 
@@ -162,13 +168,13 @@ abstract class BaseFragment(@LayoutRes layoutId: Int = 0) : Fragment(layoutId), 
     }
 
     /**  */
-    override fun doRegister() {
-        registerLifecycle()
+    override fun registerLifecycle() {
+        registerLifecycleEx()
     }
 
     /**  */
-    override fun doUnregister() {
-        unregisterLifecycle()
+    override fun unregisterLifecycle() {
+        unregisterLifecycleEx()
     }
 
 

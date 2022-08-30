@@ -3,8 +3,9 @@ package com.githubyss.common.base.application
 import android.app.Application
 import android.content.Context
 import androidx.core.os.TraceCompat
-import com.githubyss.common.base.lifecycle.registerLifecycle
-import com.githubyss.common.base.lifecycle.unregisterLifecycle
+import com.githubyss.common.base.activity_fragment.interface_default.BaseLifecycleInterface
+import com.githubyss.common.base.lifecycle.registerLifecycleEx
+import com.githubyss.common.base.lifecycle.unregisterLifecycleEx
 import kotlin.properties.Delegates
 
 
@@ -15,7 +16,7 @@ import kotlin.properties.Delegates
  * @github githubyss
  * @createdTime 2022/08/10 10:29:14
  */
-abstract class BaseApplication : Application(), BaseApplicationInterface {
+abstract class BaseApplication : Application(), BaseApplicationInterface, BaseLifecycleInterface {
 
     /** ****************************** Object ****************************** */
 
@@ -65,7 +66,13 @@ abstract class BaseApplication : Application(), BaseApplicationInterface {
         TraceCompat.endSection()
     }
 
+    /**  */
+    override fun registerLifecycle() {
+        registerLifecycleEx()
+    }
 
-    /** ****************************** Functions ****************************** */
-
+    /**  */
+    override fun unregisterLifecycle() {
+        unregisterLifecycleEx()
+    }
 }

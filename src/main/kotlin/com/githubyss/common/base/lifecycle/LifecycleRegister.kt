@@ -6,12 +6,12 @@ import androidx.fragment.app.Fragment
 
 
 /**  */
-fun Application.registerLifecycle() {
+fun Application.registerLifecycleEx() {
     // registerActivityLifecycleCallbacks(LifecycleHolder.activityLifecycleCallbacks)
 }
 
 /**  */
-fun Application.unregisterLifecycle() {
+fun Application.unregisterLifecycleEx() {
     LifecycleHolder.activityLifecycle.activityHolder.activityList.clear()
 
     // unregisterActivityLifecycleCallbacks(LifecycleHolder.activityLifecycleCallbacks)
@@ -20,7 +20,7 @@ fun Application.unregisterLifecycle() {
 }
 
 /**  */
-fun AppCompatActivity.registerLifecycle() {
+fun AppCompatActivity.registerLifecycleEx() {
     lifecycle.addObserver(LifecycleHolder.activityLifecycle)
 
     // supportFragmentManager.registerFragmentLifecycleCallbacks(LifecycleHolder.fragmentLifecycleCallbacks, true)
@@ -30,7 +30,7 @@ fun AppCompatActivity.registerLifecycle() {
 }
 
 /**  */
-fun AppCompatActivity.unregisterLifecycle() {
+fun AppCompatActivity.unregisterLifecycleEx() {
     lifecycle.removeObserver(LifecycleHolder.activityLifecycle)
 
     // supportFragmentManager.unregisterFragmentLifecycleCallbacks(LifecycleHolder.fragmentLifecycleCallbacks)
@@ -40,7 +40,7 @@ fun AppCompatActivity.unregisterLifecycle() {
 }
 
 /**  */
-fun Fragment.registerLifecycle() {
+fun Fragment.registerLifecycleEx() {
     lifecycle.addObserver(LifecycleHolder.fragmentLifecycle)
 
     // lifecycle.addObserver(LifecycleHolder.fragmentLifecycleObserver)
@@ -49,7 +49,7 @@ fun Fragment.registerLifecycle() {
 }
 
 /**  */
-fun Fragment.unregisterLifecycle() {
+fun Fragment.unregisterLifecycleEx() {
     lifecycle.removeObserver(LifecycleHolder.fragmentLifecycle)
 
     // lifecycle.removeObserver(LifecycleHolder.fragmentLifecycleObserver)
