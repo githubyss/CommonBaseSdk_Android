@@ -138,7 +138,7 @@ dependencies {
     implementation dependenciesLib.androidx_recyclerview
     implementation dependenciesLib.androidx_compose_material
 
-    debugImplementation dependenciesLib.leakcanary
+    debugImplementation dependenciesLib.squareup_leakcanary
 
     if (isLaunchApp) {
         appImplementation project(':CommonResSdk_Android')
