@@ -28,6 +28,8 @@ abstract class RootComposeFragment : BaseFragment(), BaseComposeInterface {
                     Page()
                 }
             }
+            // 防止 Fragment 点击事件穿透
+            setOnTouchListener { _, _ -> true }
         }
     }
 }

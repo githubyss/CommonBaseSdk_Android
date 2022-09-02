@@ -56,7 +56,10 @@ abstract class RootReflectBindingFragment<B : ViewDataBinding> : BaseFragment() 
             }
         }
 
-        return binding.root
+        return binding.root.apply {
+            // 防止 Fragment 点击事件穿透
+            setOnTouchListener { _, _ -> true }
+        }
     }
 
     /**  */
