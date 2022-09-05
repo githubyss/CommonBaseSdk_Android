@@ -8,6 +8,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import com.githubyss.common.base.R
 import com.githubyss.common.base.activity_fragment.interface_default.BaseActivityFragmentInterface
+import com.githubyss.common.base.activity_fragment.interface_default.BaseActivityResultInterface
 import com.githubyss.common.base.activity_fragment.interface_default.BaseBroadcastReceiverInterface
 import com.githubyss.common.base.activity_fragment.interface_default.BaseLifecycleInterface
 import com.githubyss.common.base.lifecycle.registerLifecycleEx
@@ -37,7 +38,7 @@ import com.githubyss.common.base.z_copy.switchFragmentByAddHideShow
  * @github githubyss
  * @createdTime 2021/06/02 15:10:38
  */
-abstract class BaseActivity(@LayoutRes layoutId: Int = 0) : AppCompatActivity(layoutId), BaseActivityFragmentInterface, BaseLifecycleInterface, BaseBroadcastReceiverInterface {
+abstract class BaseActivity(@LayoutRes layoutId: Int = 0) : AppCompatActivity(layoutId), BaseActivityFragmentInterface, BaseActivityResultInterface, BaseLifecycleInterface, BaseBroadcastReceiverInterface {
 
     /** ****************************** Object ****************************** */
 
@@ -85,6 +86,7 @@ abstract class BaseActivity(@LayoutRes layoutId: Int = 0) : AppCompatActivity(la
         setupUi()
         setupData()
         registerLifecycle()
+        registerForActivityResult()
     }
 
     /**
