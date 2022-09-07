@@ -41,17 +41,56 @@ abstract class BaseAppWidget : AppWidgetProvider() {
     /** ****************************** Override ****************************** */
 
     /**
-     * 到达指定的时间，或者用户第一次创建 AppWidget 所调用的方法。
+     * 创建第一个 AppWidget 实例所调用的方法。
+     * 当第一次创建该类型的 AppWidget 时，调用此方法。
+     *
+     * 当 Widget 首次拖进桌面时触发，这里我们一般可以进行一些变量初始的工作
+     */
+    override fun onEnabled(context: Context) {
+        super.onEnabled(context)
+
+        val message = "$widgetName > onEnabled, 开始使用 Widget（同 Widget 第一个拖进桌面）"
+        println("$TAG $message")
+    }
+
+    /**
+     * 删除最后一个 AppWidget 所调用的方法。
+     * 当该类型的窗口小部件 AppWidget 全被删除时，调用此方法。
+     *
+     * 当最后一个 Widget 拖出桌面后触发，这里我们一般可以进行一些清空重置的工作
+     */
+    override fun onDisabled(context: Context) {
+        super.onDisabled(context)
+
+        val message = "$widgetName > onDisabled, 停止使用 Widget（同 Widget 最后一个拖出桌面）"
+        println("$TAG $message")
+    }
+
+    /**
+     * 到达指定的时间，或者用户每次创建 AppWidget 所调用的方法。
      * 每次创建该类型的 AppWidget 都会调用此方法，通常来说我们需要在该方法里为该 AppWidget 指定 RemoteViews 对象。
      *
      * 此方法一般处理 Widget 的创建布局和更新 UI 操作，当 Widget 添加到桌面会触发 onUpdate() 方法。
-     * 我们可以在此里通过获取 RemoteViews 来给 Widget 加载一个布局，远程视图是 Widget 的资源管理工具，我们可以用来给 Widget 转换一个它支持布局，仅支持特定的 View。
+     * 我们可以在此里通过获取 RemoteViews 来给 Widget 加载一个布局，远程视图 RemoteViews 是 Widget 的资源管理工具，我们可以用来给 Widget 转换一个它支持布局，仅支持特定的 View。
      */
     override fun onUpdate(context: Context, appWidgetManager: AppWidgetManager, appWidgetIds: IntArray) {
         super.onUpdate(context, appWidgetManager, appWidgetIds)
 
-        val message = "$widgetName > onUpdate, 创建布局和更新 UI 操作 appWidgetIds: $appWidgetIds"
+        val message = "$widgetName > onUpdate, 将 Widget 拖进桌面了。appWidgetIds: ${appWidgetIds.contentToString()}"
         println("$TAG $message")
+    }
+
+    /**
+     * 删除一个 AppWidget 所调用的方法。
+     * 当该类型的 AppWidget 每次被删除时，调用此方法。
+     *
+     * Widget 被删除了，这里我们通常用于释放一些对象和视图资源，便于防止内存泄露。
+     */
+    override fun onDeleted(context: Context?, appWidgetIds: IntArray?) {
+        val message = "$widgetName > onDeleted, 将 Widget 拖出桌面了。appWidgetIds: ${appWidgetIds.contentToString()}"
+        println("$TAG $message")
+
+        super.onDeleted(context, appWidgetIds)
     }
 
     /**
@@ -65,44 +104,5 @@ abstract class BaseAppWidget : AppWidgetProvider() {
 
         val message = "$widgetName > onReceive, 接收到广播 intent: $intent"
         println("$TAG $message")
-    }
-
-    /**
-     * 创建第一个 AppWidget 实例所调用的方法。
-     * 当第一次创建该类型的 AppWidget 时，调用此方法。
-     *
-     * 当 Widget 可用正在拖进桌面时触发，这里我们一般可以进行一些变量初始的工作
-     */
-    override fun onEnabled(context: Context) {
-        super.onEnabled(context)
-
-        val message = "$widgetName > onEnabled, 将 Widget 拖进桌面了"
-        println("$TAG $message")
-    }
-
-    /**
-     * 删除最后一个 AppWidget 所调用的方法。
-     * 当该类型的窗口小部件 AppWidget 全被删除时，调用此方法。
-     *
-     * Widget 在被拖动的时候触发，这是 Widget 是无法点击的，当停止拖动操作时 Widget 可用。
-     */
-    override fun onDisabled(context: Context) {
-        super.onDisabled(context)
-
-        val message = "$widgetName > onDisabled, 正在拖动 Widget"
-        println("$TAG $message")
-    }
-
-    /**
-     * 删除一个 AppWidget 所调用的方法。
-     * 当该类型的 AppWidget 每次被删除时，调用此方法。
-     *
-     * Widget 被删除了，这里我们通常用于释放一些对象和视图资源，便于防止内存泄露。
-     */
-    override fun onDeleted(context: Context?, appWidgetIds: IntArray?) {
-        val message = "$widgetName > onDeleted, 将 Widget 拖出桌面了  appWidgetIds: $appWidgetIds"
-        println("$TAG $message")
-
-        super.onDeleted(context, appWidgetIds)
     }
 }

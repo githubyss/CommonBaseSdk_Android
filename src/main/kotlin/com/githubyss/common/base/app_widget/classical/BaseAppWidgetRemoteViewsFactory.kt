@@ -2,6 +2,7 @@ package com.githubyss.common.base.app_widget.classical
 
 import android.widget.RemoteViews
 import android.widget.RemoteViewsService
+import com.githubyss.common.base.app_widget.interface_default.BaseAppWidgetRemoteViewsFactoryInterface
 
 
 /**
@@ -12,7 +13,7 @@ import android.widget.RemoteViewsService
  * @github githubyss
  * @createdTime 2022/08/29 18:00:34
  */
-abstract class BaseAppWidgetRemoteViewsFactory : RemoteViewsService.RemoteViewsFactory {
+abstract class BaseAppWidgetRemoteViewsFactory<T> : RemoteViewsService.RemoteViewsFactory, BaseAppWidgetRemoteViewsFactoryInterface {
 
     /** ****************************** Object ****************************** */
 
@@ -26,6 +27,8 @@ abstract class BaseAppWidgetRemoteViewsFactory : RemoteViewsService.RemoteViewsF
 
     /**  */
     private var factoryName = this::class.java.simpleName
+
+    protected open val dataList by lazy { ArrayList<T>() }
 
 
     /** ****************************** Constructors ****************************** */
@@ -45,36 +48,45 @@ abstract class BaseAppWidgetRemoteViewsFactory : RemoteViewsService.RemoteViewsF
     override fun onCreate() {
         val message = "$factoryName > onCreate"
         println("$TAG $message")
+
+        setupData()
     }
 
     /**
-     * 当调 notifyAppWidgetViewDataChanged 方法时，触发这个方法。
+     * 当调 AppWidgetManager 的 notifyAppWidgetViewDataChanged 方法时，触发这个方法。
      * 例如：AppWidgetManager.getInstance(context).notifyAppWidgetViewDataChanged(appWidgetIds, viewId)
+     * 经过实际测试，在触发 notifyAppWidgetViewDataChanged 方法时不会立刻调用到 onDataSetChanged，而是当回到桌面的时候，才会走到 onDataSetChanged，进行 Widget 数据刷新
      */
     override fun onDataSetChanged() {
         val message = "$factoryName > onDataSetChanged"
         println("$TAG $message")
+
+        updateData()
     }
 
     /** 这里写情理资源，释放内存的操作 */
     override fun onDestroy() {
         val message = "$factoryName > onDestroy"
         println("$TAG $message")
+
+        dataList.clear()
+        clearData()
     }
 
     /** 创建并且填充，在指定索引位置显示 View，这个和 BaseAdapter 的 getView 类似 */
     override fun getViewAt(position: Int): RemoteViews? {
         val message = "$factoryName > getViewAt position: $position"
         println("$TAG $message")
-        return null
+
+        return refreshView(position)
     }
 
-    /** 返回集台数量 */
+    /** 返回集合数量 */
     override fun getCount(): Int {
         val message = "$factoryName > getCount"
         println("$TAG $message")
 
-        return 0
+        return dataList.size
     }
 
     /** 返回当前的索引。 */
