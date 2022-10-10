@@ -4,8 +4,8 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
-import com.githubyss.mobile.common.res.common.dimen.SpaceNano
-import com.githubyss.mobile.common.res.common.dimen.SpaceTiny
+import com.githubyss.common.res.common.dimen.SpaceNano
+import com.githubyss.common.res.common.dimen.SpaceTiny
 
 
 @Composable

@@ -6,7 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.compose.ui.platform.ComposeView
 import com.githubyss.common.base.activity_fragment.classical.BaseFragment
-import com.githubyss.common.base.activity_fragment.interface_default.BaseComposeInterface
+import com.githubyss.common.base.activity_fragment.interface_default.BaseActivityFragmentComposeInterface
 
 
 /**
@@ -16,7 +16,7 @@ import com.githubyss.common.base.activity_fragment.interface_default.BaseCompose
  * @github githubyss
  * @createdTime 2022/02/22 15:51:20
  */
-abstract class RootComposeFragment : BaseFragment(), BaseComposeInterface {
+abstract class RootComposeFragment : BaseFragment(), BaseActivityFragmentComposeInterface {
 
     /** ****************************** Override ****************************** */
 

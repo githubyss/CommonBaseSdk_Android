@@ -2,6 +2,7 @@ package com.githubyss.common.base.activity_fragment.compose
 
 import androidx.compose.runtime.Composable
 import com.githubyss.common.base.activity_fragment.compose_root.RootComposeActivity
+import com.githubyss.common.base.activity_fragment.interface_default.BaseToolbarComposeInterface
 
 
 /**
@@ -11,7 +12,7 @@ import com.githubyss.common.base.activity_fragment.compose_root.RootComposeActiv
  * @github githubyss
  * @createdTime 2022/02/24 15:57:42
  */
-abstract class BaseComposeToolbarActivity : RootComposeActivity() {
+abstract class BaseComposeToolbarActivity : RootComposeActivity(), BaseToolbarComposeInterface {
 
     /** ****************************** Override ****************************** */
 
@@ -21,13 +22,6 @@ abstract class BaseComposeToolbarActivity : RootComposeActivity() {
         Toolbar()
         Content()
     }
-
-
-    /** ****************************** Abstract ****************************** */
-
-    /**  */
-    @Composable
-    abstract fun Toolbar()
 
 
     // /** ****************************** Functions ****************************** */

@@ -14,9 +14,9 @@ import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.TextUnit
 import androidx.compose.ui.unit.dp
 import com.githubyss.common.base.app.z_copy.compose_ui.TextColumn
-import com.githubyss.mobile.common.res.common.color.xFF999999
-import com.githubyss.mobile.common.res.common.dimen.CornerRadiusMini
-import com.githubyss.mobile.common.res.common.dimen.FontSizeBig
+import com.githubyss.common.res.common.color.xFF999999
+import com.githubyss.common.res.common.dimen.CornerRadiusMini
+import com.githubyss.common.res.common.dimen.FontSizeBig
 
 
 /**  */

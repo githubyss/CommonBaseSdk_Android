@@ -2,6 +2,7 @@ package com.githubyss.common.base.activity_fragment.binding_reflect
 
 import androidx.databinding.ViewDataBinding
 import com.githubyss.common.base.activity_fragment.binding_reflect_root.RootReflectBindingFragment
+import com.githubyss.common.base.activity_fragment.interface_default.BaseToolbarInterface
 import com.githubyss.common.base.databinding.CombaseActivityBaseToolbarBinding
 
 
@@ -12,7 +13,7 @@ import com.githubyss.common.base.databinding.CombaseActivityBaseToolbarBinding
  * @github githubyss
  * @createdTime 2021/03/09 14:35:12
  */
-abstract class BaseReflectBindingToolbarFragment<B : ViewDataBinding> : RootReflectBindingFragment<B>() {
+abstract class BaseReflectBindingToolbarFragment<B : ViewDataBinding> : RootReflectBindingFragment<B>(), BaseToolbarInterface {
 
     /** ****************************** Override ****************************** */
 
@@ -29,12 +30,6 @@ abstract class BaseReflectBindingToolbarFragment<B : ViewDataBinding> : RootRefl
             setToolbarTitle()
         }
     }
-
-
-    /** ****************************** Abstract ****************************** */
-
-    /**  */
-    abstract fun setToolbarTitle()
 
 
     /** ****************************** Functions ****************************** */

@@ -83,7 +83,6 @@ class BindingRecyclerViewAdapter() : RecyclerView.Adapter<BindingRecyclerViewAda
     /**  */
     fun updateDataList(items: List<BindingAdapterItem>) {
         this.items = items
-        notifyDataSetChanged()
     }
 
 

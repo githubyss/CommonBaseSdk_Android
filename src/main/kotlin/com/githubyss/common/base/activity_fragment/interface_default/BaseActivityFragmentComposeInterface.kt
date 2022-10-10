@@ -4,13 +4,13 @@ import androidx.compose.runtime.Composable
 
 
 /**
- * BaseComposeInterface
+ * BaseActivityFragmentComposeInterface
  *
  * @author Ace Yan
  * @github githubyss
  * @createdTime 2022/08/22 10:34:21
  */
-interface BaseComposeInterface {
+interface BaseActivityFragmentComposeInterface {
     /** Compose 页面 */
     @Composable
     fun Page() {

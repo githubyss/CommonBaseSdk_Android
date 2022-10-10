@@ -7,6 +7,7 @@ import android.view.MenuItem
 import android.view.View
 import androidx.databinding.ViewDataBinding
 import com.githubyss.common.base.activity_fragment.binding_reflect_root.RootReflectBindingActivity
+import com.githubyss.common.base.activity_fragment.interface_default.BaseToolbarInterface
 import com.githubyss.common.base.databinding.CombaseActivityBaseToolbarBinding
 
 
@@ -17,7 +18,7 @@ import com.githubyss.common.base.databinding.CombaseActivityBaseToolbarBinding
  * @github githubyss
  * @createdTime 2021/03/09 14:35:21
  */
-abstract class BaseReflectBindingToolbarActivity<B : ViewDataBinding> : RootReflectBindingActivity<B>() {
+abstract class BaseReflectBindingToolbarActivity<B : ViewDataBinding> : RootReflectBindingActivity<B>(), BaseToolbarInterface {
 
     /** ****************************** Override ****************************** */
 
@@ -36,12 +37,6 @@ abstract class BaseReflectBindingToolbarActivity<B : ViewDataBinding> : RootRefl
         super.onResume()
         setToolbarTitle()
     }
-
-
-    /** ****************************** Abstract ****************************** */
-
-    /**  */
-    abstract fun setToolbarTitle()
 
 
     /** ****************************** Functions ****************************** */

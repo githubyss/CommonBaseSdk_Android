@@ -1,7 +1,7 @@
 package com.githubyss.common.base.app.page.mvvm_binding.enumeration
 
 import com.githubyss.common.base.app.z_copy.getStringFromRes
-import com.githubyss.mobile.common.res.R
+import com.githubyss.common.res.R
 
 
 /**

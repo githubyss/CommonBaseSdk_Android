@@ -9,9 +9,9 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.Dp
-import com.githubyss.mobile.common.res.common.dimen.SpaceNone
-import com.githubyss.mobile.common.res.common.dimen.SpaceNormal
-import com.githubyss.mobile.common.res.page.pageBgLightGray
+import com.githubyss.common.res.common.dimen.SpaceNone
+import com.githubyss.common.res.common.dimen.SpaceNormal
+import com.githubyss.common.res.page.pageBgLightGray
 
 
 @Composable

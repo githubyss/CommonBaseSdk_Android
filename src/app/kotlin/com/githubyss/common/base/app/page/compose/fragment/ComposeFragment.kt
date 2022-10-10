@@ -8,7 +8,7 @@ import com.githubyss.common.base.activity_fragment.compose.BaseComposeFragment
 import com.githubyss.common.base.app.compose_ui.InfoDisplay
 import com.githubyss.common.base.app.z_copy.compose_ui.PageSidePadding
 import com.githubyss.common.base.app.z_copy.getStringFromRes
-import com.githubyss.mobile.common.res.common.dimen.SpaceNormal
+import com.githubyss.common.res.common.dimen.SpaceNormal
 
 
 /**

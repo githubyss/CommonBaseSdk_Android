@@ -3,6 +3,7 @@ package com.githubyss.common.base.activity_fragment.binding_inline
 import androidx.annotation.LayoutRes
 import androidx.databinding.ViewDataBinding
 import com.githubyss.common.base.activity_fragment.binding_inline_root.RootInlineBindingFragment
+import com.githubyss.common.base.activity_fragment.interface_default.BaseToolbarInterface
 import com.githubyss.common.base.databinding.CombaseActivityBaseToolbarBinding
 
 
@@ -13,7 +14,7 @@ import com.githubyss.common.base.databinding.CombaseActivityBaseToolbarBinding
  * @github githubyss
  * @createdTime 2021/06/02 16:52:19
  */
-abstract class BaseInlineBindingToolbarFragment<B : ViewDataBinding>(@LayoutRes layoutId: Int) : RootInlineBindingFragment<B>(layoutId) {
+abstract class BaseInlineBindingToolbarFragment<B : ViewDataBinding>(@LayoutRes layoutId: Int) : RootInlineBindingFragment<B>(layoutId), BaseToolbarInterface {
 
     /** ****************************** Override ****************************** */
 
@@ -30,12 +31,6 @@ abstract class BaseInlineBindingToolbarFragment<B : ViewDataBinding>(@LayoutRes 
             setToolbarTitle()
         }
     }
-
-
-    /** ****************************** Abstract ****************************** */
-
-    /**  */
-    abstract fun setToolbarTitle()
 
 
     /** ****************************** Functions ****************************** */

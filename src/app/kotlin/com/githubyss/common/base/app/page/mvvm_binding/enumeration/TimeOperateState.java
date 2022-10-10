@@ -1,4 +1,4 @@
-// package com.githubyss.mobile.common.kit.app.page.mvvm.enumeration;
+// package com.githubyss.common.kit.app.page.mvvm.enumeration;
 //
 // import java.lang.annotation.Documented;
 // import java.lang.annotation.ElementType;

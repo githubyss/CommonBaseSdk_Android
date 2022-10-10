@@ -15,11 +15,11 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.TextUnit
 import androidx.compose.ui.unit.dp
-import com.githubyss.mobile.common.res.button_click.buttonClickBlueBackground
-import com.githubyss.mobile.common.res.button_click.buttonClickBlueBorder
-import com.githubyss.mobile.common.res.button_click.buttonClickFontSize
-import com.githubyss.mobile.common.res.button_click.buttonClickShape
-import com.githubyss.mobile.common.res.common.dimen.SpaceNone
+import com.githubyss.common.res.button_click.buttonClickBlueBackground
+import com.githubyss.common.res.button_click.buttonClickBlueBorder
+import com.githubyss.common.res.button_click.buttonClickFontSize
+import com.githubyss.common.res.button_click.buttonClickShape
+import com.githubyss.common.res.common.dimen.SpaceNone
 
 
 // @Composable

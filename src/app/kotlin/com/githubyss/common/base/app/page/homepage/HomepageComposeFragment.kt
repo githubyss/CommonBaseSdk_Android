@@ -26,7 +26,7 @@ import com.githubyss.common.base.app.z_copy.compose_ui.TopNavigationBar
 import com.githubyss.common.base.app.z_copy.getStringFromRes
 import com.githubyss.common.base.app.z_copy.startActivityExt
 import com.githubyss.common.base.z_copy.switchFragmentByAddHideShow
-import com.githubyss.mobile.common.res.common.dimen.SpaceNormal
+import com.githubyss.common.res.common.dimen.SpaceNormal
 
 
 /**
