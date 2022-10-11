@@ -31,7 +31,10 @@ abstract class RootReflectBindingDialogFragment<B : ViewDataBinding> : BaseDialo
     /**  */
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         // Call inflate method to fill view according to specified ViewBinding by using java reflect.
-        val type = javaClass.genericSuperclass
+        var type = javaClass.genericSuperclass
+        while (type !is ParameterizedType) {
+            type = (type as Class<*>).genericSuperclass
+        }
         if (type is ParameterizedType) {
             try {
                 val clazz = (type.actualTypeArguments[0]) as Class<B>
