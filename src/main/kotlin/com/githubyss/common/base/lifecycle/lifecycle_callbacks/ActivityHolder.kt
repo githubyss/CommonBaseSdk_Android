@@ -27,7 +27,7 @@ class ActivityHolder {
 
     /**  */
     companion object {
-        private val TAG = ActivityHolder::class.java.simpleName
+        private val TAG by lazy { ActivityHolder::class.simpleName }
     }
 
 

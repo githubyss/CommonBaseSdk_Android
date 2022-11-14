@@ -17,7 +17,7 @@ open class FragmentLifecycleObserverDefault private constructor() : DefaultLifec
 
     /**  */
     companion object {
-        private val TAG = FragmentLifecycleObserverDefault::class.java.simpleName
+        private val TAG by lazy { FragmentLifecycleObserverDefault::class.simpleName }
         val INSTANCE = Holder.INSTANCE
     }
 

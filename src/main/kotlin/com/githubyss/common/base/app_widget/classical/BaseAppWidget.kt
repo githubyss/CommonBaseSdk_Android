@@ -20,14 +20,14 @@ abstract class BaseAppWidget : AppWidgetProvider() {
 
     /**  */
     companion object {
-        val TAG: String = BaseAppWidget::class.java.simpleName
+        val TAG by lazy { BaseAppWidget::class.simpleName }
     }
 
 
     /** ****************************** Properties ****************************** */
 
     /**  */
-    private var widgetName = this::class.java.simpleName
+    private val widgetName by lazy { this::class.simpleName }
 
 
     /** ****************************** Constructors ****************************** */

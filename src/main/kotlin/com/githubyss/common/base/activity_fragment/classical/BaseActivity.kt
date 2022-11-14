@@ -44,7 +44,7 @@ abstract class BaseActivity(@LayoutRes layoutId: Int = 0) : AppCompatActivity(la
 
     /**  */
     companion object {
-        val TAG: String = BaseActivity::class.java.simpleName
+        val TAG by lazy { BaseActivity::class.java.simpleName }
 
         @IdRes
         val FRAGMENT_BASE_CONTAINER_ID = R.id.layout_fragment_base_container
@@ -57,7 +57,7 @@ abstract class BaseActivity(@LayoutRes layoutId: Int = 0) : AppCompatActivity(la
     /** ****************************** Properties ****************************** */
 
     /**  */
-    private var activityName = this::class.java.simpleName
+    private val activityName by lazy { this::class.simpleName }
 
 
     /** ****************************** Constructors ****************************** */

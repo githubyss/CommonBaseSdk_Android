@@ -28,7 +28,7 @@ abstract class BaseDialogFragment(@LayoutRes layoutId: Int = 0) : DialogFragment
 
     /**  */
     companion object {
-        val TAG: String = BaseDialogFragment::class.java.simpleName
+        val TAG by lazy { BaseDialogFragment::class.simpleName }
     }
 
 

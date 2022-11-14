@@ -22,7 +22,7 @@ open class ActivityLifecycleObserver private constructor() : LifecycleObserver {
 
     /**  */
     companion object {
-        private val TAG = ActivityLifecycleObserver::class.java.simpleName
+        private val TAG by lazy { ActivityLifecycleObserver::class.simpleName }
         val INSTANCE = Holder.INSTANCE
     }
 

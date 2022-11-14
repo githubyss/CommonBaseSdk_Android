@@ -19,14 +19,14 @@ abstract class BaseAppWidgetRemoteViewsFactory<T> : RemoteViewsService.RemoteVie
 
     /**  */
     companion object {
-        val TAG: String = BaseAppWidgetRemoteViewsFactory::class.java.simpleName
+        val TAG by lazy { BaseAppWidgetRemoteViewsFactory::class.simpleName }
     }
 
 
     /** ****************************** Properties ****************************** */
 
     /**  */
-    private var factoryName = this::class.java.simpleName
+    private val factoryName by lazy { this::class.simpleName }
 
     protected open val dataList by lazy { ArrayList<T>() }
 

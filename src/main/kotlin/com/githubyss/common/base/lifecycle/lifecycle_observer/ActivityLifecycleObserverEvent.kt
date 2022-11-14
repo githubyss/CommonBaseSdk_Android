@@ -23,7 +23,7 @@ open class ActivityLifecycleObserverEvent private constructor() : LifecycleEvent
 
     /**  */
     companion object {
-        private val TAG = ActivityLifecycleObserverEvent::class.java.simpleName
+        private val TAG by lazy { ActivityLifecycleObserverEvent::class.simpleName }
         val INSTANCE = Holder.INSTANCE
     }
 

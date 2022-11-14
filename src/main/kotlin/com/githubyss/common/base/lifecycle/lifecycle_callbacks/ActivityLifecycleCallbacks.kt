@@ -18,7 +18,7 @@ open class ActivityLifecycleCallbacks private constructor() : Application.Activi
 
     /**  */
     companion object {
-        private val TAG = ActivityLifecycleCallbacks::class.java.simpleName
+        private val TAG by lazy { ActivityLifecycleCallbacks::class.simpleName }
         val INSTANCE = Holder.INSTANCE
     }
 

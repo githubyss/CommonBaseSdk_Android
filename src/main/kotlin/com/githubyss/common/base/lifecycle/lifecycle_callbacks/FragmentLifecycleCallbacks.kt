@@ -20,7 +20,7 @@ open class FragmentLifecycleCallbacks private constructor() : FragmentManager.Fr
 
     /**  */
     companion object {
-        private val TAG = FragmentLifecycleCallbacks::class.java.simpleName
+        private val TAG by lazy { FragmentLifecycleCallbacks::class.simpleName }
         val INSTANCE = Holder.INSTANCE
     }
 

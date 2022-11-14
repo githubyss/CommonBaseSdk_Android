@@ -19,7 +19,7 @@ open class ActivityLifecycleObserverDefault private constructor() : DefaultLifec
 
     /**  */
     companion object {
-        private val TAG = ActivityLifecycleObserverDefault::class.java.simpleName
+        private val TAG by lazy { ActivityLifecycleObserverDefault::class.simpleName }
         val INSTANCE = Holder.INSTANCE
     }
 
