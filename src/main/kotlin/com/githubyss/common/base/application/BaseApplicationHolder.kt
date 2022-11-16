@@ -26,6 +26,8 @@ object BaseApplicationHolder {
 
     /** ****************************** Functions ****************************** */
 
+    /** ******************** Getter ******************** */
+
     /**
      * Return the context of Application object.
      *
@@ -41,6 +43,8 @@ object BaseApplicationHolder {
         // 返回 application
         return application ?: throw NullPointerException("application is null...")
     }
+
+    /** ******************** Init ******************** */
 
     /**
      * Init utils.

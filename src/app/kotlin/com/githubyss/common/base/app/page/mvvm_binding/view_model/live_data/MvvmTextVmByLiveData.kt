@@ -71,12 +71,9 @@ class MvvmTextVmByLiveData : ViewModel() {
         when (this.timeOperateState.value) {
             TimeOperateState.START -> {
                 this.timeOperateState.value = TimeOperateState.STOP
-                val timerTask = object : TimerTask() {
-                    override fun run() {
-                        this@MvvmTextVmByLiveData.text.postValue("当前时间: ${System.currentTimeMillis()}")
-                    }
-                }
-                runTaskPeriodicallyWithTimeOffset(timerTask, 0, 500)
+                runTaskPeriodicallyWithTimeOffset(timerTask {
+                    this@MvvmTextVmByLiveData.text.postValue("当前时间: ${System.currentTimeMillis()}")
+                }, 0, 500)
             }
             TimeOperateState.STOP -> {
                 this.timeOperateState.value = TimeOperateState.START

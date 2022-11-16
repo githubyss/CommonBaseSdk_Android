@@ -12,7 +12,6 @@ import com.githubyss.common.base.activity_fragment.interface_default.BaseActivit
 import com.githubyss.common.base.activity_fragment.interface_default.BaseAnimatorInterface
 import com.githubyss.common.base.activity_fragment.interface_default.BaseBroadcastReceiverInterface
 import com.githubyss.common.base.activity_fragment.interface_default.BaseLifecycleInterface
-import com.githubyss.common.base.application.BaseApplicationHolder.init
 import com.githubyss.common.base.lifecycle.registerLifecycleEx
 import com.githubyss.common.base.lifecycle.unregisterLifecycleEx
 import com.githubyss.common.base.z_copy.switchFragmentByAddHideShow
