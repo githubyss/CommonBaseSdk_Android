@@ -2,9 +2,9 @@ package com.githubyss.common.base.app.page.binding_inline
 
 import com.githubyss.common.base.R
 import com.githubyss.common.base.activity_fragment.binding_inline.BaseInlineBindingFragment
-import com.githubyss.common.base.activity_fragment.binding_inline_root.bindView
 import com.githubyss.common.base.app.z_copy.getStringFromRes
 import com.githubyss.common.base.databinding.CombaseFragmentViewBindingInlineBinding
+import com.githubyss.common.base.ext.inflateBinding
 
 
 /**
@@ -27,7 +27,7 @@ class InlineFragment : BaseInlineBindingFragment<CombaseFragmentViewBindingInlin
     /** ****************************** Properties ****************************** */
 
     /**  */
-    private val _binding by bindView<CombaseFragmentViewBindingInlineBinding>()
+    private val _binding by inflateBinding<CombaseFragmentViewBindingInlineBinding>()
 
 
     /** ****************************** Override ****************************** */

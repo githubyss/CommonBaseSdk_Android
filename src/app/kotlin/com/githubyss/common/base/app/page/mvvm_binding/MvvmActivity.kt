@@ -4,6 +4,7 @@ import android.view.View
 import androidx.activity.viewModels
 import androidx.databinding.Observable
 import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProvider
 import com.githubyss.common.base.R
 import com.githubyss.common.base.activity_fragment.binding_reflect_view_model.BaseReflectBindingViewModelToolbarActivity
 import com.githubyss.common.base.app.page.mvvm_binding.enumeration.DisplayType

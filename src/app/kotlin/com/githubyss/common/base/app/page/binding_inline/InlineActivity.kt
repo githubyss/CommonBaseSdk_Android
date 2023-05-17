@@ -1,8 +1,8 @@
 package com.githubyss.common.base.app.page.binding_inline
 
 import com.githubyss.common.base.activity_fragment.binding_inline.BaseInlineBindingActivity
-import com.githubyss.common.base.activity_fragment.binding_inline_root.inflate
 import com.githubyss.common.base.databinding.CombaseActivityBaseBinding
+import com.githubyss.common.base.ext.inflateBinding
 
 
 /**
@@ -25,7 +25,7 @@ class InlineActivity : BaseInlineBindingActivity<CombaseActivityBaseBinding>() {
     /** ****************************** Properties ****************************** */
 
     /**  */
-    private val _binding by inflate<CombaseActivityBaseBinding>()
+    private val _binding by inflateBinding<CombaseActivityBaseBinding>()
 
 
     /** ****************************** Override ****************************** */

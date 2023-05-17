@@ -2,8 +2,8 @@ package com.githubyss.common.base.app.page.binding_inline
 
 import com.githubyss.common.base.R
 import com.githubyss.common.base.activity_fragment.binding_inline.BaseInlineBindingToolbarActivity
-import com.githubyss.common.base.activity_fragment.binding_inline_root.inflate
 import com.githubyss.common.base.databinding.CombaseActivityBaseToolbarBinding
+import com.githubyss.common.base.ext.inflateBinding
 
 
 /**
@@ -26,7 +26,7 @@ class InlineToolbarActivity : BaseInlineBindingToolbarActivity<CombaseActivityBa
     /** ****************************** Properties ****************************** */
 
     /**  */
-    private val _binding by inflate<CombaseActivityBaseToolbarBinding>()
+    private val _binding by inflateBinding<CombaseActivityBaseToolbarBinding>()
 
 
     /** ****************************** Override ****************************** */

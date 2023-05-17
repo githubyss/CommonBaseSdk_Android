@@ -20,17 +20,17 @@ import kotlin.reflect.KProperty
 /**
  * 通过 ViewGroup 获取 binding
  */
-inline fun <reified B : ViewDataBinding> inflate(parent: ViewGroup): Lazy<B> {
+inline fun <reified B : ViewDataBinding> inflateBinding(parent: ViewGroup): Lazy<B> {
     return lazy { inflateBindingByViewGroup<B>(parent) }
 }
 
 /** 通过 LayoutInflater 获取 Activity 的 binding */
-inline fun <reified B : ViewDataBinding> Activity.inflate(): Lazy<B> {
+inline fun <reified B : ViewDataBinding> Activity.inflateBinding(): Lazy<B> {
     return lazy { inflateBindingByLayoutInflater<B>(layoutInflater).apply { setContentView(root) } }
 }
 
 /** 获取 Fragment 的 binding */
-inline fun <reified B : ViewDataBinding> Fragment.bindView() = FragmentBindingDelegate(B::class.java)
+inline fun <reified B : ViewDataBinding> Fragment.inflateBinding() = FragmentBindingDelegate(B::class.java)
 class FragmentBindingDelegate<B : ViewDataBinding>(private val clazz: Class<B>) : ReadOnlyProperty<Fragment, B> {
     private lateinit var _binding: B
     private val binding get() = _binding

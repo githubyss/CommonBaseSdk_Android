@@ -14,14 +14,14 @@
         android:label="${APP_NAME}"
         android:roundIcon="@mipmap/comres_ic_launcher_default_round"
         android:supportsRtl="true"
-        android:theme="@style/comres_app_gray_theme"
+        android:theme="@style/comresTheme_default"
         >
 
         <activity
             android:name=".app.page.homepage.HomepageActivity"
             android:exported="true"
             android:screenOrientation="portrait"
-            android:theme="@style/comres_activity_noActionBar_theme"
+            android:theme="@style/comresTheme_default"
             android:windowSoftInputMode="stateAlwaysHidden|adjustResize"
             >
             <intent-filter>
@@ -33,84 +33,84 @@
         <activity
             android:name=".app.page.mvvm_binding.MvvmActivity"
             android:screenOrientation="portrait"
-            android:theme="@style/comres_activity_noActionBar_theme"
+            android:theme="@style/comresTheme_default"
             android:windowSoftInputMode="stateAlwaysHidden|adjustResize"
             />
 
         <activity
             android:name=".app.page.mvvm_compose.MvvmComposeActivity"
             android:screenOrientation="portrait"
-            android:theme="@style/comres_activity_noActionBar_theme"
+            android:theme="@style/comresTheme_default"
             android:windowSoftInputMode="stateAlwaysHidden|adjustResize"
             />
 
         <activity
             android:name=".app.page.state_compose.StateComposeActivity"
             android:screenOrientation="portrait"
-            android:theme="@style/comres_activity_noActionBar_theme"
+            android:theme="@style/comresTheme_default"
             android:windowSoftInputMode="stateAlwaysHidden|adjustResize"
             />
 
         <activity
             android:name=".app.page.mvi.MviActivity"
             android:screenOrientation="portrait"
-            android:theme="@style/comres_activity_noActionBar_theme"
+            android:theme="@style/comresTheme_default"
             android:windowSoftInputMode="stateAlwaysHidden|adjustResize"
             />
 
         <activity
             android:name=".app.page.compose.ComposeActivity"
             android:screenOrientation="portrait"
-            android:theme="@style/comres_activity_noActionBar_theme"
+            android:theme="@style/comresTheme_default"
             android:windowSoftInputMode="stateAlwaysHidden|adjustResize"
             />
 
         <activity
             android:name=".app.page.compose.ComposeToolbarActivity"
             android:screenOrientation="portrait"
-            android:theme="@style/comres_activity_noActionBar_theme"
+            android:theme="@style/comresTheme_default"
             android:windowSoftInputMode="stateAlwaysHidden|adjustResize"
             />
 
         <activity
             android:name=".app.page.binding_reflect.ReflectActivity"
             android:screenOrientation="portrait"
-            android:theme="@style/comres_activity_noActionBar_theme"
+            android:theme="@style/comresTheme_default"
             android:windowSoftInputMode="stateAlwaysHidden|adjustResize"
             />
 
         <activity
             android:name="com.githubyss.common.base.app.page.binding_inline.InlineActivity"
             android:screenOrientation="portrait"
-            android:theme="@style/comres_activity_noActionBar_theme"
+            android:theme="@style/comresTheme_default"
             android:windowSoftInputMode="stateAlwaysHidden|adjustResize"
             />
 
         <activity
             android:name=".app.page.binding_reflect.ReflectToolbarActivity"
             android:screenOrientation="portrait"
-            android:theme="@style/comres_activity_noActionBar_theme"
+            android:theme="@style/comresTheme_default"
             android:windowSoftInputMode="stateAlwaysHidden|adjustResize"
             />
 
         <activity
             android:name="com.githubyss.common.base.app.page.binding_inline.InlineToolbarActivity"
             android:screenOrientation="portrait"
-            android:theme="@style/comres_activity_noActionBar_theme"
+            android:theme="@style/comresTheme_default"
             android:windowSoftInputMode="stateAlwaysHidden|adjustResize"
             />
 
         <activity
             android:name=".app.page.lifecycle.LifecycleActivity"
             android:screenOrientation="portrait"
-            android:theme="@style/comres_activity_noActionBar_theme"
+            android:theme="@style/comresTheme_default"
             android:windowSoftInputMode="stateAlwaysHidden|adjustResize"
             />
 
         <activity
             android:name=".app.page.lifecycle.LifecycleNextActivity"
             android:screenOrientation="portrait"
-            android:theme="@style/comres_activity_noActionBar_theme"
+            android:theme="@style/comresTheme_default"
             android:windowSoftInputMode="stateAlwaysHidden|adjustResize"
             />
     </application>
