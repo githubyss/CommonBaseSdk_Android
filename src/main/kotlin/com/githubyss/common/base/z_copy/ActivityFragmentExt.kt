@@ -11,8 +11,8 @@ import androidx.fragment.app.FragmentActivity
  * @param
  * @return
  */
-internal fun FragmentActivity.switchFragment(fragment: Fragment, fragmentTag: String? = null, @IdRes containerId: Int, addToBackStack: Boolean = true) {
-    switchFragmentByAddHideShow(fragment, fragmentTag, null, supportFragmentManager, containerId, addToBackStack, intent.extras)
+internal fun FragmentActivity.switchFragment(fragment: Fragment, fragmentTag: String? = null, @IdRes containerId: Int, addToBackStack: Boolean = true, allowingStateLoss: Boolean = true) {
+    switchFragmentByAddHideShow(fragment, null, fragmentTag, supportFragmentManager, containerId, intent.extras, addToBackStack, allowingStateLoss)
 }
 
 /**
@@ -21,6 +21,6 @@ internal fun FragmentActivity.switchFragment(fragment: Fragment, fragmentTag: St
  * @param
  * @return
  */
-internal fun Fragment.switchFragment(fragment: Fragment, fragmentTag: String? = null, currentFragment: Any?, @IdRes containerId: Int, addToBackStack: Boolean = true) {
-    switchFragmentByAddHideShow(fragment, fragmentTag, currentFragment, parentFragmentManager, containerId, addToBackStack)
+internal fun Fragment.switchFragment(fragment: Fragment, fragmentTag: String? = null, currentFragment: Any?, @IdRes containerId: Int, addToBackStack: Boolean = true, allowingStateLoss: Boolean = true) {
+    switchFragmentByAddHideShow(fragment, currentFragment, fragmentTag, parentFragmentManager, containerId, null, addToBackStack, allowingStateLoss)
 }

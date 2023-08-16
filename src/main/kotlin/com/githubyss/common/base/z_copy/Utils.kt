@@ -56,10 +56,8 @@ internal fun getApplicationByReflect(): Application {
     try {
         @SuppressLint("PrivateApi")
         val activityThread = Class.forName("android.app.ActivityThread")
-        val thread = activityThread.getMethod("currentActivityThread")
-            .invoke(null)
-        val app = activityThread.getMethod("getApplication")
-            .invoke(thread) ?: throw NullPointerException("u should init first")
+        val thread = activityThread.getMethod("currentActivityThread").invoke(null)
+        val app = activityThread.getMethod("getApplication").invoke(thread) ?: throw NullPointerException("u should init first")
         return app as Application
     }
     catch (e: NoSuchMethodException) {
