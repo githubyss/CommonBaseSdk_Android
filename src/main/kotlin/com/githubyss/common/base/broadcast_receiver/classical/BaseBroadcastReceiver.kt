@@ -4,6 +4,7 @@ import android.content.BroadcastReceiver
 import android.content.Context
 import android.content.Intent
 import com.githubyss.common.base.app_widget.classical.BaseAppWidget
+import com.githubyss.common.base.z_copy.logV
 
 
 /**
@@ -19,7 +20,7 @@ class BaseBroadcastReceiver : BroadcastReceiver() {
 
     /**  */
     companion object {
-        val TAG: String = BaseBroadcastReceiver::class.java.simpleName
+        private val TAG by lazy { BaseBroadcastReceiver::class.java.simpleName }
     }
 
 
@@ -33,7 +34,7 @@ class BaseBroadcastReceiver : BroadcastReceiver() {
 
     /**  */
     init {
-        println("$TAG $broadcastReceiverName constructor init.")
+        logV(TAG, "$broadcastReceiverName constructor init.")
     }
 
 
@@ -42,6 +43,6 @@ class BaseBroadcastReceiver : BroadcastReceiver() {
     /**  */
     override fun onReceive(context: Context?, intent: Intent?) {
         val message = "$broadcastReceiverName > onReceive, 接收到广播 intent: $intent"
-        println("${BaseAppWidget.TAG} $message")
+        logV(TAG, message)
     }
 }

@@ -6,9 +6,9 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.Dp
 import com.githubyss.common.base.R
 import com.githubyss.common.base.activity_fragment.compose.BaseComposeActivity
-import com.githubyss.common.base.app.compose_ui.InfoDisplay
 import com.githubyss.common.base.app.z_copy.compose_ui.PageSidePadding
 import com.githubyss.common.base.app.z_copy.getStringFromRes
+import com.githubyss.common.base.z_copy.logD
 import com.githubyss.common.res.common.dimen.SpaceNormal
 import com.githubyss.common.res.page.pageBgLightGray
 
@@ -22,11 +22,11 @@ import com.githubyss.common.res.page.pageBgLightGray
  */
 class ComposeActivity : BaseComposeActivity() {
 
-    /** ****************************** Properties ****************************** */
+    /** ****************************** Object ****************************** */
 
     /**  */
     companion object {
-        private val TAG: String = ComposeActivity::class.java.simpleName
+        private val TAG by lazy { ComposeActivity::class.java.simpleName }
     }
 
 
@@ -40,7 +40,9 @@ class ComposeActivity : BaseComposeActivity() {
             verticalArrangement = Arrangement.Center,
             paddingVertical = Dp.SpaceNormal,
         ) {
-            InfoDisplay(title = getStringFromRes(R.string.combase_compose))
+            val title = getStringFromRes(R.string.combase_compose)
+            logD(TAG, title)
+            InfoDisplay(title = title)
         }
     }
 }

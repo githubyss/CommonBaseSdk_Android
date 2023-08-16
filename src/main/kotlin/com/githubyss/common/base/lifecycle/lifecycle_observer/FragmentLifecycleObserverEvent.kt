@@ -3,6 +3,7 @@ package com.githubyss.common.base.lifecycle.lifecycle_observer
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.LifecycleEventObserver
 import androidx.lifecycle.LifecycleOwner
+import com.githubyss.common.base.z_copy.logV
 
 
 /**
@@ -18,7 +19,7 @@ open class FragmentLifecycleObserverEvent private constructor() : LifecycleEvent
 
     /**  */
     companion object {
-        private val TAG by lazy { FragmentLifecycleObserverEvent::class.simpleName }
+        private val TAG by lazy { FragmentLifecycleObserverEvent::class.java.simpleName }
         val INSTANCE = Holder.INSTANCE
     }
 
@@ -42,6 +43,6 @@ open class FragmentLifecycleObserverEvent private constructor() : LifecycleEvent
                            Lifecycle.Event.ON_DESTROY -> "ON_DESTROY"
                            else -> ""
                        })
-        println("$TAG $message")
+        logV(TAG, "$message")
     }
 }

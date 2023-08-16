@@ -4,6 +4,7 @@ import android.content.Context
 import android.graphics.Canvas
 import android.util.AttributeSet
 import android.widget.FrameLayout
+import com.githubyss.common.base.z_copy.logV
 
 
 /**
@@ -19,14 +20,14 @@ abstract class BaseFrameLayout @JvmOverloads constructor(context: Context, attrs
 
     /**  */
     companion object {
-        val TAG: String = BaseFrameLayout::class.java.simpleName
+        private val TAG by lazy { BaseFrameLayout::class.java.simpleName }
     }
 
 
     /** ****************************** Properties ****************************** */
 
     /**  */
-    private var thisClassName = this::class.java.simpleName
+    private val thisClassName by lazy { this::class.java.simpleName }
 
 
     /** ****************************** Override ****************************** */
@@ -36,7 +37,7 @@ abstract class BaseFrameLayout @JvmOverloads constructor(context: Context, attrs
         super.onDraw(canvas)
 
         val message = "$thisClassName > onDraw"
-        println("$TAG $message")
+        logV(TAG, message)
     }
 
     /**  */
@@ -44,7 +45,7 @@ abstract class BaseFrameLayout @JvmOverloads constructor(context: Context, attrs
         super.onMeasure(widthMeasureSpec, heightMeasureSpec)
 
         val message = "$thisClassName > onMeasure {widthMeasureSpec:$widthMeasureSpec, heightMeasureSpec:$heightMeasureSpec}"
-        println("$TAG $message")
+        logV(TAG, message)
     }
 
     /**  */
@@ -52,6 +53,6 @@ abstract class BaseFrameLayout @JvmOverloads constructor(context: Context, attrs
         super.onLayout(changed, left, top, right, bottom)
 
         val message = "$thisClassName > onLayout {changed:$changed, left:$left, top:$top, right:$right, bottom:$bottom}"
-        println("$TAG $message")
+        logV(TAG, message)
     }
 }

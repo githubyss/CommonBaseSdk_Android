@@ -3,6 +3,7 @@ package com.githubyss.common.base.lifecycle.lifecycle_callbacks
 import android.app.Activity
 import android.app.Application
 import android.os.Bundle
+import com.githubyss.common.base.z_copy.logV
 
 
 /**
@@ -18,7 +19,7 @@ open class ActivityLifecycleCallbacks private constructor() : Application.Activi
 
     /**  */
     companion object {
-        private val TAG by lazy { ActivityLifecycleCallbacks::class.simpleName }
+        private val TAG by lazy { ActivityLifecycleCallbacks::class.java.simpleName }
         val INSTANCE = Holder.INSTANCE
     }
 
@@ -45,7 +46,7 @@ open class ActivityLifecycleCallbacks private constructor() : Application.Activi
      */
     override fun onActivityCreated(activity: Activity, savedInstanceState: Bundle?) {
         val message = "${activity::class.java.simpleName} > onActivityCreated"
-        println("$TAG $message")
+        logV(TAG, message)
 
         activityHolder.handleForegroundRestart(activity)
         activityHolder.setAnimatorsEnabled()
@@ -61,7 +62,7 @@ open class ActivityLifecycleCallbacks private constructor() : Application.Activi
      */
     override fun onActivityStarted(activity: Activity) {
         val message = "${activity::class.java.simpleName} > onActivityStarted"
-        println("$TAG $message")
+        logV(TAG, message)
 
         if (activityHolder.isForeground) {
             activityHolder.setTopActivity(activity)
@@ -82,7 +83,7 @@ open class ActivityLifecycleCallbacks private constructor() : Application.Activi
      */
     override fun onActivityResumed(activity: Activity) {
         val message = "${activity::class.java.simpleName} > onActivityResumed"
-        println("$TAG $message")
+        logV(TAG, message)
 
         if (!activityHolder.isForeground) {
             activityHolder.isForeground = true
@@ -104,7 +105,7 @@ open class ActivityLifecycleCallbacks private constructor() : Application.Activi
      */
     override fun onActivityPaused(activity: Activity) {
         val message = "${activity::class.java.simpleName} > onActivityPaused"
-        println("$TAG $message")
+        logV(TAG, message)
     }
 
     /**
@@ -115,7 +116,7 @@ open class ActivityLifecycleCallbacks private constructor() : Application.Activi
      */
     override fun onActivityStopped(activity: Activity) {
         val message = "${activity::class.java.simpleName} > onActivityStopped"
-        println("$TAG $message")
+        logV(TAG, message)
 
         // 重要，如果 Activity 的 stop 中判断应用再前后台，一定要把 super.stop() 放在第一行
         if (activity.isChangingConfigurations) {
@@ -144,7 +145,7 @@ open class ActivityLifecycleCallbacks private constructor() : Application.Activi
      */
     override fun onActivitySaveInstanceState(activity: Activity, outState: Bundle) {
         val message = "${activity::class.java.simpleName} > onActivitySaveInstanceState"
-        println("$TAG $message")
+        logV(TAG, message)
     }
 
     /**
@@ -155,7 +156,7 @@ open class ActivityLifecycleCallbacks private constructor() : Application.Activi
      */
     override fun onActivityDestroyed(activity: Activity) {
         val message = "${activity::class.java.simpleName} > onActivityDestroyed"
-        println("$TAG $message")
+        logV(TAG, message)
 
         activityHolder.activityList.remove(activity)
         activityHolder.consumeOnActivityDestroyedListener(activity)

@@ -15,8 +15,8 @@ import com.githubyss.common.base.app.page.mvvm_binding.view_model.observable_fie
 import com.githubyss.common.base.app.page.mvvm_binding.view_model.observable_field.MvvmImageVmByObservableField
 import com.githubyss.common.base.app.page.mvvm_binding.view_model.observable_field.MvvmTextVmByObservableField
 import com.githubyss.common.base.app.page.mvvm_binding.view_model.observable_field.MvvmViewModelByObservableField
-import com.githubyss.common.base.app.z_copy.logD
 import com.githubyss.common.base.databinding.CombaseFragmentMvvmBinding
+import com.githubyss.common.base.z_copy.logD
 
 
 /**
@@ -32,8 +32,11 @@ class MvvmFragment : BaseReflectBindingViewModelToolbarFragment<CombaseFragmentM
 
     /**  */
     companion object {
-        val TAG: String = MvvmFragment::class.java.simpleName
+        val TAG by lazy { MvvmFragment::class.java.simpleName ?: "MvvmFragment" }
     }
+
+
+    /** ****************************** Properties ****************************** */
 
     // private val mvvmVmLiveData: MvvmViewModelByLiveData by lazy { ViewModelProvider(requireActivity()).get(MvvmViewModelByLiveData::class.java) }
     private val mvvmVmLiveData: MvvmViewModelByLiveData by viewModels()
@@ -92,7 +95,7 @@ class MvvmFragment : BaseReflectBindingViewModelToolbarFragment<CombaseFragmentM
     private fun observeVmByLiveData() {
         // this.mvvmVmLiveData.displayType.observe(this, changeObserverByLiveData)
         this.mvvmEdittextVmLiveData.edittext.observe(this) {
-            logD(msg = "edittext: $it")
+            logD(TAG, "edittext: $it")
         }
     }
 

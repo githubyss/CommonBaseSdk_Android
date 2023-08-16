@@ -13,6 +13,7 @@ import com.githubyss.common.base.activity_fragment.interface_default.BaseBroadca
 import com.githubyss.common.base.activity_fragment.interface_default.BaseLifecycleInterface
 import com.githubyss.common.base.lifecycle.registerLifecycleEx
 import com.githubyss.common.base.lifecycle.unregisterLifecycleEx
+import com.githubyss.common.base.z_copy.logV
 import com.githubyss.common.base.z_copy.switchFragmentByAddHideShow
 
 
@@ -44,7 +45,7 @@ abstract class BaseActivity(@LayoutRes layoutId: Int = 0) : AppCompatActivity(la
 
     /**  */
     companion object {
-        val TAG by lazy { BaseActivity::class.java.simpleName }
+        private val TAG by lazy { BaseActivity::class.java.simpleName }
 
         @IdRes
         val FRAGMENT_BASE_CONTAINER_ID = R.id.layout_fragment_base_container
@@ -57,14 +58,14 @@ abstract class BaseActivity(@LayoutRes layoutId: Int = 0) : AppCompatActivity(la
     /** ****************************** Properties ****************************** */
 
     /**  */
-    private val activityName by lazy { this::class.simpleName }
+    private val thisClassName by lazy { this::class.java.simpleName }
 
 
     /** ****************************** Constructors ****************************** */
 
     /**  */
     init {
-        println("$TAG $activityName constructor init.")
+        logV(TAG, "$thisClassName constructor init.")
     }
 
 
@@ -81,7 +82,7 @@ abstract class BaseActivity(@LayoutRes layoutId: Int = 0) : AppCompatActivity(la
         super.onCreate(savedInstanceState)
 
         val message = "${this::class.java.simpleName} > onCreate"
-        println("$TAG $message")
+        logV(TAG, message)
 
         setupUi()
         setupData()
@@ -97,8 +98,8 @@ abstract class BaseActivity(@LayoutRes layoutId: Int = 0) : AppCompatActivity(la
      */
     override fun onNewIntent(intent: Intent?) {
         super.onNewIntent(intent)
-        val message = "$activityName > onNewIntent"
-        println("$TAG $message")
+        val message = "$thisClassName > onNewIntent"
+        logV(TAG, message)
     }
 
     /**
@@ -110,8 +111,8 @@ abstract class BaseActivity(@LayoutRes layoutId: Int = 0) : AppCompatActivity(la
      */
     override fun onStart() {
         super.onStart()
-        val message = "$activityName > onStart"
-        println("$TAG $message")
+        val message = "$thisClassName > onStart"
+        logV(TAG, message)
     }
 
     /**
@@ -123,8 +124,8 @@ abstract class BaseActivity(@LayoutRes layoutId: Int = 0) : AppCompatActivity(la
      */
     override fun onRestart() {
         super.onRestart()
-        val message = "$activityName > onRestart"
-        println("$TAG $message")
+        val message = "$thisClassName > onRestart"
+        logV(TAG, message)
     }
 
     /**
@@ -136,8 +137,8 @@ abstract class BaseActivity(@LayoutRes layoutId: Int = 0) : AppCompatActivity(la
      */
     override fun onResume() {
         super.onResume()
-        val message = "$activityName > onResume"
-        println("$TAG $message")
+        val message = "$thisClassName > onResume"
+        logV(TAG, message)
 
         registerReceiver()
     }
@@ -151,8 +152,8 @@ abstract class BaseActivity(@LayoutRes layoutId: Int = 0) : AppCompatActivity(la
      */
     override fun onPause() {
         super.onPause()
-        val message = "$activityName > onPause"
-        println("$TAG $message")
+        val message = "$thisClassName > onPause"
+        logV(TAG, message)
 
         unregisterReceiver()
     }
@@ -166,8 +167,8 @@ abstract class BaseActivity(@LayoutRes layoutId: Int = 0) : AppCompatActivity(la
      */
     override fun onStop() {
         super.onStop()
-        val message = "$activityName > onStop"
-        println("$TAG $message")
+        val message = "$thisClassName > onStop"
+        logV(TAG, message)
     }
 
     /**
@@ -189,8 +190,8 @@ abstract class BaseActivity(@LayoutRes layoutId: Int = 0) : AppCompatActivity(la
      */
     override fun onSaveInstanceState(outState: Bundle) {
         super.onSaveInstanceState(outState)
-        val message = "$activityName > onSaveInstanceState"
-        println("$TAG $message")
+        val message = "$thisClassName > onSaveInstanceState"
+        logV(TAG, message)
     }
 
     /**
@@ -202,8 +203,8 @@ abstract class BaseActivity(@LayoutRes layoutId: Int = 0) : AppCompatActivity(la
      */
     override fun onRestoreInstanceState(savedInstanceState: Bundle) {
         super.onRestoreInstanceState(savedInstanceState)
-        val message = "$activityName > onRestoreInstanceState"
-        println("$TAG $message")
+        val message = "$thisClassName > onRestoreInstanceState"
+        logV(TAG, message)
     }
 
     /**
@@ -213,8 +214,8 @@ abstract class BaseActivity(@LayoutRes layoutId: Int = 0) : AppCompatActivity(la
      * @return
      */
     override fun onDestroy() {
-        val message = "$activityName > onDestroy"
-        println("$TAG $message")
+        val message = "$thisClassName > onDestroy"
+        logV(TAG, message)
 
         unregisterLifecycle()
         super.onDestroy()

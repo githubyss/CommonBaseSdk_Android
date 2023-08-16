@@ -4,6 +4,7 @@ import android.content.Context
 import android.graphics.Canvas
 import android.util.AttributeSet
 import androidx.recyclerview.widget.RecyclerView
+import com.githubyss.common.base.z_copy.logV
 
 
 /**
@@ -19,7 +20,7 @@ abstract class BaseRecyclerView @JvmOverloads constructor(context: Context, attr
 
     /**  */
     companion object {
-        val TAG: String = BaseRecyclerView::class.java.simpleName
+        private val TAG by lazy { BaseRecyclerView::class.java.simpleName }
     }
 
 
@@ -29,23 +30,23 @@ abstract class BaseRecyclerView @JvmOverloads constructor(context: Context, attr
     override fun onDraw(canvas: Canvas?) {
         super.onDraw(canvas)
 
-        val message = "${this::class.java.simpleName} > onDraw"
-        println("$TAG $message")
+        val message = "$TAG > onDraw"
+        logV(TAG, message)
     }
 
     /**  */
     override fun onMeasure(widthMeasureSpec: Int, heightMeasureSpec: Int) {
         super.onMeasure(widthMeasureSpec, heightMeasureSpec)
 
-        val message = "${this::class.java.simpleName} > onMeasure"
-        println("$TAG $message")
+        val message = "$TAG > onMeasure"
+        logV(TAG, message)
     }
 
     /**  */
     override fun onLayout(changed: Boolean, left: Int, top: Int, right: Int, bottom: Int) {
         super.onLayout(changed, left, top, right, bottom)
 
-        val message = "${this::class.java.simpleName} > onLayout"
-        println("$TAG $message")
+        val message = "$TAG > onLayout"
+        logV(TAG, message)
     }
 }

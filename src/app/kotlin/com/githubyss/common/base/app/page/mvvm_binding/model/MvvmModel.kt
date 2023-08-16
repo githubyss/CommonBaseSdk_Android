@@ -1,6 +1,6 @@
 package com.githubyss.common.base.app.page.mvvm_binding.model
 
-import com.githubyss.common.base.app.z_copy.logE
+import com.githubyss.common.base.z_copy.logE
 import org.json.JSONException
 import org.json.JSONObject
 
@@ -54,7 +54,7 @@ interface MvvmModel {
                 text = json.optString("text")
             }
             catch (e: JSONException) {
-                logE(TAG, t = e)
+                logE(TAG, e::class.java.simpleName, e)
             }
         }
     }
@@ -96,7 +96,7 @@ interface MvvmModel {
                 imageUrl = json.optString("imageUrl")
             }
             catch (e: JSONException) {
-                logE(TAG, t = e)
+                logE(TAG, e::class.java.simpleName, e)
             }
         }
     }

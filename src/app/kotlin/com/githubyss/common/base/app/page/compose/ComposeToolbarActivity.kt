@@ -6,10 +6,10 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.Dp
 import com.githubyss.common.base.R
 import com.githubyss.common.base.activity_fragment.compose.BaseComposeToolbarActivity
-import com.githubyss.common.base.app.compose_ui.InfoDisplay
 import com.githubyss.common.base.app.z_copy.compose_ui.PageSidePadding
 import com.githubyss.common.base.app.z_copy.compose_ui.TopNavigationBar
 import com.githubyss.common.base.app.z_copy.getStringFromRes
+import com.githubyss.common.base.z_copy.logD
 import com.githubyss.common.res.common.dimen.SpaceNormal
 import com.githubyss.common.res.page.pageBgLightGray
 
@@ -27,7 +27,7 @@ class ComposeToolbarActivity : BaseComposeToolbarActivity() {
 
     /**  */
     companion object {
-        private val TAG: String = ComposeToolbarActivity::class.java.simpleName
+        private val TAG by lazy { ComposeToolbarActivity::class.java.simpleName }
     }
 
 
@@ -47,7 +47,9 @@ class ComposeToolbarActivity : BaseComposeToolbarActivity() {
             verticalArrangement = Arrangement.Center,
             paddingVertical = Dp.SpaceNormal,
         ) {
-            InfoDisplay(title = getStringFromRes(R.string.combase_compose_toolbar))
+            val title = getStringFromRes(R.string.combase_compose_toolbar)
+            logD(TAG, title)
+            InfoDisplay(title = title)
         }
     }
 }

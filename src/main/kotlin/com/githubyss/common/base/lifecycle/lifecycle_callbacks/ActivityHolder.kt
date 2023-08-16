@@ -9,7 +9,10 @@ import android.os.Build
 import android.view.View
 import android.view.inputmethod.InputMethodManager
 import androidx.localbroadcastmanager.content.LocalBroadcastManager
+import com.githubyss.common.base.activity_fragment.binding_reflect_root.RootReflectBindingActivity
 import com.githubyss.common.base.lifecycle.LifecycleConstant
+import com.githubyss.common.base.z_copy.logE
+import com.githubyss.common.base.z_copy.logV
 import java.lang.reflect.InvocationTargetException
 import java.util.*
 
@@ -27,7 +30,7 @@ class ActivityHolder {
 
     /**  */
     companion object {
-        private val TAG by lazy { ActivityHolder::class.simpleName }
+        private val TAG by lazy { ActivityHolder::class.java.simpleName }
     }
 
 
@@ -100,12 +103,12 @@ class ActivityHolder {
             if (activityList.last != activity) {
                 activityList.remove(activity)
                 activityList.addLast(activity)
-                println("$TAG 列表中已存在 activityName: ${activity::class.java.name}")
+                logV(TAG,"列表中已存在 activityName: ${activity::class.java.name}")
             }
         }
         else {
             activityList.addLast(activity)
-            println("$TAG 初次进表 activityName: ${activity::class.java.name}")
+            logV(TAG,"初次进表 activityName: ${activity::class.java.name}")
         }
     }
 
@@ -133,19 +136,19 @@ class ActivityHolder {
             }
         }
         catch (e: ClassNotFoundException) {
-            println("$TAG $e")
+            logE(TAG, e::class.java.simpleName, e)
         }
         catch (e: IllegalAccessException) {
-            println("$TAG $e")
+            logE(TAG, e::class.java.simpleName, e)
         }
         catch (e: InvocationTargetException) {
-            println("$TAG $e")
+            logE(TAG, e::class.java.simpleName, e)
         }
         catch (e: NoSuchMethodException) {
-            println("$TAG $e")
+            logE(TAG, e::class.java.simpleName, e)
         }
         catch (e: NoSuchFieldException) {
-            println("$TAG $e")
+            logE(TAG, e::class.java.simpleName, e)
         }
         return null
     }
@@ -224,14 +227,14 @@ class ActivityHolder {
             val sDurationScale = sDurationScaleField[null] as Float
             if (sDurationScale == 0f) {
                 sDurationScaleField[null] = 1f
-                println("$TAG setAnimatorsEnabled: Animators are enabled now!")
+                logV(TAG, "setAnimatorsEnabled: Animators are enabled now!")
             }
         }
         catch (e: NoSuchFieldException) {
-            println("$TAG $e")
+            logE(TAG, e::class.java.simpleName, e)
         }
         catch (e: IllegalAccessException) {
-            println("$TAG $e")
+            logE(TAG, e::class.java.simpleName, e)
         }
     }
 
@@ -272,7 +275,7 @@ class ActivityHolder {
                 }
             }
             catch (ignore: Throwable) {
-                println("$TAG $ignore")
+                logE(TAG, ignore::class.java.simpleName, ignore)
             }
         }
     }

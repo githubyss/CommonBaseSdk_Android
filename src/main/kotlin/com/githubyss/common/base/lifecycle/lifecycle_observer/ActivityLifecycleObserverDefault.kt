@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.DefaultLifecycleObserver
 import androidx.lifecycle.LifecycleOwner
 import com.githubyss.common.base.lifecycle.lifecycle_callbacks.ActivityHolder
+import com.githubyss.common.base.z_copy.logV
 
 
 /**
@@ -19,7 +20,7 @@ open class ActivityLifecycleObserverDefault private constructor() : DefaultLifec
 
     /**  */
     companion object {
-        private val TAG by lazy { ActivityLifecycleObserverDefault::class.simpleName }
+        private val TAG by lazy { ActivityLifecycleObserverDefault::class.java.simpleName }
         val INSTANCE = Holder.INSTANCE
     }
 
@@ -45,7 +46,7 @@ open class ActivityLifecycleObserverDefault private constructor() : DefaultLifec
      */
     override fun onCreate(owner: LifecycleOwner) {
         val message = "${owner::class.java.simpleName} > onCreate"
-        println("$TAG $message")
+        logV(TAG, message)
 
         val activity = owner as AppCompatActivity
 
@@ -63,7 +64,7 @@ open class ActivityLifecycleObserverDefault private constructor() : DefaultLifec
      */
     override fun onStart(owner: LifecycleOwner) {
         val message = "${owner::class.java.simpleName} > onStart"
-        println("$TAG $message")
+        logV(TAG, message)
 
         val activity = owner as AppCompatActivity
 
@@ -86,7 +87,7 @@ open class ActivityLifecycleObserverDefault private constructor() : DefaultLifec
      */
     override fun onResume(owner: LifecycleOwner) {
         val message = "${owner::class.java.simpleName} > onResume"
-        println("$TAG $message")
+        logV(TAG, message)
 
         val activity = owner as AppCompatActivity
 
@@ -101,8 +102,8 @@ open class ActivityLifecycleObserverDefault private constructor() : DefaultLifec
         activityHolder.handleForegroundGestureAuth()
         activityHolder.handleForegroundAutoLogin()
 
-        println("$TAG topActivity: ${activityHolder.getTopActivity()?.javaClass?.simpleName}")
-        println("$TAG currentShowActivity: ${activityHolder.currentShowActivity?.javaClass?.simpleName}")
+        logV(TAG, "topActivity: ${activityHolder.getTopActivity()?.javaClass?.simpleName}")
+        logV(TAG, "currentShowActivity: ${activityHolder.currentShowActivity?.javaClass?.simpleName}")
     }
 
     /**
@@ -113,7 +114,7 @@ open class ActivityLifecycleObserverDefault private constructor() : DefaultLifec
      */
     override fun onPause(owner: LifecycleOwner) {
         val message = "${owner::class.java.simpleName} > onPause"
-        println("$TAG $message")
+        logV(TAG, message)
     }
 
     /**
@@ -124,7 +125,7 @@ open class ActivityLifecycleObserverDefault private constructor() : DefaultLifec
      */
     override fun onStop(owner: LifecycleOwner) {
         val message = "${owner::class.java.simpleName} > onStop"
-        println("$TAG $message")
+        logV(TAG, message)
 
         val activity = owner as AppCompatActivity
 
@@ -154,7 +155,7 @@ open class ActivityLifecycleObserverDefault private constructor() : DefaultLifec
      */
     override fun onDestroy(owner: LifecycleOwner) {
         val message = "${owner::class.java.simpleName} > onDestroy"
-        println("$TAG $message")
+        logV(TAG, message)
 
         val activity = owner as AppCompatActivity
 

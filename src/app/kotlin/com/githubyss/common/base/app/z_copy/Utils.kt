@@ -10,6 +10,9 @@ import android.os.Build
 import android.os.Bundle
 import android.util.Log
 import com.githubyss.common.base.application.BaseApplicationHolder
+import com.githubyss.common.base.lifecycle.lifecycle_callbacks.ActivityHolder
+import com.githubyss.common.base.z_copy.logD
+import com.githubyss.common.base.z_copy.logE
 import java.util.*
 
 
@@ -32,15 +35,6 @@ private const val BUFFER_SIZE = 8 * 1024
 
 /** ****************************** Functions ****************************** */
 
-/**  */
-fun logD(tag: String = TAG, msg: String = "") {
-    Log.d(tag, msg)
-}
-
-/**  */
-fun logE(tag: String = TAG, msg: String = "", t: Throwable) {
-    Log.e(tag, msg, t)
-}
 
 /**  */
 fun getStringFromRes(resId: Int, vararg resFormat: Any = emptyArray(), context: Context? = BaseApplicationHolder.getApp()): String {
@@ -51,7 +45,7 @@ fun getStringFromRes(resId: Int, vararg resFormat: Any = emptyArray(), context: 
         else getContextResources(context).getString(resId, resFormat)
     }
     catch (e: Resources.NotFoundException) {
-        logE(TAG, t = e)
+        logE(TAG, e::class.java.simpleName, e)
         ""
     }
 }
@@ -149,7 +143,7 @@ fun runTaskPeriodicallyWithTimeOffset(timerTask: TimerTask, delay: Long?, period
         true
     }
     catch (e: Exception) {
-        logE(TAG, t = e)
+        logE(TAG, e::class.java.simpleName, e)
         false
     }
 }

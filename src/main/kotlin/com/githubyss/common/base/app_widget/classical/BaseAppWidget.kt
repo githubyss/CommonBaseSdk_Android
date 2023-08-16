@@ -4,7 +4,7 @@ import android.appwidget.AppWidgetManager
 import android.appwidget.AppWidgetProvider
 import android.content.Context
 import android.content.Intent
-import com.githubyss.common.base.activity_fragment.classical.BaseFragment
+import com.githubyss.common.base.z_copy.logV
 
 
 /**
@@ -20,21 +20,21 @@ abstract class BaseAppWidget : AppWidgetProvider() {
 
     /**  */
     companion object {
-        val TAG by lazy { BaseAppWidget::class.simpleName }
+        private val TAG by lazy { BaseAppWidget::class.java.simpleName }
     }
 
 
     /** ****************************** Properties ****************************** */
 
     /**  */
-    private val widgetName by lazy { this::class.simpleName }
+    private val thisClassName by lazy { this::class.java.simpleName }
 
 
     /** ****************************** Constructors ****************************** */
 
     /**  */
     init {
-        println("$TAG $widgetName constructor init.")
+        logV(TAG, "$thisClassName constructor init.")
     }
 
 
@@ -49,8 +49,8 @@ abstract class BaseAppWidget : AppWidgetProvider() {
     override fun onEnabled(context: Context) {
         super.onEnabled(context)
 
-        val message = "$widgetName > onEnabled, 开始使用 Widget（同 Widget 第一个拖进桌面）"
-        println("$TAG $message")
+        val message = "$thisClassName > onEnabled, 开始使用 Widget（同 Widget 第一个拖进桌面）"
+        logV(TAG, message)
     }
 
     /**
@@ -62,8 +62,8 @@ abstract class BaseAppWidget : AppWidgetProvider() {
     override fun onDisabled(context: Context) {
         super.onDisabled(context)
 
-        val message = "$widgetName > onDisabled, 停止使用 Widget（同 Widget 最后一个拖出桌面）"
-        println("$TAG $message")
+        val message = "$thisClassName > onDisabled, 停止使用 Widget（同 Widget 最后一个拖出桌面）"
+        logV(TAG, message)
     }
 
     /**
@@ -76,8 +76,8 @@ abstract class BaseAppWidget : AppWidgetProvider() {
     override fun onUpdate(context: Context, appWidgetManager: AppWidgetManager, appWidgetIds: IntArray) {
         super.onUpdate(context, appWidgetManager, appWidgetIds)
 
-        val message = "$widgetName > onUpdate, 将 Widget 拖进桌面了。appWidgetIds: ${appWidgetIds.contentToString()}"
-        println("$TAG $message")
+        val message = "$thisClassName > onUpdate, 将 Widget 拖进桌面了。appWidgetIds: ${appWidgetIds.contentToString()}"
+        logV(TAG, message)
     }
 
     /**
@@ -87,8 +87,8 @@ abstract class BaseAppWidget : AppWidgetProvider() {
      * Widget 被删除了，这里我们通常用于释放一些对象和视图资源，便于防止内存泄露。
      */
     override fun onDeleted(context: Context?, appWidgetIds: IntArray?) {
-        val message = "$widgetName > onDeleted, 将 Widget 拖出桌面了。appWidgetIds: ${appWidgetIds.contentToString()}"
-        println("$TAG $message")
+        val message = "$thisClassName > onDeleted, 将 Widget 拖出桌面了。appWidgetIds: ${appWidgetIds.contentToString()}"
+        logV(TAG, message)
 
         super.onDeleted(context, appWidgetIds)
     }
@@ -102,7 +102,7 @@ abstract class BaseAppWidget : AppWidgetProvider() {
     override fun onReceive(context: Context?, intent: Intent?) {
         super.onReceive(context, intent)
 
-        val message = "$widgetName > onReceive, 接收到广播 intent: $intent"
-        println("$TAG $message")
+        val message = "$thisClassName > onReceive, 接收到广播 intent: $intent"
+        logV(TAG, message)
     }
 }

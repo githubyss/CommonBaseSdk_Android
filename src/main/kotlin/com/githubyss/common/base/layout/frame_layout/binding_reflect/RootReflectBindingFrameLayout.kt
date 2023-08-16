@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.databinding.ViewDataBinding
 import com.githubyss.common.base.layout.frame_layout.classical.BaseFrameLayout
+import com.githubyss.common.base.z_copy.logE
 import java.lang.reflect.InvocationTargetException
 import java.lang.reflect.Method
 import java.lang.reflect.ParameterizedType
@@ -19,6 +20,14 @@ import java.lang.reflect.ParameterizedType
  * @createdTime 2021/04/08 11:39:37
  */
 abstract class RootReflectBindingFrameLayout<B : ViewDataBinding> @Suppress("LeakingThis") @JvmOverloads constructor(context: Context, attrs: AttributeSet? = null, defStyleAttr: Int = 0) : BaseFrameLayout(context, attrs, defStyleAttr) {
+
+    /** ****************************** Object ****************************** */
+
+    /**  */
+    companion object {
+        private val TAG by lazy { RootReflectBindingFrameLayout::class.java.simpleName }
+    }
+
 
     /** ****************************** Properties ****************************** */
 
@@ -46,13 +55,13 @@ abstract class RootReflectBindingFrameLayout<B : ViewDataBinding> @Suppress("Lea
                 _binding = inflateMethod?.invoke(null, inflater, container, true) as B
             }
             catch (e: NoSuchMethodException) {
-                println("$TAG $e")
+                logE(TAG, e::class.java.simpleName, e)
             }
             catch (e: IllegalAccessException) {
-                println("$TAG $e")
+                logE(TAG, e::class.java.simpleName, e)
             }
             catch (e: InvocationTargetException) {
-                println("$TAG $e")
+                logE(TAG, e::class.java.simpleName, e)
             }
         }
     }

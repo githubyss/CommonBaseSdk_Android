@@ -3,6 +3,7 @@ package com.githubyss.common.base.lifecycle.lifecycle_observer
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.LifecycleObserver
 import androidx.lifecycle.OnLifecycleEvent
+import com.githubyss.common.base.z_copy.logV
 
 
 /**
@@ -22,7 +23,7 @@ open class ActivityLifecycleObserver private constructor() : LifecycleObserver {
 
     /**  */
     companion object {
-        private val TAG by lazy { ActivityLifecycleObserver::class.simpleName }
+        private val TAG by lazy { ActivityLifecycleObserver::class.java.simpleName }
         val INSTANCE = Holder.INSTANCE
     }
 
@@ -43,7 +44,7 @@ open class ActivityLifecycleObserver private constructor() : LifecycleObserver {
     @OnLifecycleEvent(Lifecycle.Event.ON_CREATE)
     fun create() {
         val message = "ON_CREATE"
-        println("$TAG $message")
+        logV(TAG, message)
     }
 
     /**
@@ -55,7 +56,7 @@ open class ActivityLifecycleObserver private constructor() : LifecycleObserver {
     @OnLifecycleEvent(Lifecycle.Event.ON_START)
     fun start() {
         val message = "ON_START"
-        println("$TAG $message")
+        logV(TAG, message)
     }
 
     /**
@@ -67,7 +68,7 @@ open class ActivityLifecycleObserver private constructor() : LifecycleObserver {
     @OnLifecycleEvent(Lifecycle.Event.ON_RESUME)
     fun resume() {
         val message = "ON_RESUME"
-        println("$TAG $message")
+        logV(TAG, message)
     }
 
     /**
@@ -79,7 +80,7 @@ open class ActivityLifecycleObserver private constructor() : LifecycleObserver {
     @OnLifecycleEvent(Lifecycle.Event.ON_PAUSE)
     fun pause() {
         val message = "ON_PAUSE"
-        println("$TAG $message")
+        logV(TAG, message)
     }
 
     /**
@@ -91,7 +92,7 @@ open class ActivityLifecycleObserver private constructor() : LifecycleObserver {
     @OnLifecycleEvent(Lifecycle.Event.ON_STOP)
     fun stop() {
         val message = "ON_STOP"
-        println("$TAG $message")
+        logV(TAG, message)
     }
 
     /**
@@ -103,6 +104,6 @@ open class ActivityLifecycleObserver private constructor() : LifecycleObserver {
     @OnLifecycleEvent(Lifecycle.Event.ON_DESTROY)
     fun destroy() {
         val message = "ON_DESTROY"
-        println("$TAG $message")
+        logV(TAG, message)
     }
 }

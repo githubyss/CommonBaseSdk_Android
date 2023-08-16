@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
+import com.githubyss.common.base.z_copy.logV
 
 
 /**
@@ -20,7 +21,7 @@ open class FragmentLifecycleCallbacks private constructor() : FragmentManager.Fr
 
     /**  */
     companion object {
-        private val TAG by lazy { FragmentLifecycleCallbacks::class.simpleName }
+        private val TAG by lazy { FragmentLifecycleCallbacks::class.java.simpleName }
         val INSTANCE = Holder.INSTANCE
     }
 
@@ -42,7 +43,7 @@ open class FragmentLifecycleCallbacks private constructor() : FragmentManager.Fr
      */
     override fun onFragmentAttached(fm: FragmentManager, f: Fragment, context: Context) {
         val message = "${f::class.java.simpleName} > onFragmentAttached"
-        println("$TAG $message")
+        logV(TAG, message)
     }
 
     /**
@@ -55,7 +56,7 @@ open class FragmentLifecycleCallbacks private constructor() : FragmentManager.Fr
      */
     override fun onFragmentCreated(fm: FragmentManager, f: Fragment, savedInstanceState: Bundle?) {
         val message = "${f::class.java.simpleName} > onFragmentCreated"
-        println("$TAG $message")
+        logV(TAG, message)
     }
 
     /**
@@ -69,7 +70,7 @@ open class FragmentLifecycleCallbacks private constructor() : FragmentManager.Fr
      */
     override fun onFragmentViewCreated(fm: FragmentManager, f: Fragment, v: View, savedInstanceState: Bundle?) {
         val message = "${f::class.java.simpleName} > onFragmentViewCreated"
-        println("$TAG $message")
+        logV(TAG, message)
     }
 
     /**
@@ -82,7 +83,7 @@ open class FragmentLifecycleCallbacks private constructor() : FragmentManager.Fr
      */
     override fun onFragmentActivityCreated(fm: FragmentManager, f: Fragment, savedInstanceState: Bundle?) {
         val message = "${f::class.java.simpleName} > onFragmentActivityCreated"
-        println("$TAG $message")
+        logV(TAG, message)
     }
 
     /**
@@ -94,7 +95,7 @@ open class FragmentLifecycleCallbacks private constructor() : FragmentManager.Fr
      */
     override fun onFragmentStarted(fm: FragmentManager, f: Fragment) {
         val message = "${f::class.java.simpleName} > onFragmentStarted"
-        println("$TAG $message")
+        logV(TAG, message)
     }
 
     /**
@@ -106,7 +107,7 @@ open class FragmentLifecycleCallbacks private constructor() : FragmentManager.Fr
      */
     override fun onFragmentResumed(fm: FragmentManager, f: Fragment) {
         val message = "${f::class.java.simpleName} > onFragmentResumed"
-        println("$TAG $message")
+        logV(TAG, message)
     }
 
     /**
@@ -118,7 +119,7 @@ open class FragmentLifecycleCallbacks private constructor() : FragmentManager.Fr
      */
     override fun onFragmentPaused(fm: FragmentManager, f: Fragment) {
         val message = "${f::class.java.simpleName} > onFragmentPaused"
-        println("$TAG $message")
+        logV(TAG, message)
     }
 
     /**
@@ -130,7 +131,7 @@ open class FragmentLifecycleCallbacks private constructor() : FragmentManager.Fr
      */
     override fun onFragmentStopped(fm: FragmentManager, f: Fragment) {
         val message = "${f::class.java.simpleName} > onFragmentStopped"
-        println("$TAG $message")
+        logV(TAG, message)
     }
 
     /**
@@ -143,7 +144,7 @@ open class FragmentLifecycleCallbacks private constructor() : FragmentManager.Fr
      */
     override fun onFragmentSaveInstanceState(fm: FragmentManager, f: Fragment, outState: Bundle) {
         val message = "${f::class.java.simpleName} > onFragmentSaveInstanceState"
-        println("$TAG $message")
+        logV(TAG, message)
     }
 
     /**
@@ -155,7 +156,7 @@ open class FragmentLifecycleCallbacks private constructor() : FragmentManager.Fr
      */
     override fun onFragmentViewDestroyed(fm: FragmentManager, f: Fragment) {
         val message = "${f::class.java.simpleName} > onFragmentViewDestroyed"
-        println("$TAG $message")
+        logV(TAG, message)
     }
 
     /**
@@ -167,7 +168,7 @@ open class FragmentLifecycleCallbacks private constructor() : FragmentManager.Fr
      */
     override fun onFragmentDestroyed(fm: FragmentManager, f: Fragment) {
         val message = "${f::class.java.simpleName} > onFragmentDestroyed"
-        println("$TAG $message")
+        logV(TAG, message)
     }
 
     /**
@@ -179,6 +180,6 @@ open class FragmentLifecycleCallbacks private constructor() : FragmentManager.Fr
      */
     override fun onFragmentDetached(fm: FragmentManager, f: Fragment) {
         val message = "${f::class.java.simpleName} > onFragmentDetached"
-        println("$TAG $message")
+        logV(TAG, message)
     }
 }

@@ -4,6 +4,7 @@ import android.content.Context
 import android.graphics.Canvas
 import android.util.AttributeSet
 import android.view.ViewGroup
+import com.githubyss.common.base.z_copy.logV
 
 
 /**
@@ -20,7 +21,7 @@ abstract class BaseViewGroup @JvmOverloads constructor(context: Context, attrs: 
 
     /**  */
     companion object {
-        val TAG: String = BaseViewGroup::class.java.simpleName
+        private val TAG by lazy { BaseViewGroup::class.java.simpleName }
     }
 
 
@@ -37,7 +38,7 @@ abstract class BaseViewGroup @JvmOverloads constructor(context: Context, attrs: 
         super.onDraw(canvas)
 
         val message = "$thisClassName > onDraw"
-        println("$TAG $message")
+        logV(TAG, message)
     }
 
     /**  */
@@ -45,7 +46,7 @@ abstract class BaseViewGroup @JvmOverloads constructor(context: Context, attrs: 
         super.onMeasure(widthMeasureSpec, heightMeasureSpec)
 
         val message = "$thisClassName > onMeasure {widthMeasureSpec:$widthMeasureSpec, heightMeasureSpec:$heightMeasureSpec}"
-        println("$TAG $message")
+        logV(TAG, message)
     }
 
     /**  */
@@ -53,6 +54,6 @@ abstract class BaseViewGroup @JvmOverloads constructor(context: Context, attrs: 
         // super.onLayout(changed, left, top, right, bottom)
 
         val message = "$thisClassName > onLayout {changed:$changed, left:$left, top:$top, right:$right, bottom:$bottom}"
-        println("$TAG $message")
+        logV(TAG, message)
     }
 }

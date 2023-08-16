@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.ViewDataBinding
 import com.githubyss.common.base.activity_fragment.classical.BaseDialogFragment
+import com.githubyss.common.base.z_copy.logE
 import java.lang.reflect.InvocationTargetException
 import java.lang.reflect.ParameterizedType
 
@@ -18,6 +19,14 @@ import java.lang.reflect.ParameterizedType
  * @createdTime 2022/07/25 16:30:44
  */
 abstract class RootReflectBindingDialogFragment<B : ViewDataBinding> : BaseDialogFragment() {
+
+    /** ****************************** Object ****************************** */
+
+    /**  */
+    companion object {
+        private val TAG by lazy { RootReflectBindingDialogFragment::class.java.simpleName }
+    }
+
 
     /** ****************************** Properties ****************************** */
 
@@ -45,13 +54,13 @@ abstract class RootReflectBindingDialogFragment<B : ViewDataBinding> : BaseDialo
                 // _binding = DataBindingUtil.inflate<B>(inflater, layoutId, container, false)
             }
             catch (e: NoSuchMethodException) {
-                println("$TAG $e")
+                logE(TAG, e::class.java.simpleName, e)
             }
             catch (e: IllegalAccessException) {
-                println("$TAG $e")
+                logE(TAG, e::class.java.simpleName, e)
             }
             catch (e: InvocationTargetException) {
-                println("$TAG $e")
+                logE(TAG, e::class.java.simpleName, e)
             }
         }
 

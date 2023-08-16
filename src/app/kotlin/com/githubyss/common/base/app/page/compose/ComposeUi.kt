@@ -1,4 +1,4 @@
-package com.githubyss.common.base.app.compose_ui
+package com.githubyss.common.base.app.page.compose
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement

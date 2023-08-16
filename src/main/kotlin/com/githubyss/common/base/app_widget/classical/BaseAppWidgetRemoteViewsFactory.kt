@@ -3,6 +3,7 @@ package com.githubyss.common.base.app_widget.classical
 import android.widget.RemoteViews
 import android.widget.RemoteViewsService
 import com.githubyss.common.base.app_widget.interface_default.BaseAppWidgetRemoteViewsFactoryInterface
+import com.githubyss.common.base.z_copy.logV
 
 
 /**
@@ -19,7 +20,7 @@ abstract class BaseAppWidgetRemoteViewsFactory<T> : RemoteViewsService.RemoteVie
 
     /**  */
     companion object {
-        val TAG by lazy { BaseAppWidgetRemoteViewsFactory::class.simpleName }
+        private val TAG by lazy { BaseAppWidgetRemoteViewsFactory::class.java.simpleName }
     }
 
 
@@ -35,7 +36,7 @@ abstract class BaseAppWidgetRemoteViewsFactory<T> : RemoteViewsService.RemoteVie
 
     /**  */
     init {
-        println("$TAG $factoryName constructor init.")
+        logV(TAG, "$factoryName constructor init.")
     }
 
 
@@ -47,7 +48,7 @@ abstract class BaseAppWidgetRemoteViewsFactory<T> : RemoteViewsService.RemoteVie
      */
     override fun onCreate() {
         val message = "$factoryName > onCreate"
-        println("$TAG $message")
+        logV(TAG, message)
 
         setupData()
     }
@@ -59,7 +60,7 @@ abstract class BaseAppWidgetRemoteViewsFactory<T> : RemoteViewsService.RemoteVie
      */
     override fun onDataSetChanged() {
         val message = "$factoryName > onDataSetChanged"
-        println("$TAG $message")
+        logV(TAG, message)
 
         updateData()
     }
@@ -67,7 +68,7 @@ abstract class BaseAppWidgetRemoteViewsFactory<T> : RemoteViewsService.RemoteVie
     /** 这里写情理资源，释放内存的操作 */
     override fun onDestroy() {
         val message = "$factoryName > onDestroy"
-        println("$TAG $message")
+        logV(TAG, message)
 
         dataList.clear()
         clearData()
@@ -76,7 +77,7 @@ abstract class BaseAppWidgetRemoteViewsFactory<T> : RemoteViewsService.RemoteVie
     /** 创建并且填充，在指定索引位置显示 View，这个和 BaseAdapter 的 getView 类似 */
     override fun getViewAt(position: Int): RemoteViews? {
         val message = "$factoryName > getViewAt position: $position"
-        println("$TAG $message")
+        logV(TAG, message)
 
         return refreshView(position)
     }
@@ -84,7 +85,7 @@ abstract class BaseAppWidgetRemoteViewsFactory<T> : RemoteViewsService.RemoteVie
     /** 返回集合数量 */
     override fun getCount(): Int {
         val message = "$factoryName > getCount"
-        println("$TAG $message")
+        logV(TAG, message)
 
         return dataList.size
     }
@@ -92,7 +93,7 @@ abstract class BaseAppWidgetRemoteViewsFactory<T> : RemoteViewsService.RemoteVie
     /** 返回当前的索引。 */
     override fun getItemId(position: Int): Long {
         val message = "$factoryName > getItemId"
-        println("$TAG $message")
+        logV(TAG, message)
 
         return position.toLong()
     }
@@ -100,7 +101,7 @@ abstract class BaseAppWidgetRemoteViewsFactory<T> : RemoteViewsService.RemoteVie
     /** 不同 View 定义的数量。默认为 1 */
     override fun getViewTypeCount(): Int {
         val message = "$factoryName > getViewTypeCount"
-        println("$TAG $message")
+        logV(TAG, message)
 
         return 1
     }
@@ -112,7 +113,7 @@ abstract class BaseAppWidgetRemoteViewsFactory<T> : RemoteViewsService.RemoteVie
      */
     override fun getLoadingView(): RemoteViews? {
         val message = "$factoryName > getLoadingView"
-        println("$TAG $message")
+        logV(TAG, message)
 
         return null
     }
@@ -120,7 +121,7 @@ abstract class BaseAppWidgetRemoteViewsFactory<T> : RemoteViewsService.RemoteVie
     /** 如果每个项提供的 ID 是稳定的，即它们不会在运行时改变，就返回 true (没用过。。。) */
     override fun hasStableIds(): Boolean {
         val message = "$factoryName > hasStableIds"
-        println("$TAG $message")
+        logV(TAG, message)
 
         return false
     }

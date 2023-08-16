@@ -2,6 +2,7 @@ package com.githubyss.common.base.lifecycle.lifecycle_observer
 
 import androidx.lifecycle.DefaultLifecycleObserver
 import androidx.lifecycle.LifecycleOwner
+import com.githubyss.common.base.z_copy.logV
 
 
 /**
@@ -17,7 +18,7 @@ open class FragmentLifecycleObserverDefault private constructor() : DefaultLifec
 
     /**  */
     companion object {
-        private val TAG by lazy { FragmentLifecycleObserverDefault::class.simpleName }
+        private val TAG by lazy { FragmentLifecycleObserverDefault::class.java.simpleName }
         val INSTANCE = Holder.INSTANCE
     }
 
@@ -37,7 +38,7 @@ open class FragmentLifecycleObserverDefault private constructor() : DefaultLifec
      */
     override fun onCreate(owner: LifecycleOwner) {
         val message = "${owner::class.java.simpleName} > onCreate"
-        println("$TAG $message")
+        logV(TAG, message)
     }
 
     /**
@@ -48,7 +49,7 @@ open class FragmentLifecycleObserverDefault private constructor() : DefaultLifec
      */
     override fun onStart(owner: LifecycleOwner) {
         val message = "${owner::class.java.simpleName} > onStart"
-        println("$TAG $message")
+        logV(TAG, message)
     }
 
     /**
@@ -59,7 +60,7 @@ open class FragmentLifecycleObserverDefault private constructor() : DefaultLifec
      */
     override fun onResume(owner: LifecycleOwner) {
         val message = "${owner::class.java.simpleName} > onResume"
-        println("$TAG $message")
+        logV(TAG, message)
     }
 
     /**
@@ -70,7 +71,7 @@ open class FragmentLifecycleObserverDefault private constructor() : DefaultLifec
      */
     override fun onPause(owner: LifecycleOwner) {
         val message = "${owner::class.java.simpleName} > onPause"
-        println("$TAG $message")
+        logV(TAG, message)
     }
 
     /**
@@ -81,7 +82,7 @@ open class FragmentLifecycleObserverDefault private constructor() : DefaultLifec
      */
     override fun onStop(owner: LifecycleOwner) {
         val message = "${owner::class.java.simpleName} > onStop"
-        println("$TAG $message")
+        logV(TAG, message)
     }
 
     /**
@@ -92,6 +93,6 @@ open class FragmentLifecycleObserverDefault private constructor() : DefaultLifec
      */
     override fun onDestroy(owner: LifecycleOwner) {
         val message = "${owner::class.java.simpleName} > onDestroy"
-        println("$TAG $message")
+        logV(TAG, message)
     }
 }

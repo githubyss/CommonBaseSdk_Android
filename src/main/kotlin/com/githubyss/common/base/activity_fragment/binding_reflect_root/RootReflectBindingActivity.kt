@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import androidx.databinding.ViewDataBinding
 import com.githubyss.common.base.activity_fragment.classical.BaseActivity
+import com.githubyss.common.base.z_copy.logE
 import java.lang.reflect.InvocationTargetException
 import java.lang.reflect.ParameterizedType
 
@@ -16,6 +17,14 @@ import java.lang.reflect.ParameterizedType
  * @createdTime 2021/04/08 10:48:25
  */
 abstract class RootReflectBindingActivity<B : ViewDataBinding> : BaseActivity() {
+
+    /** ****************************** Object ****************************** */
+
+    /**  */
+    companion object {
+        private val TAG by lazy { RootReflectBindingActivity::class.java.simpleName }
+    }
+
 
     /** ****************************** Properties ****************************** */
 
@@ -46,13 +55,13 @@ abstract class RootReflectBindingActivity<B : ViewDataBinding> : BaseActivity() 
                 setContentView(binding.root)
             }
             catch (e: NoSuchMethodException) {
-                println("$TAG $e")
+                logE(TAG, e::class.java.simpleName, e)
             }
             catch (e: IllegalAccessException) {
-                println("$TAG $e")
+                logE(TAG, e::class.java.simpleName, e)
             }
             catch (e: InvocationTargetException) {
-                println("$TAG $e")
+                logE(TAG, e::class.java.simpleName, e)
             }
         }
 

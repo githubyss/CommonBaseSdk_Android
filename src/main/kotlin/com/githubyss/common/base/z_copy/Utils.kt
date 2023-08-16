@@ -3,6 +3,7 @@ package com.githubyss.common.base.z_copy
 import android.annotation.SuppressLint
 import android.app.Application
 import android.os.Bundle
+import android.util.Log
 import androidx.annotation.IdRes
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
@@ -26,6 +27,31 @@ private const val TAG: String = "Utils"
 /** ****************************** Functions ****************************** */
 
 /**  */
+internal fun logV(tag: String = "", msg: String = "") {
+    Log.v(tag, msg)
+}
+
+/**  */
+internal fun logD(tag: String = "", msg: String = "") {
+    Log.d(tag, msg)
+}
+
+/**  */
+internal fun logI(tag: String = "", msg: String = "") {
+    Log.i(tag, msg)
+}
+
+/**  */
+internal fun logW(tag: String = "", msg: String = "") {
+    Log.w(tag, msg)
+}
+
+/**  */
+internal fun logE(tag: String = "", msg: String = "", t: Throwable) {
+    Log.e(tag, msg, t)
+}
+
+/**  */
 internal fun getApplicationByReflect(): Application {
     try {
         @SuppressLint("PrivateApi")
@@ -37,16 +63,16 @@ internal fun getApplicationByReflect(): Application {
         return app as Application
     }
     catch (e: NoSuchMethodException) {
-        println("$TAG $e")
+        logE(TAG, e::class.java.simpleName, e)
     }
     catch (e: IllegalAccessException) {
-        println("$TAG $e")
+        logE(TAG, e::class.java.simpleName, e)
     }
     catch (e: InvocationTargetException) {
-        println("$TAG $e")
+        logE(TAG, e::class.java.simpleName, e)
     }
     catch (e: ClassNotFoundException) {
-        println("$TAG $e")
+        logE(TAG, e::class.java.simpleName, e)
     }
     throw NullPointerException("u should init first")
 }

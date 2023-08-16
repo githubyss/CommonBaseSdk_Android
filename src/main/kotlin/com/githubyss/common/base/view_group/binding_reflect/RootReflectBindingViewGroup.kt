@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.databinding.ViewDataBinding
 import com.githubyss.common.base.view_group.classical.BaseViewGroup
+import com.githubyss.common.base.z_copy.logE
 import java.lang.reflect.InvocationTargetException
 import java.lang.reflect.Method
 import java.lang.reflect.ParameterizedType
@@ -20,6 +21,14 @@ import java.lang.reflect.ParameterizedType
  */
 @Deprecated("ViewGroup 方案无法渲染出来布局")
 abstract class RootReflectBindingViewGroup<B : ViewDataBinding> @Suppress("LeakingThis") @JvmOverloads constructor(context: Context, attrs: AttributeSet? = null, defStyleAttr: Int = 0) : BaseViewGroup(context, attrs, defStyleAttr) {
+
+    /** ****************************** Object ****************************** */
+
+    /**  */
+    companion object {
+        private val TAG by lazy { RootReflectBindingViewGroup::class.java.simpleName }
+    }
+
 
     /** ****************************** Properties ****************************** */
 
@@ -43,13 +52,13 @@ abstract class RootReflectBindingViewGroup<B : ViewDataBinding> @Suppress("Leaki
                 _binding = inflateMethod?.invoke(null, inflater, container, true) as B
             }
             catch (e: NoSuchMethodException) {
-                println("$TAG $e")
+                logE(TAG, e::class.java.simpleName, e)
             }
             catch (e: IllegalAccessException) {
-                println("$TAG $e")
+                logE(TAG, e::class.java.simpleName, e)
             }
             catch (e: InvocationTargetException) {
-                println("$TAG $e")
+                logE(TAG, e::class.java.simpleName, e)
             }
         }
     }
