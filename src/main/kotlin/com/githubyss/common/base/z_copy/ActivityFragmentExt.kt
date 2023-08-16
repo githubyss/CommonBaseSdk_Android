@@ -21,6 +21,6 @@ internal fun FragmentActivity.switchFragment(fragment: Fragment, fragmentTag: St
  * @param
  * @return
  */
-internal fun Fragment.switchFragment(fragment: Fragment, fragmentTag: String? = null, currentFragment: Any?, @IdRes containerId: Int, addToBackStack: Boolean = true, allowingStateLoss: Boolean = true) {
+internal fun Fragment.switchFragment(fragment: Fragment, currentFragment: Any?, fragmentTag: String? = null, @IdRes containerId: Int, addToBackStack: Boolean = true, allowingStateLoss: Boolean = true) {
     switchFragmentByAddHideShow(fragment, currentFragment, fragmentTag, parentFragmentManager, containerId, null, addToBackStack, allowingStateLoss)
 }

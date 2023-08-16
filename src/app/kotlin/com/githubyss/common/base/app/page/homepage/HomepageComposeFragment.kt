@@ -80,14 +80,14 @@ class HomepageComposeFragment : BaseComposeToolbarFragment() {
                 modifier = Modifier.weight(1F)
             ) {
                 startActivityExt(activity, ComposeActivity::class.java)
-                switchFragment(ComposeFragment(), ComposeFragment.TAG, this, R.id.layout_base_fragment_container, true)
+                switchFragment(ComposeFragment(), this, ComposeFragment.TAG, R.id.layout_base_fragment_container, true)
             }
             ButtonClickBlueWeightHorizontal(
                 text = getStringFromRes(R.string.combase_homepage_button_compose_toolbar),
                 modifier = Modifier.weight(1F)
             ) {
                 startActivityExt(activity, ComposeToolbarActivity::class.java)
-                switchFragment(ComposeToolbarFragment(), ComposeToolbarFragment.TAG, this, R.id.layout_base_fragment_container, true)
+                switchFragment(ComposeToolbarFragment(), this, ComposeToolbarFragment.TAG, R.id.layout_base_fragment_container, true)
             }
         }
         LayoutWeightHorizontal {
@@ -129,7 +129,7 @@ class HomepageComposeFragment : BaseComposeToolbarFragment() {
                 text = getStringFromRes(R.string.combase_homepage_button_mvvm_binding_fragment),
                 modifier = Modifier.weight(1F),
             ) {
-                switchFragment(MvvmFragment(), MvvmFragment.TAG, this, R.id.layout_base_fragment_container, true)
+                switchFragment(MvvmFragment(), this, MvvmFragment.TAG, R.id.layout_base_fragment_container, true)
             }
             ButtonClickBlueWeightHorizontal(
                 text = getStringFromRes(R.string.combase_homepage_button_mvvm_compose),

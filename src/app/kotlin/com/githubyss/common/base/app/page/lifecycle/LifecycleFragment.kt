@@ -250,11 +250,11 @@ class LifecycleFragment : BaseReflectBindingViewModelToolbarFragment<CombaseFrag
         }
 
         fun onAddFragment(v: View) {
-            switchFragment(LifecycleNextFragment(), LifecycleNextFragment.TAG, this@LifecycleFragment, R.id.layout_base_toolbar_fragment_container, true)
+            switchFragment(LifecycleNextFragment(), this@LifecycleFragment, LifecycleNextFragment.TAG, R.id.layout_base_toolbar_fragment_container, true)
         }
 
         fun onReplaceFragment(v: View) {
-            switchFragment(LifecycleNextFragment(), LifecycleNextFragment.TAG, this@LifecycleFragment, R.id.layout_base_toolbar_fragment_container, true)
+            switchFragment(LifecycleNextFragment(), this@LifecycleFragment, LifecycleNextFragment.TAG, R.id.layout_base_toolbar_fragment_container, true)
         }
 
         fun onClearLog(v: View) {
