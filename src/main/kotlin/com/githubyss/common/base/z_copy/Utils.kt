@@ -78,34 +78,32 @@ internal fun getApplicationByReflect(): Application {
 }
 
 /**  */
-internal fun switchFragmentByAddHideShow(fragment: Fragment?, fragmentTag: String?, currentFragment: Any?, fragmentManager: FragmentManager?, @IdRes containerId: Int, addToBackStack: Boolean = true, bundle: Bundle? = null) {
+fun switchFragmentByAddHideShow(fragment: Fragment?, currentFragment: Any?, fragmentTag: String?, fragmentManager: FragmentManager?, @IdRes containerId: Int, bundle: Bundle? = null, addToBackStack: Boolean = true, allowingStateLoss: Boolean = true) {
     fragment ?: return
     fragmentManager ?: return
 
-    val currentFragment: Fragment? = when (currentFragment) {
-        is Fragment -> {
-            currentFragment
-        }
-        is String -> {
-            fragmentManager.findFragmentByTag(currentFragment)
-        }
+    val currentFragmentActual: Fragment? = when (currentFragment) {
+        is Fragment -> currentFragment
+        is String -> fragmentManager.findFragmentByTag(currentFragment)
         else -> null
     }
 
     fragment.arguments = bundle
-    val fragmentTransaction = fragmentManager.beginTransaction()
-    if (currentFragment == null) {
-        fragmentTransaction.add(containerId, fragment, fragmentTag)
-    }
-    else if (currentFragment != fragment) {
-        fragmentTransaction.hide(currentFragment)
-        if (fragment.isAdded) {
-            fragmentTransaction.show(fragment)
+    fragmentManager.beginTransaction().apply {
+        when {
+            currentFragmentActual == null -> {
+                add(containerId, fragment, fragmentTag)
+            }
+            currentFragmentActual != fragment -> {
+                hide(currentFragmentActual)
+                when {
+                    fragment.isAdded -> show(fragment)
+                    else -> add(containerId, fragment, fragmentTag)
+                }
+            }
         }
-        else {
-            fragmentTransaction.add(containerId, fragment, fragmentTag)
-        }
+        if (addToBackStack) addToBackStack(null)
+        if (allowingStateLoss) commitAllowingStateLoss()
+        else commit()
     }
-    if (addToBackStack) fragmentTransaction.addToBackStack(null)
-    fragmentTransaction.commitAllowingStateLoss()
 }
