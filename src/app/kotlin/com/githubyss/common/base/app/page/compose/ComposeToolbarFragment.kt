@@ -25,7 +25,7 @@ class ComposeToolbarFragment : BaseComposeToolbarFragment() {
 
     /**  */
     companion object {
-        private val TAG by lazy { ComposeToolbarFragment::class.java.simpleName }
+        val TAG by lazy { ComposeToolbarFragment::class.java.simpleName ?: "ComposeToolbarFragment" }
     }
 
 

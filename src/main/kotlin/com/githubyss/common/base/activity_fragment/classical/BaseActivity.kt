@@ -2,11 +2,8 @@ package com.githubyss.common.base.activity_fragment.classical
 
 import android.content.Intent
 import android.os.Bundle
-import androidx.annotation.IdRes
 import androidx.annotation.LayoutRes
 import androidx.appcompat.app.AppCompatActivity
-import androidx.fragment.app.Fragment
-import com.githubyss.common.base.R
 import com.githubyss.common.base.activity_fragment.interface_default.BaseActivityFragmentInterface
 import com.githubyss.common.base.activity_fragment.interface_default.BaseActivityResultInterface
 import com.githubyss.common.base.activity_fragment.interface_default.BaseBroadcastReceiverInterface
@@ -14,7 +11,6 @@ import com.githubyss.common.base.activity_fragment.interface_default.BaseLifecyc
 import com.githubyss.common.base.lifecycle.registerLifecycleEx
 import com.githubyss.common.base.lifecycle.unregisterLifecycleEx
 import com.githubyss.common.base.z_copy.logV
-import com.githubyss.common.base.z_copy.switchFragmentByAddHideShow
 
 
 /**
@@ -46,12 +42,6 @@ abstract class BaseActivity(@LayoutRes layoutId: Int = 0) : AppCompatActivity(la
     /**  */
     companion object {
         private val TAG by lazy { BaseActivity::class.java.simpleName }
-
-        @IdRes
-        val FRAGMENT_BASE_CONTAINER_ID = R.id.layout_fragment_base_container
-
-        @IdRes
-        val FRAGMENT_BASE_TOOLBAR_CONTAINER_ID = R.id.layout_fragment_base_toolbar_container
     }
 
 
@@ -229,13 +219,5 @@ abstract class BaseActivity(@LayoutRes layoutId: Int = 0) : AppCompatActivity(la
     /**  */
     override fun unregisterLifecycle() {
         unregisterLifecycleEx()
-    }
-
-
-    /** ****************************** Functions ****************************** */
-
-    /** Switch fragment to activity. */
-    protected fun switchFragment(fragment: Fragment, fragmentTag: String? = null, @IdRes containerId: Int, addToBackStack: Boolean = true) {
-        switchFragmentByAddHideShow(fragment, fragmentTag, null, supportFragmentManager, containerId, addToBackStack, intent.extras)
     }
 }

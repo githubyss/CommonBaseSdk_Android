@@ -24,7 +24,7 @@ class ComposeFragment : BaseComposeFragment() {
 
     /**  */
     companion object {
-        private val TAG by lazy { ComposeFragment::class.java.simpleName }
+        val TAG by lazy { ComposeFragment::class.java.simpleName ?: "ComposeFragment" }
     }
 
 

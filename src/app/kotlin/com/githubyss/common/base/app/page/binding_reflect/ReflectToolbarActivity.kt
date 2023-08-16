@@ -3,6 +3,7 @@ package com.githubyss.common.base.app.page.binding_reflect
 import com.githubyss.common.base.R
 import com.githubyss.common.base.activity_fragment.binding_reflect.BaseReflectBindingToolbarActivity
 import com.githubyss.common.base.databinding.CombaseActivityBaseToolbarBinding
+import com.githubyss.common.base.z_copy.switchFragment
 
 
 /**
@@ -31,6 +32,6 @@ class ReflectToolbarActivity : BaseReflectBindingToolbarActivity<CombaseActivity
 
     /**  */
     override fun setupUi() {
-        switchFragment(ReflectToolbarFragment(), ReflectToolbarFragment.TAG, FRAGMENT_BASE_TOOLBAR_CONTAINER_ID, false)
+        switchFragment(ReflectToolbarFragment(), ReflectToolbarFragment.TAG, R.id.layout_base_toolbar_fragment_container, false)
     }
 }

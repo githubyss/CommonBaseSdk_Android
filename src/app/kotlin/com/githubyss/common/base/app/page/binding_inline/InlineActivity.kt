@@ -1,8 +1,10 @@
 package com.githubyss.common.base.app.page.binding_inline
 
+import com.githubyss.common.base.R
 import com.githubyss.common.base.activity_fragment.binding_inline.BaseInlineBindingActivity
 import com.githubyss.common.base.databinding.CombaseActivityBaseBinding
 import com.githubyss.common.base.ext.inflateBinding
+import com.githubyss.common.base.z_copy.switchFragment
 
 
 /**
@@ -33,6 +35,6 @@ class InlineActivity : BaseInlineBindingActivity<CombaseActivityBaseBinding>() {
     /**  */
     override fun setupUi() {
         binding = _binding
-        switchFragment(InlineFragment(), InlineFragment.TAG, FRAGMENT_BASE_CONTAINER_ID, false)
+        switchFragment(InlineFragment(), InlineFragment.TAG, R.id.layout_base_fragment_container, false)
     }
 }

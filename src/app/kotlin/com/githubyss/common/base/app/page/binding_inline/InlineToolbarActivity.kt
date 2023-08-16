@@ -4,6 +4,7 @@ import com.githubyss.common.base.R
 import com.githubyss.common.base.activity_fragment.binding_inline.BaseInlineBindingToolbarActivity
 import com.githubyss.common.base.databinding.CombaseActivityBaseToolbarBinding
 import com.githubyss.common.base.ext.inflateBinding
+import com.githubyss.common.base.z_copy.switchFragment
 
 
 /**
@@ -34,7 +35,7 @@ class InlineToolbarActivity : BaseInlineBindingToolbarActivity<CombaseActivityBa
     /**  */
     override fun setupUi() {
         binding = _binding
-        switchFragment(InlineToolbarFragment(), InlineToolbarFragment.TAG, FRAGMENT_BASE_TOOLBAR_CONTAINER_ID, false)
+        switchFragment(InlineToolbarFragment(), InlineToolbarFragment.TAG, R.id.layout_base_toolbar_fragment_container, false)
     }
 
     /**  */

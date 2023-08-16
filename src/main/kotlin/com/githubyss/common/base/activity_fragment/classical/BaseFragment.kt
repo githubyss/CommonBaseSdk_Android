@@ -5,7 +5,6 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.annotation.IdRes
 import androidx.annotation.LayoutRes
 import androidx.fragment.app.Fragment
 import com.githubyss.common.base.activity_fragment.interface_default.BaseActivityFragmentInterface
@@ -15,7 +14,6 @@ import com.githubyss.common.base.activity_fragment.interface_default.BaseLifecyc
 import com.githubyss.common.base.lifecycle.registerLifecycleEx
 import com.githubyss.common.base.lifecycle.unregisterLifecycleEx
 import com.githubyss.common.base.z_copy.logV
-import com.githubyss.common.base.z_copy.switchFragmentByAddHideShow
 
 
 /**
@@ -177,13 +175,5 @@ abstract class BaseFragment(@LayoutRes layoutId: Int = 0) : Fragment(layoutId), 
     /**  */
     override fun unregisterLifecycle() {
         unregisterLifecycleEx()
-    }
-
-
-    /** ****************************** Functions ****************************** */
-
-    /** Switch fragment within fragments. */
-    protected fun switchFragment(fragment: Fragment, fragmentTag: String? = null, currentFragment: Any?, @IdRes containerId: Int, addToBackStack: Boolean = true) {
-        switchFragmentByAddHideShow(fragment, fragmentTag, currentFragment, parentFragmentManager, containerId, addToBackStack)
     }
 }

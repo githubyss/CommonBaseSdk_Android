@@ -5,6 +5,7 @@ import androidx.activity.viewModels
 import com.githubyss.common.base.R
 import com.githubyss.common.base.activity_fragment.binding_reflect_view_model.BaseReflectBindingViewModelToolbarActivity
 import com.githubyss.common.base.databinding.CombaseActivityBaseToolbarBinding
+import com.githubyss.common.base.z_copy.switchFragment
 
 
 /**
@@ -38,7 +39,7 @@ class LifecycleActivity : BaseReflectBindingViewModelToolbarActivity<CombaseActi
 
     /**  */
     override fun setupUi() {
-        switchFragment(LifecycleFragment(), LifecycleFragment.TAG, FRAGMENT_BASE_TOOLBAR_CONTAINER_ID, false)
+        switchFragment(LifecycleFragment(), LifecycleFragment.TAG, R.id.layout_base_toolbar_fragment_container, false)
     }
 
     /**  */

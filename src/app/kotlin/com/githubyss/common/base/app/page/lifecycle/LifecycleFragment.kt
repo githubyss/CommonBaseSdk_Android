@@ -8,10 +8,9 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.githubyss.common.base.R
 import com.githubyss.common.base.activity_fragment.binding_reflect_view_model.BaseReflectBindingViewModelToolbarFragment
-import com.githubyss.common.base.activity_fragment.classical.BaseActivity
 import com.githubyss.common.base.app.z_copy.startActivityExt
 import com.githubyss.common.base.databinding.CombaseFragmentLifecycleBinding
-import com.githubyss.common.base.z_copy.switchFragmentByAddHideShow
+import com.githubyss.common.base.z_copy.switchFragment
 
 
 /**
@@ -251,11 +250,11 @@ class LifecycleFragment : BaseReflectBindingViewModelToolbarFragment<CombaseFrag
         }
 
         fun onAddFragment(v: View) {
-            switchFragmentByAddHideShow(LifecycleNextFragment(), LifecycleNextFragment.TAG, this@LifecycleFragment, parentFragmentManager, BaseActivity.FRAGMENT_BASE_TOOLBAR_CONTAINER_ID, true)
+            switchFragment(LifecycleNextFragment(), LifecycleNextFragment.TAG, this@LifecycleFragment, R.id.layout_base_toolbar_fragment_container, true)
         }
 
         fun onReplaceFragment(v: View) {
-            switchFragment(LifecycleNextFragment(), LifecycleNextFragment.TAG, parentFragmentManager, BaseActivity.FRAGMENT_BASE_TOOLBAR_CONTAINER_ID, true)
+            switchFragment(LifecycleNextFragment(), LifecycleNextFragment.TAG, this@LifecycleFragment, R.id.layout_base_toolbar_fragment_container, true)
         }
 
         fun onClearLog(v: View) {

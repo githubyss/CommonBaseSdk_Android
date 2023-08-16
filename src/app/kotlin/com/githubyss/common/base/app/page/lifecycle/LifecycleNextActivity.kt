@@ -3,6 +3,7 @@ package com.githubyss.common.base.app.page.lifecycle
 import com.githubyss.common.base.R
 import com.githubyss.common.base.activity_fragment.binding_reflect.BaseReflectBindingToolbarActivity
 import com.githubyss.common.base.databinding.CombaseActivityBaseToolbarBinding
+import com.githubyss.common.base.z_copy.switchFragment
 
 
 /**
@@ -26,7 +27,7 @@ class LifecycleNextActivity : BaseReflectBindingToolbarActivity<CombaseActivityB
 
     /**  */
     override fun setupUi() {
-        switchFragment(LifecycleNextFragment(), LifecycleNextFragment.TAG, FRAGMENT_BASE_TOOLBAR_CONTAINER_ID, false)
+        switchFragment(LifecycleNextFragment(), LifecycleNextFragment.TAG, R.id.layout_base_toolbar_fragment_container, false)
     }
 
     /**  */

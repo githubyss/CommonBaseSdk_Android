@@ -5,14 +5,15 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.Dp
 import androidx.fragment.app.viewModels
 import com.githubyss.common.base.R
-import com.githubyss.common.base.activity_fragment.classical.BaseActivity
 import com.githubyss.common.base.activity_fragment.compose.BaseComposeToolbarFragment
 import com.githubyss.common.base.app.page.binding_inline.InlineActivity
 import com.githubyss.common.base.app.page.binding_inline.InlineToolbarActivity
 import com.githubyss.common.base.app.page.binding_reflect.ReflectActivity
 import com.githubyss.common.base.app.page.binding_reflect.ReflectToolbarActivity
 import com.githubyss.common.base.app.page.compose.ComposeActivity
+import com.githubyss.common.base.app.page.compose.ComposeFragment
 import com.githubyss.common.base.app.page.compose.ComposeToolbarActivity
+import com.githubyss.common.base.app.page.compose.ComposeToolbarFragment
 import com.githubyss.common.base.app.page.lifecycle.LifecycleActivity
 import com.githubyss.common.base.app.page.mvi.MviActivity
 import com.githubyss.common.base.app.page.mvvm_binding.MvvmActivity
@@ -25,7 +26,7 @@ import com.githubyss.common.base.app.z_copy.compose_ui.PageSidePadding
 import com.githubyss.common.base.app.z_copy.compose_ui.TopNavigationBar
 import com.githubyss.common.base.app.z_copy.getStringFromRes
 import com.githubyss.common.base.app.z_copy.startActivityExt
-import com.githubyss.common.base.z_copy.switchFragmentByAddHideShow
+import com.githubyss.common.base.z_copy.switchFragment
 import com.githubyss.common.res.common.dimen.SpaceNormal
 
 
@@ -79,14 +80,14 @@ class HomepageComposeFragment : BaseComposeToolbarFragment() {
                 modifier = Modifier.weight(1F)
             ) {
                 startActivityExt(activity, ComposeActivity::class.java)
-                // switchFragmentByAddHideShow(ComposeFragment(), ComposeFragment.TAG, this, parentFragmentManager, true)
+                switchFragment(ComposeFragment(), ComposeFragment.TAG, this, R.id.layout_base_fragment_container, true)
             }
             ButtonClickBlueWeightHorizontal(
                 text = getStringFromRes(R.string.combase_homepage_button_compose_toolbar),
                 modifier = Modifier.weight(1F)
             ) {
                 startActivityExt(activity, ComposeToolbarActivity::class.java)
-                // switchFragmentByAddHideShow(ComposeToolbarFragment(), ComposeToolbarFragment.TAG, this, parentFragmentManager, true)
+                switchFragment(ComposeToolbarFragment(), ComposeToolbarFragment.TAG, this, R.id.layout_base_fragment_container, true)
             }
         }
         LayoutWeightHorizontal {
@@ -128,7 +129,7 @@ class HomepageComposeFragment : BaseComposeToolbarFragment() {
                 text = getStringFromRes(R.string.combase_homepage_button_mvvm_binding_fragment),
                 modifier = Modifier.weight(1F),
             ) {
-                switchFragmentByAddHideShow(MvvmFragment(), MvvmFragment.TAG, this, parentFragmentManager, BaseActivity.FRAGMENT_BASE_CONTAINER_ID, true)
+                switchFragment(MvvmFragment(), MvvmFragment.TAG, this, R.id.layout_base_fragment_container, true)
             }
             ButtonClickBlueWeightHorizontal(
                 text = getStringFromRes(R.string.combase_homepage_button_mvvm_compose),

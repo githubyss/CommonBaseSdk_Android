@@ -19,7 +19,7 @@
             />
 
         <FrameLayout
-            android:id="@+id/layout_fragment_base_toolbar_container"
+            android:id="@+id/layout_base_toolbar_fragment_container"
             android:background="@android:color/transparent"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
